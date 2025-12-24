@@ -426,7 +426,12 @@ def build_verified_agents(rows: list, market_name: str) -> dict:
                 'status': row.get('status', ''),
                 'price': row.get('price', ''),
                 'lp': is_lp,
+                # Listing-level metadata for pattern identification
+                'exif_artist': row.get('exif_artist', '') or '-',
+                'exif_copyright': row.get('exif_copyright', '') or '-',
                 'camera': camera if camera else '-',
+                'lens': row.get('exif_lens_model', '') or '-',
+                'filename': row.get('scraped_image_filename', '') or '-',
             })
 
     agents_list = []
@@ -521,14 +526,19 @@ def build_customer_loyalty(rows: list, market_name: str) -> dict:
             agent['non_lp_listings'] += 1
 
         # Store listing detail (limit to recent 20)
+        # Include all metadata for pattern identification - NO fallback to preferred_photographer
         if len(agent['listings_detail']) < 20:
             agent['listings_detail'].append({
                 'mls': row.get('mls_number', ''),
                 'address': row.get('listing_address', ''),
                 'lp': is_lp,
                 'status': 'LP Order' if is_lp else 'Other',
-                'photographer': row.get('exif_artist', '') or row.get('preferred_photographer', ''),
+                # Listing-level metadata for identification (not agent-level preferred)
+                'exif_artist': row.get('exif_artist', '') or '-',
+                'exif_copyright': row.get('exif_copyright', '') or '-',
                 'camera': camera if camera else '-',
+                'lens': row.get('exif_lens_model', '') or '-',
+                'filename': row.get('scraped_image_filename', '') or '-',
             })
 
     if camera_filtered_out > 0:
