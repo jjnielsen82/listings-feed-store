@@ -27,17 +27,19 @@ Automated data pipeline for Arizona real estate listings (Phoenix & Tucson).
 Use jsDelivr CDN for fast, cached delivery:
 
 ```
-https://cdn.jsdelivr.net/gh/jnielsen82/listings-feed-store@main/output/verified_agents.json
-https://cdn.jsdelivr.net/gh/jnielsen82/listings-feed-store@main/output/phoenix_listings.json
-https://cdn.jsdelivr.net/gh/jnielsen82/listings-feed-store@main/output/tucson_listings.json
-https://cdn.jsdelivr.net/gh/jnielsen82/listings-feed-store@main/output/photographers.json
+https://cdn.jsdelivr.net/gh/jjnielsen82/listings-feed-store@main/output/verified_agents.json
+https://cdn.jsdelivr.net/gh/jjnielsen82/listings-feed-store@main/output/customer_loyalty.json
+https://cdn.jsdelivr.net/gh/jjnielsen82/listings-feed-store@main/output/photographers.json
+https://cdn.jsdelivr.net/gh/jjnielsen82/listings-feed-store@main/output/listings_summary.json
 ```
 
 Or use raw GitHub (slower, but always fresh):
 
 ```
-https://raw.githubusercontent.com/jnielsen82/listings-feed-store/main/output/verified_agents.json
+https://raw.githubusercontent.com/jjnielsen82/listings-feed-store/main/output/verified_agents.json
 ```
+
+Note: Full listing data is in data/*.csv files (too large for JSON output).
 
 ## CSV Schema
 
