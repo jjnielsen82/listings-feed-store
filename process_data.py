@@ -3,12 +3,14 @@
 Listings Feed Store - Data Processor
 Processes Phoenix and Tucson listing CSVs into JSON output files.
 
-Outputs:
-- phoenix_listings.json: All Phoenix listings (deduplicated by MLS#)
-- tucson_listings.json: All Tucson listings (deduplicated by MLS#)
-- verified_agents.json: Unique agents by email (for Community Photos verification)
-- photographers.json: Photo metadata analysis (camera/photographer stats)
-- customer_loyalty.json: Per-agent ListerPros usage stats (loyalty analysis)
+Outputs (market-segmented):
+- phx-internal/verified_agents.json: Phoenix agents (for Community Photos verification)
+- phx-internal/photographers.json: Phoenix photo metadata analysis
+- phx-internal/customer_loyalty.json: Phoenix per-agent ListerPros usage stats
+- tuc-internal/verified_agents.json: Tucson agents
+- tuc-internal/photographers.json: Tucson photo metadata analysis
+- tuc-internal/customer_loyalty.json: Tucson per-agent ListerPros usage stats
+- output/listings_summary.json: Combined summary stats
 
 Run locally or via GitHub Actions when CSVs are updated.
 """
@@ -24,9 +26,13 @@ from pathlib import Path
 SCRIPT_DIR = Path(__file__).parent
 DATA_DIR = SCRIPT_DIR / "data"
 OUTPUT_DIR = SCRIPT_DIR / "output"
+PHX_OUTPUT_DIR = SCRIPT_DIR / "phx-internal"
+TUC_OUTPUT_DIR = SCRIPT_DIR / "tuc-internal"
 
-# Ensure output directory exists
+# Ensure output directories exist
 OUTPUT_DIR.mkdir(exist_ok=True)
+PHX_OUTPUT_DIR.mkdir(exist_ok=True)
+TUC_OUTPUT_DIR.mkdir(exist_ok=True)
 
 # Standard field names (normalize across different CSV header variations)
 STANDARD_FIELDS = [
@@ -262,53 +268,85 @@ def dedupe_by_mls(rows: list) -> list:
     return list(seen.values())
 
 
+def check_lp_in_filename(filename: str) -> bool:
+    """
+    Check if 'ListerPros' appears in the photo filename.
+    This is a definitive match since LP adds 'ListerPros' to all final photo names.
+    """
+    if not filename:
+        return False
+    return 'listerpros' in filename.lower()
+
+
 def enrich_listings(rows: list, lp_addresses: set, photographer_map: dict) -> list:
     """
     Enrich listings with LP matching and preferred photographer lookups.
+
+    LP Detection Priority:
+    1. Check if 'ListerPros' is in the scraped_image_filename (definitive match)
+    2. Check if normalized address matches Xeviofy order addresses (fallback)
+
     Only updates if not already set or if we have lookup data.
     """
-    if not lp_addresses and not photographer_map:
-        return rows
-
-    enriched_count = 0
+    enriched_by_filename = 0
+    enriched_by_address = 0
 
     for row in rows:
-        # LP Address Matching
+        # Skip if already flagged as LP
+        if row.get('lp_flag', '').lower() in ['yes', 'true', '1']:
+            continue
+
+        # Priority 1: Check filename for 'ListerPros' (definitive match)
+        scraped_filename = row.get('scraped_image_filename', '')
+        if check_lp_in_filename(scraped_filename):
+            row['lp_flag'] = 'Yes'
+            enriched_by_filename += 1
+            continue
+
+        # Also check the image_filename field (from HTML extraction)
+        image_filename = row.get('image_filename', '')
+        if check_lp_in_filename(image_filename):
+            row['lp_flag'] = 'Yes'
+            enriched_by_filename += 1
+            continue
+
+        # Priority 2: LP Address Matching (fallback for renamed files)
         if lp_addresses:
             formatted_addr = row.get('formatted_address', '')
             if formatted_addr:
                 normalized = normalize_address(formatted_addr)
                 if normalized in lp_addresses:
                     row['lp_flag'] = 'Yes'
-                    enriched_count += 1
+                    enriched_by_address += 1
+                    continue
 
-        # Preferred Photographer Matching
+        # Preferred Photographer Matching (separate from LP detection)
         if photographer_map:
             email = row.get('agent_email', '')
             if email and email in photographer_map:
                 row['preferred_photographer'] = photographer_map[email]
 
-    if enriched_count > 0:
-        print(f"    Enriched {enriched_count} listings with LP match")
+    total_enriched = enriched_by_filename + enriched_by_address
+    if total_enriched > 0:
+        print(f"    LP matches: {enriched_by_filename} by filename, {enriched_by_address} by address ({total_enriched} total)")
 
     return rows
 
 
-def build_verified_agents(phoenix_rows: list, tucson_rows: list) -> dict:
-    """Build verified agents list from all listings."""
+def build_verified_agents(rows: list, market_name: str) -> dict:
+    """Build verified agents list from listings for a single market."""
     agents_by_email = defaultdict(lambda: {
         'email': '',
         'names': set(),
         'phones': set(),
-        'markets': set(),
         'listing_count': 0,
         'listings': [],
         'offices': set(),
+        'listing_volume': 0,
+        'lp_listings': 0,
     })
 
-    all_rows = phoenix_rows + tucson_rows
-
-    for row in all_rows:
+    for row in rows:
         email = row.get('agent_email', '')
         if not email or '@' not in email:
             continue
@@ -325,19 +363,28 @@ def build_verified_agents(phoenix_rows: list, tucson_rows: list) -> dict:
         if row.get('office_name'):
             agent['offices'].add(row['office_name'])
 
-        address = row.get('listing_address', '').lower()
-        if any(city in address for city in ['tucson', 'green valley', 'marana', 'oro valley', 'vail', 'sahuarita', 'sierra vista', 'nogales', 'benson']):
-            agent['markets'].add('tucson')
-        else:
-            agent['markets'].add('phoenix')
-
         agent['listing_count'] += 1
+
+        # Track listing volume from price
+        price_str = row.get('price', '').replace('$', '').replace(',', '').strip()
+        try:
+            price = float(price_str)
+            agent['listing_volume'] += price
+        except (ValueError, TypeError):
+            pass
+
+        # Track LP listings
+        is_lp = row.get('lp_flag', '').lower() in ['yes', 'true', '1']
+        if is_lp:
+            agent['lp_listings'] += 1
 
         if row.get('listing_address'):
             agent['listings'].append({
                 'mls': row.get('mls_number', ''),
                 'address': row.get('listing_address', ''),
                 'status': row.get('status', ''),
+                'price': row.get('price', ''),
+                'lp': is_lp,
             })
 
     agents_list = []
@@ -347,24 +394,26 @@ def build_verified_agents(phoenix_rows: list, tucson_rows: list) -> dict:
             'name': list(data['names'])[0] if data['names'] else '',
             'all_names': list(data['names']),
             'phone': list(data['phones'])[0] if data['phones'] else '',
-            'markets': list(data['markets']),
             'office': list(data['offices'])[0] if data['offices'] else '',
-            'listing_count': data['listing_count'],
-            'recent_listings': data['listings'][:5],
+            'total_listings': data['listing_count'],
+            'listing_volume': data['listing_volume'],
+            'lp_listings': data['lp_listings'],
+            'recent_listings': sorted(data['listings'], key=lambda x: x.get('mls', ''), reverse=True)[:10],
         })
 
-    agents_list.sort(key=lambda x: x['listing_count'], reverse=True)
+    agents_list.sort(key=lambda x: x['total_listings'], reverse=True)
 
     return {
+        'market': market_name,
         'agents': agents_list,
         'total_agents': len(agents_list),
         'updated': datetime.now(timezone.utc).isoformat(),
     }
 
 
-def build_customer_loyalty(phoenix_rows: list, tucson_rows: list) -> dict:
+def build_customer_loyalty(rows: list, market_name: str) -> dict:
     """
-    Build customer loyalty analytics - per-agent ListerPros usage stats.
+    Build customer loyalty analytics for a single market.
     Shows which agents use ListerPros, how often, and loyalty percentage.
     """
     agents = defaultdict(lambda: {
@@ -376,13 +425,12 @@ def build_customer_loyalty(phoenix_rows: list, tucson_rows: list) -> dict:
         'lp_listings': 0,
         'non_lp_listings': 0,
         'lp_percentage': 0.0,
+        'listing_volume': 0,
         'preferred_photographer': '',
         'listings_detail': [],
     })
 
-    all_rows = phoenix_rows + tucson_rows
-
-    for row in all_rows:
+    for row in rows:
         email = row.get('agent_email', '')
         if not email or '@' not in email:
             continue
@@ -395,6 +443,14 @@ def build_customer_loyalty(phoenix_rows: list, tucson_rows: list) -> dict:
         agent['preferred_photographer'] = row.get('preferred_photographer', '') or agent['preferred_photographer']
 
         agent['total_listings'] += 1
+
+        # Track listing volume
+        price_str = row.get('price', '').replace('$', '').replace(',', '').strip()
+        try:
+            price = float(price_str)
+            agent['listing_volume'] += price
+        except (ValueError, TypeError):
+            pass
 
         is_lp = row.get('lp_flag', '').lower() in ['yes', 'true', '1']
         if is_lp:
@@ -424,6 +480,7 @@ def build_customer_loyalty(phoenix_rows: list, tucson_rows: list) -> dict:
             'phone': data['phone'],
             'office': data['office'],
             'total_listings': data['total_listings'],
+            'listing_volume': data['listing_volume'],
             'lp_listings': data['lp_listings'],
             'non_lp_listings': data['non_lp_listings'],
             'lp_percentage': data['lp_percentage'],
@@ -447,6 +504,7 @@ def build_customer_loyalty(phoenix_rows: list, tucson_rows: list) -> dict:
     never_used = [a for a in loyalty_list if a['lp_listings'] == 0 and a['total_listings'] >= 3]
 
     return {
+        'market': market_name,
         'summary': {
             'total_agents': total_agents,
             'agents_using_lp': agents_using_lp,
@@ -467,15 +525,13 @@ def build_customer_loyalty(phoenix_rows: list, tucson_rows: list) -> dict:
     }
 
 
-def build_photographers_data(phoenix_rows: list, tucson_rows: list) -> dict:
-    """Build photographer/camera analytics from EXIF data."""
+def build_photographers_data(rows: list, market_name: str) -> dict:
+    """Build photographer/camera analytics from EXIF data for a single market."""
     cameras = defaultdict(int)
     photographers = defaultdict(int)
     preferred_photographers = defaultdict(int)
 
-    all_rows = phoenix_rows + tucson_rows
-
-    for row in all_rows:
+    for row in rows:
         make = row.get('exif_make', '').strip()
         model = row.get('exif_model', '').strip()
         if make and model:
@@ -493,6 +549,7 @@ def build_photographers_data(phoenix_rows: list, tucson_rows: list) -> dict:
             preferred_photographers[preferred] += 1
 
     return {
+        'market': market_name,
         'cameras': dict(sorted(cameras.items(), key=lambda x: x[1], reverse=True)[:50]),
         'photographers': dict(sorted(photographers.items(), key=lambda x: x[1], reverse=True)[:100]),
         'preferred_photographers': dict(sorted(preferred_photographers.items(), key=lambda x: x[1], reverse=True)),
@@ -503,6 +560,7 @@ def build_photographers_data(phoenix_rows: list, tucson_rows: list) -> dict:
 def main():
     print("=" * 60)
     print("LISTINGS FEED STORE - DATA PROCESSOR")
+    print("Market-Segmented Output (phx-internal / tuc-internal)")
     print("=" * 60)
 
     # Load lookup data
@@ -535,8 +593,8 @@ def main():
     # Enrich Tucson
     tucson_rows = enrich_listings(tucson_rows, lp_addresses, photographer_map)
 
-    # Write listings summary (not full data - too large for GitHub)
-    print("\n[*] Writing listings_summary.json...")
+    # Write listings summary (combined stats for reference)
+    print("\n[*] Writing output/listings_summary.json...")
 
     # Calculate status counts
     phoenix_status = defaultdict(int)
@@ -562,42 +620,82 @@ def main():
             'lp_matched': len([r for r in phoenix_rows + tucson_rows if r.get('lp_flag', '').lower() in ['yes', 'true', '1']]),
         },
         'updated': datetime.now(timezone.utc).isoformat(),
-        'note': 'Full listing data available in data/*.csv files',
+        'note': 'Market-specific data in phx-internal/ and tuc-internal/ folders',
     }
     with open(OUTPUT_DIR / "listings_summary.json", 'w', encoding='utf-8') as f:
         json.dump(listings_summary, f, indent=2, ensure_ascii=False)
     print(f"    Phoenix: {len(phoenix_rows)}, Tucson: {len(tucson_rows)}")
 
-    # Build and write verified agents
-    print("\n[*] Building verified_agents.json...")
-    verified_agents = build_verified_agents(phoenix_rows, tucson_rows)
-    with open(OUTPUT_DIR / "verified_agents.json", 'w', encoding='utf-8') as f:
-        json.dump(verified_agents, f, indent=2, ensure_ascii=False)
-    print(f"    Wrote {verified_agents['total_agents']} unique agents")
+    # =========================================================================
+    # PHOENIX MARKET OUTPUT (phx-internal/)
+    # =========================================================================
+    print("\n[*] Building Phoenix market data (phx-internal/)...")
 
-    # Build and write customer loyalty
-    print("\n[*] Building customer_loyalty.json...")
-    customer_loyalty = build_customer_loyalty(phoenix_rows, tucson_rows)
-    with open(OUTPUT_DIR / "customer_loyalty.json", 'w', encoding='utf-8') as f:
-        json.dump(customer_loyalty, f, indent=2, ensure_ascii=False)
-    print(f"    Summary: {customer_loyalty['summary']['agents_using_lp']} agents have used LP")
-    print(f"    Loyalty tiers: {customer_loyalty['loyalty_tiers']}")
+    # Phoenix verified agents
+    print("    Building verified_agents.json...")
+    phx_verified_agents = build_verified_agents(phoenix_rows, 'phoenix')
+    with open(PHX_OUTPUT_DIR / "verified_agents.json", 'w', encoding='utf-8') as f:
+        json.dump(phx_verified_agents, f, indent=2, ensure_ascii=False)
+    print(f"      Wrote {phx_verified_agents['total_agents']} Phoenix agents")
 
-    # Build and write photographer data
-    print("\n[*] Building photographers.json...")
-    photographers = build_photographers_data(phoenix_rows, tucson_rows)
-    with open(OUTPUT_DIR / "photographers.json", 'w', encoding='utf-8') as f:
-        json.dump(photographers, f, indent=2, ensure_ascii=False)
-    print(f"    Wrote camera/photographer analytics")
+    # Phoenix customer loyalty
+    print("    Building customer_loyalty.json...")
+    phx_customer_loyalty = build_customer_loyalty(phoenix_rows, 'phoenix')
+    with open(PHX_OUTPUT_DIR / "customer_loyalty.json", 'w', encoding='utf-8') as f:
+        json.dump(phx_customer_loyalty, f, indent=2, ensure_ascii=False)
+    print(f"      {phx_customer_loyalty['summary']['agents_using_lp']} Phoenix agents have used LP")
 
+    # Phoenix photographers
+    print("    Building photographers.json...")
+    phx_photographers = build_photographers_data(phoenix_rows, 'phoenix')
+    with open(PHX_OUTPUT_DIR / "photographers.json", 'w', encoding='utf-8') as f:
+        json.dump(phx_photographers, f, indent=2, ensure_ascii=False)
+    print(f"      Wrote Phoenix camera/photographer analytics")
+
+    # =========================================================================
+    # TUCSON MARKET OUTPUT (tuc-internal/)
+    # =========================================================================
+    print("\n[*] Building Tucson market data (tuc-internal/)...")
+
+    # Tucson verified agents
+    print("    Building verified_agents.json...")
+    tuc_verified_agents = build_verified_agents(tucson_rows, 'tucson')
+    with open(TUC_OUTPUT_DIR / "verified_agents.json", 'w', encoding='utf-8') as f:
+        json.dump(tuc_verified_agents, f, indent=2, ensure_ascii=False)
+    print(f"      Wrote {tuc_verified_agents['total_agents']} Tucson agents")
+
+    # Tucson customer loyalty
+    print("    Building customer_loyalty.json...")
+    tuc_customer_loyalty = build_customer_loyalty(tucson_rows, 'tucson')
+    with open(TUC_OUTPUT_DIR / "customer_loyalty.json", 'w', encoding='utf-8') as f:
+        json.dump(tuc_customer_loyalty, f, indent=2, ensure_ascii=False)
+    print(f"      {tuc_customer_loyalty['summary']['agents_using_lp']} Tucson agents have used LP")
+
+    # Tucson photographers
+    print("    Building photographers.json...")
+    tuc_photographers = build_photographers_data(tucson_rows, 'tucson')
+    with open(TUC_OUTPUT_DIR / "photographers.json", 'w', encoding='utf-8') as f:
+        json.dump(tuc_photographers, f, indent=2, ensure_ascii=False)
+    print(f"      Wrote Tucson camera/photographer analytics")
+
+    # =========================================================================
+    # SUMMARY
+    # =========================================================================
     print("\n" + "=" * 60)
     print("PROCESSING COMPLETE")
     print("=" * 60)
-    print(f"  Phoenix listings: {len(phoenix_rows)}")
-    print(f"  Tucson listings:  {len(tucson_rows)}")
-    print(f"  Total listings:   {len(phoenix_rows) + len(tucson_rows)}")
-    print(f"  Unique agents:    {verified_agents['total_agents']}")
-    print(f"  LP usage rate:    {customer_loyalty['summary']['overall_lp_percentage']}%")
+    print(f"  Phoenix listings:  {len(phoenix_rows)}")
+    print(f"  Phoenix agents:    {phx_verified_agents['total_agents']}")
+    print(f"  Phoenix LP rate:   {phx_customer_loyalty['summary']['overall_lp_percentage']}%")
+    print()
+    print(f"  Tucson listings:   {len(tucson_rows)}")
+    print(f"  Tucson agents:     {tuc_verified_agents['total_agents']}")
+    print(f"  Tucson LP rate:    {tuc_customer_loyalty['summary']['overall_lp_percentage']}%")
+    print()
+    print("  Output folders:")
+    print("    - phx-internal/  (Phoenix market data)")
+    print("    - tuc-internal/  (Tucson market data)")
+    print("    - output/        (Combined summary)")
     print("=" * 60)
 
 
