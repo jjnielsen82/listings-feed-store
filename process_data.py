@@ -278,6 +278,41 @@ def check_lp_in_filename(filename: str) -> bool:
     return 'listerpros' in filename.lower()
 
 
+# Valid LP camera models - orders shot by ListerPros
+# SONY ILCE-7M4 is ListerPros' camera
+# Blank/empty camera means metadata was stripped (likely LP)
+LP_VALID_CAMERAS = {'SONY ILCE-7M4', 'Sony ILCE-7M4', 'ILCE-7M4'}
+
+
+def is_valid_lp_camera(camera: str) -> bool:
+    """
+    Check if the camera model is valid for an LP order.
+
+    Returns True if:
+    - Camera is blank/empty/dash (metadata stripped = likely LP)
+    - Camera is SONY ILCE-7M4 (LP's camera)
+
+    Returns False if:
+    - Camera is any other model (iPhone, Canon, etc. = NOT shot by LP)
+    """
+    if not camera or camera.strip() in ('', '-'):
+        # Blank camera = metadata stripped, could be LP
+        return True
+
+    camera_clean = camera.strip()
+
+    # Check if it's LP's camera
+    if camera_clean in LP_VALID_CAMERAS:
+        return True
+
+    # Check for Sony A7M4 variations
+    if 'ILCE-7M4' in camera_clean or 'ilce-7m4' in camera_clean.lower():
+        return True
+
+    # Any other camera (iPhone, Canon, DJI, etc.) = NOT LP
+    return False
+
+
 def enrich_listings(rows: list, lp_addresses: set, photographer_map: dict) -> list:
     """
     Enrich listings with LP matching and preferred photographer lookups.
@@ -373,8 +408,14 @@ def build_verified_agents(rows: list, market_name: str) -> dict:
         except (ValueError, TypeError):
             pass
 
-        # Track LP listings
-        is_lp = row.get('lp_flag', '').lower() in ['yes', 'true', '1']
+        # Track LP listings - with camera validation
+        # Build camera string for validation
+        camera = f"{row.get('exif_make', '')} {row.get('exif_model', '')}".strip()
+        address_matched = row.get('lp_flag', '').lower() in ['yes', 'true', '1']
+        camera_valid = is_valid_lp_camera(camera)
+
+        # Only count as LP if BOTH address matched AND camera is valid
+        is_lp = address_matched and camera_valid
         if is_lp:
             agent['lp_listings'] += 1
 
@@ -385,6 +426,7 @@ def build_verified_agents(rows: list, market_name: str) -> dict:
                 'status': row.get('status', ''),
                 'price': row.get('price', ''),
                 'lp': is_lp,
+                'camera': camera if camera else '-',
             })
 
     agents_list = []
@@ -415,6 +457,11 @@ def build_customer_loyalty(rows: list, market_name: str) -> dict:
     """
     Build customer loyalty analytics for a single market.
     Shows which agents use ListerPros, how often, and loyalty percentage.
+
+    LP Order Validation:
+    - Address/filename match is initial flag
+    - BUT camera must also be valid (SONY ILCE-7M4 or blank)
+    - If camera is iPhone, Canon, etc. -> NOT an LP order even if address matched
     """
     agents = defaultdict(lambda: {
         'email': '',
@@ -429,6 +476,8 @@ def build_customer_loyalty(rows: list, market_name: str) -> dict:
         'preferred_photographer': '',
         'listings_detail': [],
     })
+
+    camera_filtered_out = 0  # Track how many were filtered by camera
 
     for row in rows:
         email = row.get('agent_email', '')
@@ -452,7 +501,20 @@ def build_customer_loyalty(rows: list, market_name: str) -> dict:
         except (ValueError, TypeError):
             pass
 
-        is_lp = row.get('lp_flag', '').lower() in ['yes', 'true', '1']
+        # Build camera string for validation
+        camera = f"{row.get('exif_make', '')} {row.get('exif_model', '')}".strip()
+
+        # LP validation: check both address match AND camera validity
+        address_matched = row.get('lp_flag', '').lower() in ['yes', 'true', '1']
+        camera_valid = is_valid_lp_camera(camera)
+
+        # Only count as LP if BOTH address matched AND camera is valid
+        is_lp = address_matched and camera_valid
+
+        # Track filtered orders for logging
+        if address_matched and not camera_valid:
+            camera_filtered_out += 1
+
         if is_lp:
             agent['lp_listings'] += 1
         else:
@@ -464,9 +526,13 @@ def build_customer_loyalty(rows: list, market_name: str) -> dict:
                 'mls': row.get('mls_number', ''),
                 'address': row.get('listing_address', ''),
                 'lp': is_lp,
+                'status': 'LP Order' if is_lp else 'Other',
                 'photographer': row.get('exif_artist', '') or row.get('preferred_photographer', ''),
-                'camera': f"{row.get('exif_make', '')} {row.get('exif_model', '')}".strip(),
+                'camera': camera if camera else '-',
             })
+
+    if camera_filtered_out > 0:
+        print(f"      Camera filter: {camera_filtered_out} address-matched orders filtered out (wrong camera)")
 
     # Calculate percentages and build output
     loyalty_list = []

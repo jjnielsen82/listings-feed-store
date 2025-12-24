@@ -23,7 +23,7 @@
     "NIKON CORPORATION NIKON Z 6_2": 109,
     "DJI FC3682": 106,
     "Apple iPhone 16 Pro Max": 105,
-    "Apple iPhone 14 Pro Max": 104,
+    "Apple iPhone 14 Pro Max": 105,
     "Apple iPhone 15 Pro": 82,
     "Apple iPhone 16 Pro": 76,
     "samsung Galaxy S24 Ultra": 75,
@@ -61,7 +61,7 @@
     "kurt munger": 146,
     "AUSTIN BUCHANAN": 130,
     "Picasa": 121,
-    "X\nSteve Weiss": 116,
+    "XSteve Weiss": 116,
     "Eric Jewett": 99,
     "Joey Ambrose": 99,
     "Dave Carter/Carter Photography": 94,
@@ -91,7 +91,7 @@
     "Chris Paxman": 8,
     "ELI MATTHEWS": 7,
     "Michael Falconer": 7,
-    "Giuseppe DeMasi\nwww.demasiphotography.com": 7,
+    "Giuseppe DeMasiwww.demasiphotography.com": 7,
     "DAVID SLAUGHTER": 6,
     "Ray Cleveland": 5,
     "Rocket Lister AZ;LLC": 5,
@@ -130,11 +130,12 @@
     "DAN HARTMAN": 2,
     "natalie shupak": 2,
     "VHT Studios - www.VHT.com": 2,
+    "nan": 2,
     "Angela Faruolo": 1,
     "Photography by Jacquelynn": 1,
     "Wilda SOBANSKY": 1,
     "Laurentiu Rogojina": 1,
-    "JIM DOYLE APGS.NET \nCOPYRIGHT@2021": 1,
+    "JIM DOYLE APGS.NET COPYRIGHT@2021": 1,
     "Starr, Debra A. (Genworth MI, Now Enact)": 1,
     "BRIAN RANCK-HEADSPINNER PHOTOGRAPHY": 1,
     "JOSIAH LOPEZ PHOTOGRAPHY": 1,
@@ -151,14 +152,13 @@
     "CJ Gershon Photography": 1,
     "BIANCA MYERS PHOTOGRAPHY LLC": 1,
     "Jan Elizabeth Studio": 1,
-    "MITCH OLIVE": 1,
-    "David A Smith": 1
+    "MITCH OLIVE": 1
   },
   "preferred_photographers": {
-    "Mobile Device": 4881,
+    "Mobile Device": 4882,
     "ListerPros": 1674,
     "Boompix": 1379,
-    "Rocket Lister": 1105,
+    "Rocket Lister": 1106,
     "Haus Photo Co.": 875,
     "Lister Assister": 666,
     "KC Creative Design": 529,
@@ -249,5 +249,5 @@
     "Ryan Wilson": 1,
     "Competitor 8": 1
   },
-  "updated": "2025-12-24T06:59:15.068937+00:00"
+  "updated": "2025-12-24T07:20:10.964911+00:00"
 }
