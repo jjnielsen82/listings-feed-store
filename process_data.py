@@ -637,6 +637,157 @@ def build_photographers_data(rows: list, market_name: str) -> dict:
     }
 
 
+def build_photographer_analytics(rows: list, market_name: str) -> dict:
+    """
+    Build comprehensive photographer analytics for the photographer pages.
+    This is a lighter-weight alternative to customer_loyalty.json that includes
+    only what's needed for photographer analysis.
+    """
+    # Track all listings with their metadata
+    listings = []
+    agents_by_email = {}
+    cameras = defaultdict(int)
+    lenses = defaultdict(int)
+    exif_artists = defaultdict(int)
+    preferred_photographers = defaultdict(int)
+    equipment_fingerprints = defaultdict(lambda: {
+        'count': 0,
+        'agents': set(),
+        'exif_artists': defaultdict(int),
+        'sample_listings': []
+    })
+
+    # Track LP stats
+    total_listings = 0
+    lp_listings = 0
+    agents_with_lp = set()
+
+    for row in rows:
+        email = row.get('agent_email', '')
+        if not email or '@' not in email:
+            continue
+
+        total_listings += 1
+
+        # Build camera string
+        camera = f"{row.get('exif_make', '')} {row.get('exif_model', '')}".strip()
+        if not camera:
+            camera = '-'
+        lens = row.get('exif_lens_model', '') or '-'
+
+        # LP validation
+        address_matched = row.get('lp_flag', '').lower() in ['yes', 'true', '1']
+        camera_valid = is_valid_lp_camera(camera)
+        is_lp = address_matched and camera_valid
+
+        if is_lp:
+            lp_listings += 1
+            agents_with_lp.add(email)
+
+        # Track agent
+        if email not in agents_by_email:
+            agents_by_email[email] = {
+                'email': email,
+                'name': row.get('agent_name', ''),
+                'phone': row.get('agent_phone', ''),
+                'office': row.get('office_name', ''),
+                'total_listings': 0,
+                'lp_listings': 0,
+            }
+        agents_by_email[email]['total_listings'] += 1
+        if is_lp:
+            agents_by_email[email]['lp_listings'] += 1
+
+        # Track cameras and lenses
+        if camera != '-':
+            cameras[camera] += 1
+        if lens != '-':
+            lenses[lens] += 1
+
+        # Track EXIF artist
+        artist = row.get('exif_artist', '').strip()
+        if artist:
+            exif_artists[artist] += 1
+
+        # Track preferred photographer
+        preferred = row.get('preferred_photographer', '').strip()
+        if preferred:
+            preferred_photographers[preferred] += 1
+
+        # Build equipment fingerprint
+        fingerprint_key = f"{camera}|||{lens}"
+        fp = equipment_fingerprints[fingerprint_key]
+        fp['count'] += 1
+        fp['agents'].add(email)
+        if artist:
+            fp['exif_artists'][artist] += 1
+        if len(fp['sample_listings']) < 5:
+            fp['sample_listings'].append({
+                'mls': row.get('mls_number', ''),
+                'address': row.get('listing_address', ''),
+                'agent': row.get('agent_name', ''),
+                'filename': row.get('scraped_image_filename', '') or '-',
+            })
+
+        # Add to listings array (limit fields)
+        listings.append({
+            'mls': row.get('mls_number', ''),
+            'address': row.get('listing_address', ''),
+            'email': email,
+            'name': row.get('agent_name', ''),
+            'lp': is_lp,
+            'cam': camera,
+            'lens': lens,
+            'artist': artist or '-',
+            'file': row.get('scraped_image_filename', '') or '-',
+            'ts': row.get('timestamp', '') or '-',
+        })
+
+    # Convert fingerprints for JSON serialization
+    fingerprints_list = []
+    for key, data in equipment_fingerprints.items():
+        camera, lens = key.split('|||')
+        fingerprints_list.append({
+            'camera': camera,
+            'lens': lens,
+            'count': data['count'],
+            'agent_count': len(data['agents']),
+            'exif_artists': dict(data['exif_artists']),
+            'sample_listings': data['sample_listings'],
+        })
+
+    # Sort fingerprints by count descending
+    fingerprints_list.sort(key=lambda x: x['count'], reverse=True)
+
+    # Calculate market share stats
+    total_agents = len(agents_by_email)
+    agents_using_lp = len(agents_with_lp)
+    lp_agent_percentage = round((agents_using_lp / total_agents * 100) if total_agents > 0 else 0, 1)
+    lp_listing_percentage = round((lp_listings / total_listings * 100) if total_listings > 0 else 0, 1)
+
+    return {
+        'market': market_name,
+        'summary': {
+            'total_listings': total_listings,
+            'lp_listings': lp_listings,
+            'lp_listing_percentage': lp_listing_percentage,
+            'total_agents': total_agents,
+            'agents_using_lp': agents_using_lp,
+            'lp_agent_percentage': lp_agent_percentage,
+            'unique_cameras': len(cameras),
+            'unique_exif_artists': len(exif_artists),
+        },
+        'cameras': dict(sorted(cameras.items(), key=lambda x: x[1], reverse=True)),
+        'lenses': dict(sorted(lenses.items(), key=lambda x: x[1], reverse=True)[:100]),
+        'exif_artists': dict(sorted(exif_artists.items(), key=lambda x: x[1], reverse=True)),
+        'preferred_photographers': dict(sorted(preferred_photographers.items(), key=lambda x: x[1], reverse=True)),
+        'equipment_fingerprints': fingerprints_list[:500],  # Top 500 fingerprints
+        # Store listings only for Tucson (smaller market) - Phoenix is too large
+        'listings': listings if len(listings) < 30000 else [],
+        'updated': datetime.now(timezone.utc).isoformat(),
+    }
+
+
 def main():
     print("=" * 60)
     print("LISTINGS FEED STORE - DATA PROCESSOR")
@@ -725,12 +876,19 @@ def main():
         json.dump(phx_customer_loyalty, f, indent=2, ensure_ascii=False)
     print(f"      {phx_customer_loyalty['summary']['agents_using_lp']} Phoenix agents have used LP")
 
-    # Phoenix photographers
+    # Phoenix photographers (legacy small file)
     print("    Building photographers.json...")
     phx_photographers = build_photographers_data(phoenix_rows, 'phoenix')
     with open(PHX_OUTPUT_DIR / "photographers.json", 'w', encoding='utf-8') as f:
         json.dump(phx_photographers, f, indent=2, ensure_ascii=False)
     print(f"      Wrote Phoenix camera/photographer analytics")
+
+    # Phoenix photographer analytics (comprehensive for photographer pages)
+    print("    Building photographer_analytics.json...")
+    phx_photo_analytics = build_photographer_analytics(phoenix_rows, 'phoenix')
+    with open(PHX_OUTPUT_DIR / "photographer_analytics.json", 'w', encoding='utf-8') as f:
+        json.dump(phx_photo_analytics, f, ensure_ascii=False)  # No indent to save space
+    print(f"      Wrote Phoenix photographer analytics ({phx_photo_analytics['summary']['total_listings']} listings)")
 
     # =========================================================================
     # TUCSON MARKET OUTPUT (tuc-internal/)
@@ -751,12 +909,19 @@ def main():
         json.dump(tuc_customer_loyalty, f, indent=2, ensure_ascii=False)
     print(f"      {tuc_customer_loyalty['summary']['agents_using_lp']} Tucson agents have used LP")
 
-    # Tucson photographers
+    # Tucson photographers (legacy small file)
     print("    Building photographers.json...")
     tuc_photographers = build_photographers_data(tucson_rows, 'tucson')
     with open(TUC_OUTPUT_DIR / "photographers.json", 'w', encoding='utf-8') as f:
         json.dump(tuc_photographers, f, indent=2, ensure_ascii=False)
     print(f"      Wrote Tucson camera/photographer analytics")
+
+    # Tucson photographer analytics (comprehensive for photographer pages)
+    print("    Building photographer_analytics.json...")
+    tuc_photo_analytics = build_photographer_analytics(tucson_rows, 'tucson')
+    with open(TUC_OUTPUT_DIR / "photographer_analytics.json", 'w', encoding='utf-8') as f:
+        json.dump(tuc_photo_analytics, f, ensure_ascii=False)  # No indent to save space
+    print(f"      Wrote Tucson photographer analytics ({tuc_photo_analytics['summary']['total_listings']} listings)")
 
     # =========================================================================
     # SUMMARY
