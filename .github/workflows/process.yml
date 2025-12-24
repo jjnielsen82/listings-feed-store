@@ -1,0 +1,33 @@
+name: Process Listings Data
+
+on:
+  push:
+    paths:
+      - 'data/*.csv'
+    branches:
+      - main
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  process:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Process data
+        run: python process_data.py
+
+      - name: Commit processed data
+        run: |
+          git config --local user.email "actions-user@users.noreply.github.com"
+          git config --local user.name "actions-user"
+          git add output/
+          git diff --staged --quiet || git commit -m "Update processed data [skip ci]"
+          git push

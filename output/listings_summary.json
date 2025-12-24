@@ -1,0 +1,41 @@
+{
+  "phoenix": {
+    "total": 105445,
+    "by_status": {
+      "Active": 51490,
+      "Status": 1,
+      "Temp Off Market": 1312,
+      "Coming Soon": 639,
+      "Pending": 4282,
+      "Cancelled": 10349,
+      "Closed": 31859,
+      "Expired": 2465,
+      "UCB (Under Contract-Backups)": 2641,
+      "CCBS (Contract Contingent on Buyer Sale)": 407
+    },
+    "lp_matched": 4691
+  },
+  "tucson": {
+    "total": 23408,
+    "by_status": {
+      "Active": 11358,
+      "Coming Soon": 84,
+      "Pending": 642,
+      "Closed": 7023,
+      "Cancelled": 2451,
+      "Expired": 664,
+      "Active Contingent": 971,
+      "Temp Off Market": 193,
+      "Pending Short Sale Approval": 5,
+      "Cancellation Provision": 11,
+      "Signature Pending": 6
+    },
+    "lp_matched": 1799
+  },
+  "combined": {
+    "total": 128853,
+    "lp_matched": 6490
+  },
+  "updated": "2025-12-24T02:10:15.815966+00:00",
+  "note": "Full listing data available in data/*.csv files"
+}
