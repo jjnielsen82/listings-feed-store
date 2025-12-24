@@ -1,12 +1,14 @@
 name: Process Listings Data
 
+# DISABLED - CSV processing now done locally before push
+# The scrapers push data directly to GitHub, JSON outputs are pre-generated
 on:
-  push:
-    paths:
-      - 'data/*.csv'
-    branches:
-      - main
-  workflow_dispatch:  # Allow manual trigger
+  workflow_dispatch:  # Manual trigger only
+  # push:
+  #   paths:
+  #     - 'data/*.csv'
+  #   branches:
+  #     - main
 
 jobs:
   process:

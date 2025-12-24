@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tucson Agent Listings | Internal Dashboard</title>
+
+    <!-- Google tag (gtag.js) - GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HTLTLXNRZG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-HTLTLXNRZG');
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0066FF;
+            --primary-dark: #0052CC;
+            --primary-light: #E6F0FF;
+            --text-dark: #1a1a1a;
+            --text-medium: #4a4a4a;
+            --text-light: #717171;
+            --border: #e0e0e0;
+            --background: #ffffff;
+            --background-gray: #f8f9fa;
+            --success: #10b981;
+            --gold: #f59e0b;
+            --danger: #ef4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background: var(--background); color: var(--text-dark); line-height: 1.5; }
+
+        .loading-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: var(--background);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            z-index: 1000;
+        }
+        .loading-overlay.hidden { display: none; }
+        .loading-spinner {
+            width: 48px;
+            height: 48px;
+            border: 4px solid var(--border);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .loading-text { margin-top: 16px; color: var(--text-light); font-size: 14px; }
+
+        /* Site Header */
+        .site-header {
+            background: var(--background);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .site-header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 32px;
+            width: auto;
+        }
+        .header-cta {
+            background: var(--primary);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .header-cta:hover { background: var(--primary-dark); }
+
+        .header-gradient {
+            background: linear-gradient(180deg, var(--primary-light) 0%, var(--background) 100%);
+            color: var(--text-dark);
+            padding: 64px 24px 80px;
+            text-align: center;
+        }
+
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-medium);
+            margin-bottom: 20px;
+        }
+        .header-badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--danger);
+            border-radius: 50%;
+        }
+
+        .header-gradient h1 { font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin-bottom: 12px; color: var(--text-dark); }
+        .header-gradient h1 span { color: var(--primary); }
+        .header-gradient .subtitle { color: var(--text-light); font-size: 16px; max-width: 600px; margin: 0 auto; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+
+        .search-card {
+            background: white;
+            border-radius: 16px;
+            padding: 8px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            border: 1px solid var(--border);
+            margin-top: -40px;
+            position: relative;
+            z-index: 10;
+            display: flex;
+            gap: 8px;
+        }
+
+        .search-wrapper {
+            position: relative;
+            flex: 1;
+        }
+        .search-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--text-light); }
+
+        .search-input {
+            width: 100%;
+            padding: 16px 16px 16px 48px;
+            font-size: 16px;
+            border: none;
+            outline: none;
+            background: transparent;
+            font-family: inherit;
+            text-transform: capitalize;
+        }
+
+        .search-input:focus { outline: none; }
+        .search-input::placeholder { text-transform: none; color: var(--text-light); }
+
+        .search-btn {
+            background: var(--primary);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+        .search-btn:hover { background: var(--primary-dark); }
+
+        .results-list {
+            margin-top: 16px;
+            max-height: 500px;
+            overflow-y: auto;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+        }
+        .results-list:empty { display: none; }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+            cursor: pointer;
+            transition: background 0.2s;
+            border-bottom: 1px solid var(--border);
+        }
+        .result-item:last-child { border-bottom: none; }
+
+        .result-item:hover { background: var(--background-gray); }
+        .result-item h3 { font-weight: 600; margin-bottom: 4px; font-size: 16px; }
+        .result-item p { font-size: 14px; color: var(--text-light); }
+        .result-info { flex: 1; }
+
+        .result-badge {
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        .result-badge.loyal {
+            background: rgba(16, 185, 129, 0.1);
+            color: #059669;
+        }
+
+        .agent-dashboard { display: none; }
+        .agent-dashboard.active { display: block; }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            margin-bottom: 24px;
+            cursor: pointer;
+        }
+        .back-btn:hover { text-decoration: underline; }
+
+        .agent-card {
+            background: white;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            margin-bottom: 24px;
+        }
+
+        .agent-header {
+            padding: 32px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .agent-info h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .agent-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 12px;
+        }
+
+        .agent-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .agent-meta-item a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .agent-meta-item a:hover { text-decoration: underline; }
+
+        .loyalty-badge {
+            padding: 12px 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .loyalty-badge.high { background: rgba(16, 185, 129, 0.1); }
+        .loyalty-badge.medium { background: rgba(245, 158, 11, 0.1); }
+        .loyalty-badge.low { background: rgba(239, 68, 68, 0.1); }
+        .loyalty-badge.none { background: var(--background-gray); }
+
+        .loyalty-value {
+            font-size: 32px;
+            font-weight: 800;
+        }
+        .loyalty-badge.high .loyalty-value { color: #059669; }
+        .loyalty-badge.medium .loyalty-value { color: #d97706; }
+        .loyalty-badge.low .loyalty-value { color: #dc2626; }
+        .loyalty-badge.none .loyalty-value { color: var(--text-light); }
+
+        .loyalty-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-light);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1px;
+            background: var(--border);
+        }
+
+        .stat-box {
+            background: white;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .stat-box-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .stat-box-label {
+            font-size: 12px;
+            color: var(--text-light);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 4px;
+        }
+
+        .listings-section {
+            padding: 32px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .section-header h3 {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .listings-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .listings-table th,
+        .listings-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .listings-table th {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: var(--background-gray);
+        }
+
+        .listings-table td {
+            font-size: 14px;
+        }
+
+        .listings-table tr:hover td {
+            background: var(--background-gray);
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .status-badge.active { background: rgba(16, 185, 129, 0.1); color: #059669; }
+        .status-badge.pending { background: rgba(245, 158, 11, 0.1); color: #d97706; }
+        .status-badge.closed { background: rgba(107, 114, 128, 0.1); color: #6b7280; }
+
+        .lp-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        .lp-badge.yes { background: rgba(0, 102, 255, 0.1); color: var(--primary); }
+        .lp-badge.no { background: var(--background-gray); color: var(--text-light); }
+
+        footer {
+            background: var(--text-dark);
+            text-align: center;
+            padding: 48px 24px;
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+        }
+        .footer-logo {
+            margin-bottom: 16px;
+        }
+        .footer-logo img {
+            height: 32px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        @media (max-width: 768px) {
+            .search-card {
+                flex-direction: column;
+            }
+            .agent-header {
+                flex-direction: column;
+            }
+            .listings-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Loading agent data...</div>
+    </div>
+
+    <header class="site-header">
+        <div class="site-header-content">
+            <a href="https://listerpros.com" class="logo">
+                <img src="https://listerpros.com/hubfs/logo-2.svg" alt="ListerPros">
+            </a>
+            <a href="https://media.listerpros.com/order-forms/ad92f54b-433c-4a6a-8be9-f9a9e9d2d97e" class="header-cta">Book Now</a>
+        </div>
+    </header>
+
+    <div class="header-gradient">
+        <div class="header-badge">
+            <span class="header-badge-dot"></span>
+            Internal Tool
+        </div>
+        <h1><span>Tucson</span> Agent Listings</h1>
+        <p class="subtitle">Search agents, view listing history, and track LP usage</p>
+    </div>
+
+    <div class="container">
+        <div class="search-section" id="searchSection">
+            <div class="search-card">
+                <div class="search-wrapper">
+                    <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="text" class="search-input" id="searchInput" placeholder="Search by name or email..." autocomplete="off">
+                </div>
+                <button class="search-btn" onclick="performSearch()">Search</button>
+            </div>
+
+            <div class="results-list" id="resultsList"></div>
+        </div>
+
+        <div class="agent-dashboard" id="agentDashboard">
+            <a class="back-btn" onclick="showSearch()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m15 18-6-6 6-6"/>
+                </svg>
+                Back to Search
+            </a>
+
+            <div class="agent-card">
+                <div class="agent-header">
+                    <div class="agent-info">
+                        <h2 id="agentName">Agent Name</h2>
+                        <p id="agentOffice" style="color: var(--text-light);"></p>
+                        <div class="agent-meta">
+                            <div class="agent-meta-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                                <a id="agentEmail" href="#"></a>
+                            </div>
+                            <div class="agent-meta-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                </svg>
+                                <span id="agentPhone"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="loyalty-badge" id="loyaltyBadge">
+                        <div class="loyalty-value" id="loyaltyValue">0%</div>
+                        <div class="loyalty-label">LP Usage</div>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="stat-box-value" id="totalListings">0</div>
+                        <div class="stat-box-label">Total Listings</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-box-value" id="lpListings">0</div>
+                        <div class="stat-box-label">LP Orders</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-box-value" id="nonLpListings">0</div>
+                        <div class="stat-box-label">Non-LP</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-box-value" id="preferredPhotographer">-</div>
+                        <div class="stat-box-label">Preferred Photographer</div>
+                    </div>
+                </div>
+
+                <div class="listings-section">
+                    <div class="section-header">
+                        <h3>Recent Listings</h3>
+                    </div>
+                    <table class="listings-table">
+                        <thead>
+                            <tr>
+                                <th>MLS #</th>
+                                <th>Address</th>
+                                <th>Status</th>
+                                <th>LP Order</th>
+                                <th>Camera/Photographer</th>
+                            </tr>
+                        </thead>
+                        <tbody id="listingsTableBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <a href="https://listerpros.com" class="footer-logo">
+            <img src="https://listerpros.com/hubfs/logo-2.svg" alt="ListerPros">
+        </a>
+        <p>&copy; 2025 ListerPros &middot; Tucson Agent Listings</p>
+    </footer>
+
+    <script>
+        let allAgents = [];
+        let loyaltyData = {};
+
+        // Load data
+        async function loadData() {
+            try {
+                // Load verified agents (for basic info and listing counts)
+                const agentsResp = await fetch('https://cdn.jsdelivr.net/gh/jjnielsen82/listings-feed-store@main/output/verified_agents.json');
+                const agentsData = await agentsResp.json();
+
+                // Filter to Tucson only
+                allAgents = agentsData.agents.filter(a => a.markets.includes('tucson'));
+
+                // Load loyalty data
+                const loyaltyResp = await fetch('https://cdn.jsdelivr.net/gh/jjnielsen82/listings-feed-store@main/output/customer_loyalty.json');
+                const loyaltyDataFull = await loyaltyResp.json();
+
+                // Index loyalty data by email
+                loyaltyDataFull.top_loyal_agents.forEach(a => {
+                    loyaltyData[a.email] = a;
+                });
+                loyaltyDataFull.occasional_users?.forEach(a => {
+                    loyaltyData[a.email] = a;
+                });
+                loyaltyDataFull.rare_users?.forEach(a => {
+                    loyaltyData[a.email] = a;
+                });
+
+                document.getElementById('loadingOverlay').classList.add('hidden');
+            } catch (e) {
+                console.error('Error loading data:', e);
+                document.querySelector('.loading-text').textContent = 'Error loading data. Please refresh.';
+            }
+        }
+
+        function performSearch() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            if (!query) return;
+
+            const results = allAgents.filter(agent => {
+                const nameMatch = agent.name?.toLowerCase().includes(query);
+                const emailMatch = agent.email?.toLowerCase().includes(query);
+                const allNamesMatch = agent.all_names?.some(n => n.toLowerCase().includes(query));
+                return nameMatch || emailMatch || allNamesMatch;
+            }).slice(0, 50);
+
+            displayResults(results);
+        }
+
+        function displayResults(results) {
+            const list = document.getElementById('resultsList');
+
+            if (results.length === 0) {
+                list.innerHTML = '<div style="padding: 24px; text-align: center; color: var(--text-light);">No agents found matching your search.</div>';
+                return;
+            }
+
+            list.innerHTML = results.map(agent => {
+                const loyalty = loyaltyData[agent.email];
+                const lpPct = loyalty ? loyalty.lp_percentage : 0;
+                const badgeClass = lpPct >= 50 ? 'loyal' : '';
+                const badgeText = lpPct > 0 ? `${lpPct.toFixed(0)}% LP` : `${agent.listing_count} listings`;
+
+                return `
+                    <div class="result-item" onclick="showAgent('${agent.email}')">
+                        <div class="result-info">
+                            <h3>${agent.name}</h3>
+                            <p>${agent.office || ''} &middot; ${agent.email}</p>
+                        </div>
+                        <span class="result-badge ${badgeClass}">${badgeText}</span>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function showAgent(email) {
+            const agent = allAgents.find(a => a.email === email);
+            if (!agent) return;
+
+            const loyalty = loyaltyData[email];
+
+            // Update header info
+            document.getElementById('agentName').textContent = agent.name;
+            document.getElementById('agentOffice').textContent = agent.office || '';
+            document.getElementById('agentEmail').textContent = agent.email;
+            document.getElementById('agentEmail').href = `mailto:${agent.email}`;
+            document.getElementById('agentPhone').textContent = agent.phone || 'N/A';
+
+            // Stats
+            const totalListings = loyalty ? loyalty.total_listings : agent.listing_count;
+            const lpListings = loyalty ? loyalty.lp_listings : 0;
+            const nonLpListings = loyalty ? loyalty.non_lp_listings : totalListings;
+            const lpPct = loyalty ? loyalty.lp_percentage : 0;
+
+            document.getElementById('totalListings').textContent = totalListings;
+            document.getElementById('lpListings').textContent = lpListings;
+            document.getElementById('nonLpListings').textContent = nonLpListings;
+            document.getElementById('loyaltyValue').textContent = lpPct.toFixed(1) + '%';
+
+            // Loyalty badge color
+            const badge = document.getElementById('loyaltyBadge');
+            badge.className = 'loyalty-badge';
+            if (lpPct >= 75) badge.classList.add('high');
+            else if (lpPct >= 25) badge.classList.add('medium');
+            else if (lpPct > 0) badge.classList.add('low');
+            else badge.classList.add('none');
+
+            // Preferred photographer
+            const prefPhotographer = loyalty?.preferred_photographer || agent.preferred_photographer || '-';
+            document.getElementById('preferredPhotographer').textContent = prefPhotographer || '-';
+
+            // Recent listings table
+            const listings = loyalty?.recent_listings || agent.recent_listings || [];
+            const tbody = document.getElementById('listingsTableBody');
+            tbody.innerHTML = listings.map(listing => {
+                const statusClass = listing.status?.toLowerCase().includes('active') ? 'active' :
+                                   listing.status?.toLowerCase().includes('pending') ? 'pending' : 'closed';
+                const lpClass = listing.lp ? 'yes' : 'no';
+                const lpText = listing.lp ? 'LP Order' : 'No';
+
+                return `
+                    <tr>
+                        <td><strong>${listing.mls}</strong></td>
+                        <td>${listing.address}</td>
+                        <td><span class="status-badge ${statusClass}">${listing.status || 'Unknown'}</span></td>
+                        <td><span class="lp-badge ${lpClass}">${lpText}</span></td>
+                        <td>${listing.photographer || listing.camera || '-'}</td>
+                    </tr>
+                `;
+            }).join('');
+
+            // Show dashboard
+            document.getElementById('searchSection').style.display = 'none';
+            document.getElementById('agentDashboard').classList.add('active');
+        }
+
+        function showSearch() {
+            document.getElementById('searchSection').style.display = 'block';
+            document.getElementById('agentDashboard').classList.remove('active');
+        }
+
+        // Search on enter
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') performSearch();
+        });
+
+        // Live search
+        document.getElementById('searchInput').addEventListener('input', function() {
+            if (this.value.length >= 2) {
+                performSearch();
+            } else {
+                document.getElementById('resultsList').innerHTML = '';
+            }
+        });
+
+        // Init
+        loadData();
+    </script>
+</body>
+</html>

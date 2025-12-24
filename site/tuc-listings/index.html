@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tucson Listing Stats | Your Agent Dashboard</title>
+
+    <!-- Google tag (gtag.js) - GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HTLTLXNRZG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-HTLTLXNRZG');
+    </script>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+    (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '414237694238106');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=414237694238106&ev=PageView&noscript=1"/></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0066FF;
+            --primary-dark: #0052CC;
+            --primary-light: #E6F0FF;
+            --text-dark: #1a1a1a;
+            --text-medium: #4a4a4a;
+            --text-light: #717171;
+            --border: #e0e0e0;
+            --background: #ffffff;
+            --background-gray: #f8f9fa;
+            --success: #10b981;
+            --gold: #f59e0b;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background: var(--background); color: var(--text-dark); line-height: 1.5; }
+
+        .loading-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: var(--background);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            z-index: 1000;
+        }
+        .loading-overlay.hidden { display: none; }
+        .loading-spinner {
+            width: 48px;
+            height: 48px;
+            border: 4px solid var(--border);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .loading-text { margin-top: 16px; color: var(--text-light); font-size: 14px; }
+
+        /* Site Header */
+        .site-header {
+            background: var(--background);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .site-header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 32px;
+            width: auto;
+        }
+        .header-cta {
+            background: var(--primary);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .header-cta:hover { background: var(--primary-dark); }
+
+        .header-gradient {
+            background: linear-gradient(180deg, var(--primary-light) 0%, var(--background) 100%);
+            color: var(--text-dark);
+            padding: 64px 24px 80px;
+            text-align: center;
+        }
+
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-medium);
+            margin-bottom: 20px;
+        }
+        .header-badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+        }
+
+        .header-gradient h1 { font-size: clamp(32px, 5vw, 48px); font-weight: 800; margin-bottom: 12px; color: var(--text-dark); }
+        .header-gradient h1 span { color: var(--primary); }
+        .header-gradient .subtitle { color: var(--text-light); font-size: 16px; max-width: 600px; margin: 0 auto; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+
+        .search-card {
+            background: white;
+            border-radius: 16px;
+            padding: 8px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            border: 1px solid var(--border);
+            margin-top: -40px;
+            position: relative;
+            z-index: 10;
+            display: flex;
+            gap: 8px;
+        }
+
+        .search-wrapper {
+            position: relative;
+            flex: 1;
+        }
+        .search-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--text-light); }
+
+        .search-input {
+            width: 100%;
+            padding: 16px 16px 16px 48px;
+            font-size: 16px;
+            border: none;
+            outline: none;
+            background: transparent;
+            font-family: inherit;
+        }
+
+        .search-input:focus { outline: none; }
+        .search-input::placeholder { color: var(--text-light); }
+
+        .search-btn {
+            background: var(--primary);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+        .search-btn:hover { background: var(--primary-dark); }
+
+        .results-list {
+            margin-top: 16px;
+            max-height: 400px;
+            overflow-y: auto;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+        }
+        .results-list:empty { display: none; }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+            cursor: pointer;
+            transition: background 0.2s;
+            border-bottom: 1px solid var(--border);
+        }
+        .result-item:last-child { border-bottom: none; }
+
+        .result-item:hover { background: var(--background-gray); }
+        .result-item h3 { font-weight: 600; margin-bottom: 4px; font-size: 16px; }
+        .result-item p { font-size: 14px; color: var(--text-light); }
+
+        .result-badge {
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 100;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .modal-overlay.active { display: flex; }
+
+        .email-modal {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 420px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .email-modal h2 { font-size: 24px; font-weight: 700; margin-bottom: 8px; color: var(--text-dark); }
+        .email-modal .agent-name { color: var(--primary); font-weight: 600; font-size: 18px; margin-bottom: 8px; }
+        .email-modal p { color: var(--text-light); margin-bottom: 24px; font-size: 14px; }
+
+        .email-input {
+            width: 100%;
+            padding: 16px;
+            font-size: 16px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            margin-bottom: 16px;
+            outline: none;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+        .email-input:focus { border-color: var(--primary); }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .submit-btn:hover { background: var(--primary-dark); }
+        .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .error-msg { color: #ef4444; font-size: 13px; margin-top: 12px; display: none; }
+        .close-modal { position: absolute; top: 16px; right: 16px; background: none; border: none; font-size: 24px; color: var(--text-light); cursor: pointer; }
+
+        .agent-dashboard { display: none; }
+        .agent-dashboard.active { display: block; }
+
+        .agent-card {
+            background: white;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            margin-bottom: 24px;
+        }
+
+        .agent-header {
+            padding: 32px;
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .agent-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 0 auto 16px;
+        }
+
+        .agent-header h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .agent-header .office {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--border);
+        }
+
+        .stat-box {
+            background: white;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .stat-box-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-box-label {
+            font-size: 12px;
+            color: var(--text-light);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 4px;
+        }
+
+        .listings-section {
+            padding: 32px;
+        }
+
+        .section-header {
+            margin-bottom: 20px;
+        }
+
+        .section-header h3 {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .listing-card {
+            background: var(--background-gray);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .listing-info h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .listing-info p {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .status-badge.active { background: rgba(16, 185, 129, 0.1); color: #059669; }
+        .status-badge.pending { background: rgba(245, 158, 11, 0.1); color: #d97706; }
+        .status-badge.closed { background: rgba(107, 114, 128, 0.1); color: #6b7280; }
+
+        .cta-banner {
+            background: linear-gradient(135deg, var(--primary-light) 0%, #dbeafe 100%);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            margin-top: 24px;
+        }
+        .cta-banner h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; color: var(--text-dark); }
+        .cta-banner p { color: var(--text-medium); margin-bottom: 16px; font-size: 14px; }
+        .cta-btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--primary);
+            color: white;
+            font-weight: 600;
+            font-size: 14px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .cta-btn:hover { background: var(--primary-dark); transform: translateY(-1px); }
+
+        footer {
+            background: var(--text-dark);
+            text-align: center;
+            padding: 48px 24px;
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+        }
+        .footer-logo {
+            margin-bottom: 16px;
+        }
+        .footer-logo img {
+            height: 32px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        @media (max-width: 768px) {
+            .search-card {
+                flex-direction: column;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Loading...</div>
+    </div>
+
+    <header class="site-header">
+        <div class="site-header-content">
+            <a href="https://listerpros.com" class="logo">
+                <img src="https://listerpros.com/hubfs/logo-2.svg" alt="ListerPros">
+            </a>
+            <a href="https://media.listerpros.com/order-forms/ad92f54b-433c-4a6a-8be9-f9a9e9d2d97e" class="header-cta">Book Now</a>
+        </div>
+    </header>
+
+    <div class="header-gradient">
+        <div class="header-badge">
+            <span class="header-badge-dot"></span>
+            Tucson Market
+        </div>
+        <h1>Your <span>Listing</span> Stats</h1>
+        <p class="subtitle">Search for your name to see your listing activity and statistics</p>
+    </div>
+
+    <div class="container">
+        <div class="search-section" id="searchSection">
+            <div class="search-card">
+                <div class="search-wrapper">
+                    <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="text" class="search-input" id="searchInput" placeholder="Search your name..." autocomplete="off">
+                </div>
+                <button class="search-btn" onclick="performSearch()">Search</button>
+            </div>
+
+            <div class="results-list" id="resultsList"></div>
+        </div>
+
+        <!-- Email Verification Modal -->
+        <div class="modal-overlay" id="emailModal">
+            <div class="email-modal">
+                <button class="close-modal" onclick="closeModal()">&times;</button>
+                <h2>Verify Your Email</h2>
+                <p class="agent-name" id="modalAgentName"></p>
+                <p>Enter the email address associated with your MLS account to view your stats.</p>
+                <input type="email" class="email-input" id="emailInput" placeholder="your@email.com">
+                <button class="submit-btn" onclick="verifyEmail()">View My Stats</button>
+                <div class="error-msg" id="emailError">Email doesn't match our records. Please try again.</div>
+            </div>
+        </div>
+
+        <div class="agent-dashboard" id="agentDashboard">
+            <div class="agent-card">
+                <div class="agent-header">
+                    <div class="agent-avatar" id="agentAvatar">JD</div>
+                    <h2 id="agentName">Agent Name</h2>
+                    <p class="office" id="agentOffice">Brokerage Name</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="stat-box-value" id="totalListings">0</div>
+                        <div class="stat-box-label">Total Listings</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-box-value" id="activeListings">0</div>
+                        <div class="stat-box-label">Currently Active</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-box-value" id="lpOrders">0</div>
+                        <div class="stat-box-label">LP Orders</div>
+                    </div>
+                </div>
+
+                <div class="listings-section">
+                    <div class="section-header">
+                        <h3>Recent Listings</h3>
+                    </div>
+                    <div id="listingsContainer"></div>
+                </div>
+            </div>
+
+            <div class="cta-banner">
+                <h3>Ready for Your Next Listing?</h3>
+                <p>Book professional photography with ListerPros and make your listings stand out.</p>
+                <a href="https://media.listerpros.com/order-forms/ad92f54b-433c-4a6a-8be9-f9a9e9d2d97e" class="cta-btn">Book a Shoot</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <a href="https://listerpros.com" class="footer-logo">
+            <img src="https://listerpros.com/hubfs/logo-2.svg" alt="ListerPros">
+        </a>
+        <p>&copy; 2025 ListerPros &middot; Tucson Listing Stats</p>
+    </footer>
+
+    <script>
+        let allAgents = [];
+        let selectedAgent = null;
+
+        // Load data
+        async function loadData() {
+            try {
+                const resp = await fetch('https://cdn.jsdelivr.net/gh/jjnielsen82/listings-feed-store@main/output/verified_agents.json');
+                const data = await resp.json();
+
+                // Filter to Tucson only
+                allAgents = data.agents.filter(a => a.markets.includes('tucson'));
+
+                document.getElementById('loadingOverlay').classList.add('hidden');
+            } catch (e) {
+                console.error('Error loading data:', e);
+                document.querySelector('.loading-text').textContent = 'Error loading data. Please refresh.';
+            }
+        }
+
+        function performSearch() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            if (!query) return;
+
+            const results = allAgents.filter(agent => {
+                const nameMatch = agent.name?.toLowerCase().includes(query);
+                const allNamesMatch = agent.all_names?.some(n => n.toLowerCase().includes(query));
+                return nameMatch || allNamesMatch;
+            }).slice(0, 20);
+
+            displayResults(results);
+        }
+
+        function displayResults(results) {
+            const list = document.getElementById('resultsList');
+
+            if (results.length === 0) {
+                list.innerHTML = '<div style="padding: 24px; text-align: center; color: var(--text-light);">No agents found. Try a different name.</div>';
+                return;
+            }
+
+            list.innerHTML = results.map(agent => `
+                <div class="result-item" onclick="selectAgent('${agent.email}')">
+                    <div>
+                        <h3>${agent.name}</h3>
+                        <p>${agent.office || ''}</p>
+                    </div>
+                    <span class="result-badge">${agent.listing_count} listings</span>
+                </div>
+            `).join('');
+        }
+
+        function selectAgent(email) {
+            selectedAgent = allAgents.find(a => a.email === email);
+            if (!selectedAgent) return;
+
+            document.getElementById('modalAgentName').textContent = selectedAgent.name;
+            document.getElementById('emailModal').classList.add('active');
+            document.getElementById('emailInput').value = '';
+            document.getElementById('emailError').style.display = 'none';
+        }
+
+        function closeModal() {
+            document.getElementById('emailModal').classList.remove('active');
+            selectedAgent = null;
+        }
+
+        function verifyEmail() {
+            const inputEmail = document.getElementById('emailInput').value.toLowerCase().trim();
+            const agentEmail = selectedAgent?.email?.toLowerCase();
+
+            if (inputEmail === agentEmail) {
+                closeModal();
+                showDashboard(selectedAgent);
+            } else {
+                document.getElementById('emailError').style.display = 'block';
+            }
+        }
+
+        function showDashboard(agent) {
+            // Avatar initials
+            const nameParts = agent.name.split(' ');
+            const initials = nameParts.length >= 2
+                ? nameParts[0][0] + nameParts[1][0]
+                : nameParts[0].substring(0, 2);
+            document.getElementById('agentAvatar').textContent = initials.toUpperCase();
+
+            document.getElementById('agentName').textContent = agent.name;
+            document.getElementById('agentOffice').textContent = agent.office || '';
+
+            // Stats
+            document.getElementById('totalListings').textContent = agent.listing_count;
+            const activeCount = agent.recent_listings?.filter(l =>
+                l.status?.toLowerCase().includes('active')
+            ).length || 0;
+            document.getElementById('activeListings').textContent = activeCount;
+            document.getElementById('lpOrders').textContent = agent.lp_listings || 0;
+
+            // Recent listings
+            const container = document.getElementById('listingsContainer');
+            const listings = agent.recent_listings || [];
+            container.innerHTML = listings.slice(0, 10).map(listing => {
+                const statusClass = listing.status?.toLowerCase().includes('active') ? 'active' :
+                                   listing.status?.toLowerCase().includes('pending') ? 'pending' : 'closed';
+                return `
+                    <div class="listing-card">
+                        <div class="listing-info">
+                            <h4>MLS# ${listing.mls}</h4>
+                            <p>${listing.address}</p>
+                        </div>
+                        <span class="status-badge ${statusClass}">${listing.status || 'Unknown'}</span>
+                    </div>
+                `;
+            }).join('');
+
+            // Show dashboard
+            document.getElementById('searchSection').style.display = 'none';
+            document.getElementById('agentDashboard').classList.add('active');
+        }
+
+        // Search on enter
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') performSearch();
+        });
+
+        // Email modal enter key
+        document.getElementById('emailInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') verifyEmail();
+        });
+
+        // Live search
+        document.getElementById('searchInput').addEventListener('input', function() {
+            if (this.value.length >= 2) {
+                performSearch();
+            } else {
+                document.getElementById('resultsList').innerHTML = '';
+            }
+        });
+
+        // Click outside modal to close
+        document.getElementById('emailModal').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        // Init
+        loadData();
+    </script>
+</body>
+</html>

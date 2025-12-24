@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phoenix Customer Loyalty | ListerPros Analytics</title>
+
+    <!-- Google tag (gtag.js) - GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HTLTLXNRZG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-HTLTLXNRZG');
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0066FF;
+            --primary-dark: #0052CC;
+            --primary-light: #E6F0FF;
+            --text-dark: #1a1a1a;
+            --text-medium: #4a4a4a;
+            --text-light: #717171;
+            --border: #e0e0e0;
+            --background: #ffffff;
+            --background-gray: #f8f9fa;
+            --success: #10b981;
+            --gold: #f59e0b;
+            --danger: #ef4444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background: var(--background-gray); color: var(--text-dark); line-height: 1.5; }
+
+        .loading-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: var(--background);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            z-index: 1000;
+        }
+        .loading-overlay.hidden { display: none; }
+        .loading-spinner {
+            width: 48px;
+            height: 48px;
+            border: 4px solid var(--border);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .loading-text { margin-top: 16px; color: var(--text-light); font-size: 14px; }
+
+        /* Site Header */
+        .site-header {
+            background: var(--background);
+            border-bottom: 1px solid var(--border);
+            padding: 12px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .site-header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 32px;
+            width: auto;
+        }
+        .header-nav {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+        .nav-link {
+            color: var(--text-medium);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .nav-link:hover { color: var(--primary); }
+        .header-cta {
+            background: var(--primary);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .header-cta:hover { background: var(--primary-dark); }
+
+        .page-header {
+            background: var(--background);
+            padding: 32px 24px;
+            border-bottom: 1px solid var(--border);
+        }
+        .page-header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .page-header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .page-header h1 span { color: var(--primary); }
+        .page-header p { color: var(--text-light); font-size: 14px; }
+
+        .container { max-width: 1400px; margin: 0 auto; padding: 24px; }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .stat-card {
+            background: var(--background);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .stat-card-label {
+            font-size: 12px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .stat-card-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+        .stat-card-value.success { color: var(--success); }
+        .stat-card-value.warning { color: var(--gold); }
+        .stat-card-value.danger { color: var(--danger); }
+
+        .stat-card-change {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .card {
+            background: var(--background);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .card-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-header h3 {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .card-body {
+            padding: 24px;
+        }
+
+        .tier-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .tier-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: var(--background-gray);
+            border-radius: 10px;
+        }
+
+        .tier-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+        .tier-icon.loyal { background: rgba(16, 185, 129, 0.15); }
+        .tier-icon.occasional { background: rgba(245, 158, 11, 0.15); }
+        .tier-icon.rare { background: rgba(239, 68, 68, 0.15); }
+        .tier-icon.never { background: rgba(107, 114, 128, 0.1); }
+
+        .tier-info { flex: 1; }
+        .tier-name { font-weight: 600; font-size: 15px; }
+        .tier-desc { font-size: 13px; color: var(--text-light); }
+
+        .tier-count {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        .tier-count.loyal { color: var(--success); }
+        .tier-count.occasional { color: var(--gold); }
+        .tier-count.rare { color: var(--danger); }
+        .tier-count.never { color: var(--text-light); }
+
+        .agent-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .agent-table th,
+        .agent-table td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .agent-table th {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: var(--background-gray);
+        }
+
+        .agent-table td {
+            font-size: 14px;
+        }
+
+        .agent-table tr:hover td {
+            background: var(--background-gray);
+        }
+
+        .loyalty-bar {
+            width: 100px;
+            height: 8px;
+            background: var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .loyalty-bar-fill {
+            height: 100%;
+            border-radius: 4px;
+        }
+        .loyalty-bar-fill.high { background: var(--success); }
+        .loyalty-bar-fill.medium { background: var(--gold); }
+        .loyalty-bar-fill.low { background: var(--danger); }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .badge.loyal { background: rgba(16, 185, 129, 0.1); color: #059669; }
+        .badge.occasional { background: rgba(245, 158, 11, 0.1); color: #d97706; }
+        .badge.rare { background: rgba(239, 68, 68, 0.1); color: #dc2626; }
+
+        .chart-container {
+            position: relative;
+            height: 250px;
+        }
+
+        .filter-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            background: var(--background);
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .filter-btn:hover { border-color: var(--primary); }
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        footer {
+            background: var(--text-dark);
+            text-align: center;
+            padding: 48px 24px;
+            color: rgba(255,255,255,0.6);
+            font-size: 14px;
+            margin-top: 48px;
+        }
+        .footer-logo {
+            margin-bottom: 16px;
+        }
+        .footer-logo img {
+            height: 32px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        @media (max-width: 1024px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .stats-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .agent-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Loading loyalty data...</div>
+    </div>
+
+    <header class="site-header">
+        <div class="site-header-content">
+            <a href="https://listerpros.com" class="logo">
+                <img src="https://listerpros.com/hubfs/logo-2.svg" alt="ListerPros">
+            </a>
+            <div class="header-nav">
+                <a href="../" class="nav-link">Dashboard</a>
+                <a href="../phx-internal/" class="nav-link">Agent Listings</a>
+                <a href="https://media.listerpros.com/order-forms/ad92f54b-433c-4a6a-8be9-f9a9e9d2d97e" class="header-cta">Book Now</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="page-header-content">
+            <h1><span>Phoenix</span> Customer Loyalty</h1>
+            <p>Track agent LP usage patterns and identify re-engagement opportunities</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-card-label">Total Agents</div>
+                <div class="stat-card-value" id="totalAgents">-</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-label">Using ListerPros</div>
+                <div class="stat-card-value success" id="agentsUsingLp">-</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-label">LP Orders Matched</div>
+                <div class="stat-card-value" id="lpOrders">-</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-card-label">Overall LP Rate</div>
+                <div class="stat-card-value" id="lpRate">-</div>
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Loyalty Tiers</h3>
+                </div>
+                <div class="card-body">
+                    <div class="tier-list">
+                        <div class="tier-item">
+                            <div class="tier-icon loyal">&#x2764;</div>
+                            <div class="tier-info">
+                                <div class="tier-name">Loyal Customers</div>
+                                <div class="tier-desc">75%+ LP usage rate</div>
+                            </div>
+                            <div class="tier-count loyal" id="loyalCount">-</div>
+                        </div>
+                        <div class="tier-item">
+                            <div class="tier-icon occasional">&#x1F44D;</div>
+                            <div class="tier-info">
+                                <div class="tier-name">Occasional Users</div>
+                                <div class="tier-desc">25-75% LP usage rate</div>
+                            </div>
+                            <div class="tier-count occasional" id="occasionalCount">-</div>
+                        </div>
+                        <div class="tier-item">
+                            <div class="tier-icon rare">&#x26A0;</div>
+                            <div class="tier-info">
+                                <div class="tier-name">Rare Users</div>
+                                <div class="tier-desc">Under 25% LP usage</div>
+                            </div>
+                            <div class="tier-count rare" id="rareCount">-</div>
+                        </div>
+                        <div class="tier-item">
+                            <div class="tier-icon never">&#x2754;</div>
+                            <div class="tier-info">
+                                <div class="tier-name">Never Used LP</div>
+                                <div class="tier-desc">Potential new customers</div>
+                            </div>
+                            <div class="tier-count never" id="neverCount">-</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>LP Usage Distribution</h3>
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="loyaltyChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h3>Top Loyal Customers</h3>
+                <div class="filter-row" style="margin-bottom: 0;">
+                    <button class="filter-btn active" onclick="filterAgents('loyal')">Loyal (75%+)</button>
+                    <button class="filter-btn" onclick="filterAgents('occasional')">Occasional</button>
+                    <button class="filter-btn" onclick="filterAgents('rare')">At Risk</button>
+                </div>
+            </div>
+            <div class="card-body" style="padding: 0;">
+                <table class="agent-table">
+                    <thead>
+                        <tr>
+                            <th>Agent</th>
+                            <th>Office</th>
+                            <th>Total Listings</th>
+                            <th>LP Orders</th>
+                            <th>LP Rate</th>
+                            <th>Tier</th>
+                        </tr>
+                    </thead>
+                    <tbody id="agentTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <a href="https://listerpros.com" class="footer-logo">
+            <img src="https://listerpros.com/hubfs/logo-2.svg" alt="ListerPros">
+        </a>
+        <p>&copy; 2025 ListerPros &middot; Customer Loyalty Analytics</p>
+    </footer>
+
+    <script>
+        let loyaltyData = null;
+        let loyaltyChart = null;
+
+        async function loadData() {
+            try {
+                const resp = await fetch('https://cdn.jsdelivr.net/gh/jjnielsen82/listings-feed-store@main/output/customer_loyalty.json');
+                loyaltyData = await resp.json();
+
+                // Update stats
+                document.getElementById('totalAgents').textContent = loyaltyData.summary.total_agents.toLocaleString();
+                document.getElementById('agentsUsingLp').textContent = loyaltyData.summary.agents_using_lp.toLocaleString();
+                document.getElementById('lpOrders').textContent = loyaltyData.summary.total_lp_listings.toLocaleString();
+                document.getElementById('lpRate').textContent = loyaltyData.summary.overall_lp_percentage.toFixed(1) + '%';
+
+                // Update tiers
+                document.getElementById('loyalCount').textContent = loyaltyData.loyalty_tiers.loyal_75_plus.toLocaleString();
+                document.getElementById('occasionalCount').textContent = loyaltyData.loyalty_tiers.occasional_25_to_75.toLocaleString();
+                document.getElementById('rareCount').textContent = loyaltyData.loyalty_tiers.rare_under_25.toLocaleString();
+                document.getElementById('neverCount').textContent = loyaltyData.loyalty_tiers.never_used.toLocaleString();
+
+                // Create chart
+                createChart();
+
+                // Show loyal agents by default
+                filterAgents('loyal');
+
+                document.getElementById('loadingOverlay').classList.add('hidden');
+            } catch (e) {
+                console.error('Error loading data:', e);
+                document.querySelector('.loading-text').textContent = 'Error loading data. Please refresh.';
+            }
+        }
+
+        function createChart() {
+            const ctx = document.getElementById('loyaltyChart').getContext('2d');
+
+            loyaltyChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Loyal (75%+)', 'Occasional (25-75%)', 'Rare (<25%)', 'Never Used'],
+                    datasets: [{
+                        data: [
+                            loyaltyData.loyalty_tiers.loyal_75_plus,
+                            loyaltyData.loyalty_tiers.occasional_25_to_75,
+                            loyaltyData.loyalty_tiers.rare_under_25,
+                            loyaltyData.loyalty_tiers.never_used
+                        ],
+                        backgroundColor: [
+                            '#10b981',
+                            '#f59e0b',
+                            '#ef4444',
+                            '#d1d5db'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                padding: 20,
+                                usePointStyle: true
+                            }
+                        }
+                    },
+                    cutout: '60%'
+                }
+            });
+        }
+
+        function filterAgents(tier) {
+            // Update button states
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            let agents = [];
+            let badgeClass = '';
+            let badgeText = '';
+
+            if (tier === 'loyal') {
+                agents = loyaltyData.top_loyal_agents || [];
+                badgeClass = 'loyal';
+                badgeText = 'Loyal';
+            } else if (tier === 'occasional') {
+                agents = loyaltyData.occasional_users || [];
+                badgeClass = 'occasional';
+                badgeText = 'Occasional';
+            } else if (tier === 'rare') {
+                agents = loyaltyData.rare_users || [];
+                badgeClass = 'rare';
+                badgeText = 'At Risk';
+            }
+
+            const tbody = document.getElementById('agentTableBody');
+            tbody.innerHTML = agents.slice(0, 50).map(agent => {
+                const barClass = agent.lp_percentage >= 75 ? 'high' :
+                                agent.lp_percentage >= 25 ? 'medium' : 'low';
+                return `
+                    <tr>
+                        <td>
+                            <strong>${agent.name}</strong><br>
+                            <span style="font-size: 12px; color: var(--text-light);">${agent.email}</span>
+                        </td>
+                        <td>${agent.office || '-'}</td>
+                        <td>${agent.total_listings}</td>
+                        <td>${agent.lp_listings}</td>
+                        <td>
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <div class="loyalty-bar">
+                                    <div class="loyalty-bar-fill ${barClass}" style="width: ${agent.lp_percentage}%"></div>
+                                </div>
+                                <span>${agent.lp_percentage.toFixed(0)}%</span>
+                            </div>
+                        </td>
+                        <td><span class="badge ${badgeClass}">${badgeText}</span></td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        loadData();
+    </script>
+</body>
+</html>

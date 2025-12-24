@@ -432,6 +432,8 @@ def build_verified_agents(rows: list, market_name: str) -> dict:
                 'camera': camera if camera else '-',
                 'lens': row.get('exif_lens_model', '') or '-',
                 'filename': row.get('scraped_image_filename', '') or '-',
+                # Timestamp for timeline filtering
+                'timestamp': row.get('timestamp', '') or '-',
             })
 
     agents_list = []
@@ -539,6 +541,8 @@ def build_customer_loyalty(rows: list, market_name: str) -> dict:
                 'camera': camera if camera else '-',
                 'lens': row.get('exif_lens_model', '') or '-',
                 'filename': row.get('scraped_image_filename', '') or '-',
+                # Timestamp for timeline filtering
+                'timestamp': row.get('timestamp', '') or '-',
             })
 
     if camera_filtered_out > 0:
