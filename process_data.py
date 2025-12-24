@@ -280,6 +280,7 @@ def check_lp_in_filename(filename: str) -> bool:
 
 # Valid LP camera models - orders shot by ListerPros
 # SONY ILCE-7M4 is ListerPros' camera
+# DJI drones are used for aerial photography
 # Blank/empty camera means metadata was stripped (likely LP)
 LP_VALID_CAMERAS = {'SONY ILCE-7M4', 'Sony ILCE-7M4', 'ILCE-7M4'}
 
@@ -291,6 +292,7 @@ def is_valid_lp_camera(camera: str) -> bool:
     Returns True if:
     - Camera is blank/empty/dash (metadata stripped = likely LP)
     - Camera is SONY ILCE-7M4 (LP's camera)
+    - Camera contains 'DJI' (LP uses DJI drones for aerials)
 
     Returns False if:
     - Camera is any other model (iPhone, Canon, etc. = NOT shot by LP)
@@ -309,8 +311,91 @@ def is_valid_lp_camera(camera: str) -> bool:
     if 'ILCE-7M4' in camera_clean or 'ilce-7m4' in camera_clean.lower():
         return True
 
-    # Any other camera (iPhone, Canon, DJI, etc.) = NOT LP
+    # Check for DJI drones (LP uses DJI for aerial photography)
+    if 'DJI' in camera_clean or 'dji' in camera_clean.lower():
+        return True
+
+    # Any other camera (iPhone, Canon, etc.) = NOT LP
     return False
+
+
+def infer_lp_for_loyal_agents(rows: list) -> list:
+    """
+    Infer LP orders for agents who use ListerPros 50%+ of the time.
+
+    Logic:
+    1. First pass: Calculate each agent's LP percentage based on confirmed LP orders
+    2. For agents with 50%+ LP rate, look at their "Other" (non-LP) listings
+    3. If an "Other" listing has:
+       - Photographer/artist field is blank
+       - Camera is valid LP camera (blank, SONY ILCE-7M4, or DJI)
+    4. Then mark it as an LP order (inferred)
+
+    This catches orders where the address didn't match exactly but the agent
+    clearly uses ListerPros consistently.
+    """
+    # First pass: calculate LP stats per agent
+    agent_stats = defaultdict(lambda: {
+        'total': 0,
+        'lp_confirmed': 0,
+        'indices': [],  # Track row indices for this agent
+    })
+
+    for idx, row in enumerate(rows):
+        email = row.get('agent_email', '')
+        if not email or '@' not in email:
+            continue
+
+        agent_stats[email]['total'] += 1
+        agent_stats[email]['indices'].append(idx)
+
+        # Check if this is a confirmed LP order
+        camera = f"{row.get('exif_make', '')} {row.get('exif_model', '')}".strip()
+        address_matched = row.get('lp_flag', '').lower() in ['yes', 'true', '1']
+        camera_valid = is_valid_lp_camera(camera)
+
+        if address_matched and camera_valid:
+            agent_stats[email]['lp_confirmed'] += 1
+
+    # Identify high-loyalty agents (50%+ LP rate)
+    high_loyalty_agents = set()
+    for email, stats in agent_stats.items():
+        if stats['total'] >= 2:  # Need at least 2 listings to determine loyalty
+            lp_percentage = (stats['lp_confirmed'] / stats['total']) * 100
+            if lp_percentage >= 50:
+                high_loyalty_agents.add(email)
+
+    # Second pass: infer LP for high-loyalty agents' unmatched orders
+    inferred_count = 0
+
+    for email in high_loyalty_agents:
+        stats = agent_stats[email]
+        for idx in stats['indices']:
+            row = rows[idx]
+
+            # Skip if already marked as LP
+            if row.get('lp_flag', '').lower() in ['yes', 'true', '1']:
+                continue
+
+            # Check if this listing looks like an LP order
+            camera = f"{row.get('exif_make', '')} {row.get('exif_model', '')}".strip()
+            artist = row.get('exif_artist', '').strip()
+
+            # Criteria for inference:
+            # 1. Camera must be valid LP camera (blank, Sony ILCE-7M4, or DJI)
+            # 2. Artist/photographer must be blank (not clearly someone else's work)
+            camera_valid = is_valid_lp_camera(camera)
+            artist_blank = not artist or artist == '-'
+
+            if camera_valid and artist_blank:
+                row['lp_flag'] = 'Yes'
+                row['lp_inferred'] = 'Yes'  # Mark as inferred for tracking
+                inferred_count += 1
+
+    if inferred_count > 0:
+        print(f"    LP inference: {inferred_count} orders inferred for {len(high_loyalty_agents)} high-loyalty agents (50%+ LP rate)")
+
+    return rows
 
 
 def enrich_listings(rows: list, lp_addresses: set, photographer_map: dict) -> list:
@@ -812,6 +897,8 @@ def main():
 
     # Enrich Phoenix
     phoenix_rows = enrich_listings(phoenix_rows, lp_addresses, photographer_map)
+    # Infer LP orders for high-loyalty agents (50%+ LP rate)
+    phoenix_rows = infer_lp_for_loyal_agents(phoenix_rows)
 
     # Read Tucson data
     print("\n[*] Reading Tucson listings...")
@@ -823,6 +910,8 @@ def main():
 
     # Enrich Tucson
     tucson_rows = enrich_listings(tucson_rows, lp_addresses, photographer_map)
+    # Infer LP orders for high-loyalty agents (50%+ LP rate)
+    tucson_rows = infer_lp_for_loyal_agents(tucson_rows)
 
     # Write listings summary (combined stats for reference)
     print("\n[*] Writing output/listings_summary.json...")
