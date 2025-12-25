@@ -1,8 +1,8 @@
 {
   "phoenix": {
-    "total": 105446,
+    "total": 105570,
     "by_status": {
-      "Active": 51491,
+      "Active": 51615,
       "Status": 1,
       "Temp Off Market": 1312,
       "Coming Soon": 639,
@@ -13,12 +13,12 @@
       "UCB (Under Contract-Backups)": 2641,
       "CCBS (Contract Contingent on Buyer Sale)": 407
     },
-    "lp_matched": 5379
+    "lp_matched": 5380
   },
   "tucson": {
-    "total": 23410,
+    "total": 23444,
     "by_status": {
-      "Active": 11360,
+      "Active": 11394,
       "Coming Soon": 84,
       "Pending": 642,
       "Closed": 7023,
@@ -30,12 +30,12 @@
       "Cancellation Provision": 11,
       "Signature Pending": 6
     },
-    "lp_matched": 2134
+    "lp_matched": 2139
   },
   "combined": {
-    "total": 128856,
-    "lp_matched": 7513
+    "total": 129014,
+    "lp_matched": 7519
   },
-  "updated": "2025-12-24T09:03:31.365944+00:00",
+  "updated": "2025-12-25T06:34:15.287959+00:00",
   "note": "Market-specific data in phx-internal/ and tuc-internal/ folders"
 }

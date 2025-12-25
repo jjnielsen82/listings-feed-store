@@ -42,7 +42,8 @@ STANDARD_FIELDS = [
     'formatted_address', 'image_filename',
     'exif_artist', 'exif_copyright', 'exif_make', 'exif_model',
     'exif_lens_model', 'exif_body_serial_number', 'exif_date_time_digitized',
-    'scraped_image_filename', 'lp_flag', 'cleaned', 'preferred_photographer'
+    'scraped_image_filename', 'lp_flag', 'cleaned', 'preferred_photographer',
+    'list_date'
 ]
 
 # Header mappings (various CSV headers -> standard field names)
@@ -80,6 +81,8 @@ HEADER_MAP = {
     'lp?': 'lp_flag',
     'cleaned': 'cleaned',
     'preferred photographer': 'preferred_photographer',
+    'list_date': 'list_date',
+    'list date': 'list_date',
 }
 
 # Address normalization - same as Google Apps Script
@@ -113,6 +116,36 @@ def normalize_email(email: str) -> str:
     if not email:
         return ''
     return email.lower().strip()
+
+
+def parse_list_date(date_str: str) -> str:
+    """
+    Parse list_date from various formats and return ISO format (YYYY-MM-DD).
+    Returns empty string if parsing fails.
+    """
+    if not date_str:
+        return ''
+
+    date_str = str(date_str).strip()
+    if not date_str or date_str == '-':
+        return ''
+
+    # Try multiple date formats
+    formats = [
+        '%m/%d/%Y',     # 12/23/2025
+        '%m/%d/%y',     # 12/23/25
+        '%Y-%m-%d',     # 2025-12-23
+        '%Y-%m-%d %H:%M:%S',  # 2025-12-23 00:00:00
+    ]
+
+    for fmt in formats:
+        try:
+            dt = datetime.strptime(date_str, fmt)
+            return dt.strftime('%Y-%m-%d')
+        except ValueError:
+            continue
+
+    return ''
 
 
 def normalize_mls(mls: str) -> str:
@@ -464,6 +497,7 @@ def build_verified_agents(rows: list, market_name: str) -> dict:
         'offices': set(),
         'listing_volume': 0,
         'lp_listings': 0,
+        'listing_dates': [],  # Track all list dates for period filtering
     })
 
     for row in rows:
@@ -504,6 +538,11 @@ def build_verified_agents(rows: list, market_name: str) -> dict:
         if is_lp:
             agent['lp_listings'] += 1
 
+        # Parse and track list_date for period filtering
+        list_date = parse_list_date(row.get('list_date', ''))
+        if list_date:
+            agent['listing_dates'].append(list_date)
+
         if row.get('listing_address'):
             agent['listings'].append({
                 'mls': row.get('mls_number', ''),
@@ -517,12 +556,20 @@ def build_verified_agents(rows: list, market_name: str) -> dict:
                 'camera': camera if camera else '-',
                 'lens': row.get('exif_lens_model', '') or '-',
                 'filename': row.get('scraped_image_filename', '') or '-',
-                # Timestamp for timeline filtering
+                # List date for period filtering (ISO format YYYY-MM-DD)
+                'list_date': list_date,
+                # Timestamp for timeline filtering (legacy)
                 'timestamp': row.get('timestamp', '') or '-',
             })
 
     agents_list = []
     for email, data in agents_by_email.items():
+        # Sort listings by list_date descending (newest first)
+        sorted_listings = sorted(
+            data['listings'],
+            key=lambda x: x.get('list_date', '') or '0000-00-00',
+            reverse=True
+        )
         agents_list.append({
             'email': email,
             'name': list(data['names'])[0] if data['names'] else '',
@@ -532,7 +579,10 @@ def build_verified_agents(rows: list, market_name: str) -> dict:
             'total_listings': data['listing_count'],
             'listing_volume': data['listing_volume'],
             'lp_listings': data['lp_listings'],
-            'recent_listings': sorted(data['listings'], key=lambda x: x.get('mls', ''), reverse=True)[:10],
+            # All listing dates for period filtering (sorted newest first)
+            'listing_dates': sorted(data['listing_dates'], reverse=True),
+            # Recent listings with full detail (sorted by list_date)
+            'recent_listings': sorted_listings[:20],
         })
 
     agents_list.sort(key=lambda x: x['total_listings'], reverse=True)
@@ -612,6 +662,9 @@ def build_customer_loyalty(rows: list, market_name: str) -> dict:
         else:
             agent['non_lp_listings'] += 1
 
+        # Parse list_date
+        list_date = parse_list_date(row.get('list_date', ''))
+
         # Store listing detail (limit to recent 20)
         # Include all metadata for pattern identification - NO fallback to preferred_photographer
         if len(agent['listings_detail']) < 20:
@@ -626,7 +679,9 @@ def build_customer_loyalty(rows: list, market_name: str) -> dict:
                 'camera': camera if camera else '-',
                 'lens': row.get('exif_lens_model', '') or '-',
                 'filename': row.get('scraped_image_filename', '') or '-',
-                # Timestamp for timeline filtering
+                # List date for period filtering (ISO format YYYY-MM-DD)
+                'list_date': list_date,
+                # Timestamp for timeline filtering (legacy)
                 'timestamp': row.get('timestamp', '') or '-',
             })
 
@@ -741,6 +796,16 @@ def build_photographer_analytics(rows: list, market_name: str) -> dict:
         'exif_artists': defaultdict(int),
         'sample_listings': []
     })
+    # Track which agents use each EXIF artist (for photographer->agent lookup)
+    artist_to_agents = defaultdict(lambda: defaultdict(lambda: {
+        'count': 0,
+        'email': '',
+        'name': '',
+        'phone': '',
+        'office': '',
+        'total_listings': 0,
+        'lp_listings': 0,
+    }))
 
     # Track LP stats
     total_listings = 0
@@ -793,6 +858,16 @@ def build_photographer_analytics(rows: list, market_name: str) -> dict:
         artist = row.get('exif_artist', '').strip()
         if artist:
             exif_artists[artist] += 1
+            # Track this agent as a customer of this EXIF artist
+            agent_data = artist_to_agents[artist][email]
+            agent_data['count'] += 1
+            agent_data['email'] = email
+            agent_data['name'] = row.get('agent_name', '') or agent_data['name']
+            agent_data['phone'] = row.get('agent_phone', '') or agent_data['phone']
+            agent_data['office'] = row.get('office_name', '') or agent_data['office']
+            # These will be finalized after the loop with accurate totals
+            agent_data['total_listings'] = agents_by_email[email]['total_listings']
+            agent_data['lp_listings'] = agents_by_email[email]['lp_listings']
 
         # Track preferred photographer
         preferred = row.get('preferred_photographer', '').strip()
@@ -814,6 +889,9 @@ def build_photographer_analytics(rows: list, market_name: str) -> dict:
                 'filename': row.get('scraped_image_filename', '') or '-',
             })
 
+        # Parse list_date for photographer analytics
+        list_date = parse_list_date(row.get('list_date', ''))
+
         # Add to listings array (limit fields)
         listings.append({
             'mls': row.get('mls_number', ''),
@@ -825,6 +903,7 @@ def build_photographer_analytics(rows: list, market_name: str) -> dict:
             'lens': lens,
             'artist': artist or '-',
             'file': row.get('scraped_image_filename', '') or '-',
+            'list_date': list_date,
             'ts': row.get('timestamp', '') or '-',
         })
 
@@ -843,6 +922,27 @@ def build_photographer_analytics(rows: list, market_name: str) -> dict:
 
     # Sort fingerprints by count descending
     fingerprints_list.sort(key=lambda x: x['count'], reverse=True)
+
+    # Build artist_agents lookup - finalize agent totals and convert to list format
+    artist_agents = {}
+    for artist, agents_dict in artist_to_agents.items():
+        agents_list = []
+        for email, agent_data in agents_dict.items():
+            # Get final totals from agents_by_email
+            final_agent = agents_by_email.get(email, {})
+            agents_list.append({
+                'email': agent_data['email'],
+                'name': agent_data['name'],
+                'phone': agent_data['phone'],
+                'office': agent_data['office'],
+                'photographer_listings': agent_data['count'],  # Listings with this photographer
+                'total_listings': final_agent.get('total_listings', 0),
+                'lp_listings': final_agent.get('lp_listings', 0),
+            })
+        # Sort by photographer_listings descending (biggest customers first)
+        agents_list.sort(key=lambda x: x['photographer_listings'], reverse=True)
+        # Store top 100 agents per photographer to keep file size manageable
+        artist_agents[artist] = agents_list[:100]
 
     # Calculate market share stats
     total_agents = len(agents_by_email)
@@ -867,6 +967,8 @@ def build_photographer_analytics(rows: list, market_name: str) -> dict:
         'exif_artists': dict(sorted(exif_artists.items(), key=lambda x: x[1], reverse=True)),
         'preferred_photographers': dict(sorted(preferred_photographers.items(), key=lambda x: x[1], reverse=True)),
         'equipment_fingerprints': fingerprints_list[:500],  # Top 500 fingerprints
+        # Artist to agents lookup - for photographer->customer drill-down
+        'artist_agents': artist_agents,
         # Store listings only for Tucson (smaller market) - Phoenix is too large
         'listings': listings if len(listings) < 30000 else [],
         'updated': datetime.now(timezone.utc).isoformat(),

@@ -322,6 +322,71 @@
             font-size: 14px;
         }
 
+        /* Period Filter Styles */
+        .period-filter {
+            padding: 20px 32px;
+            border-bottom: 1px solid var(--border);
+            background: var(--background-gray);
+        }
+
+        .period-filter-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .period-filter-header h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-medium);
+        }
+
+        .period-tabs {
+            display: flex;
+            gap: 8px;
+        }
+
+        .period-tab {
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: white;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text-medium);
+        }
+
+        .period-tab:hover { border-color: var(--primary); color: var(--primary); }
+        .period-tab.active { background: var(--primary); color: white; border-color: var(--primary); }
+
+        .period-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .period-cell {
+            padding: 10px 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: white;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+            min-width: 100px;
+        }
+
+        .period-cell:hover { border-color: var(--primary); background: var(--primary-light); }
+        .period-cell.active { background: var(--primary); color: white; border-color: var(--primary); }
+        .period-cell.disabled { opacity: 0.4; cursor: not-allowed; }
+        .period-cell .count { font-size: 11px; color: var(--text-light); margin-top: 2px; }
+        .period-cell.active .count { color: rgba(255,255,255,0.8); }
+
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -355,12 +420,23 @@
         }
 
         .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 20px;
         }
 
         .section-header h3 {
             font-size: 18px;
             font-weight: 700;
+        }
+
+        .period-label {
+            font-size: 13px;
+            color: var(--text-light);
+            background: var(--background-gray);
+            padding: 6px 12px;
+            border-radius: 6px;
         }
 
         .listing-card {
@@ -384,6 +460,12 @@
             color: var(--text-light);
         }
 
+        .listing-date {
+            font-size: 11px;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
         .status-badge {
             display: inline-block;
             padding: 6px 12px;
@@ -394,6 +476,30 @@
         .status-badge.active { background: rgba(16, 185, 129, 0.1); color: #059669; }
         .status-badge.pending { background: rgba(245, 158, 11, 0.1); color: #d97706; }
         .status-badge.closed { background: rgba(107, 114, 128, 0.1); color: #6b7280; }
+
+        .no-listings {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-light);
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-bottom: 16px;
+            font-family: inherit;
+            font-size: 14px;
+            color: var(--text-medium);
+            transition: all 0.2s;
+        }
+        .back-btn:hover { border-color: var(--primary); color: var(--primary); }
 
         .cta-banner {
             background: linear-gradient(135deg, var(--primary-light) 0%, #dbeafe 100%);
@@ -440,6 +546,17 @@
             .stats-grid {
                 grid-template-columns: 1fr;
             }
+            .period-filter-header {
+                flex-direction: column;
+                gap: 12px;
+                align-items: flex-start;
+            }
+            .period-grid {
+                flex-direction: column;
+            }
+            .period-cell {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -464,7 +581,7 @@
             Tucson Market
         </div>
         <h1>Your <span>Listing</span> Stats</h1>
-        <p class="subtitle">Search for your name to see your listing activity and statistics</p>
+        <p class="subtitle">Search for your name to see your listing activity and statistics by time period</p>
     </div>
 
     <div class="container">
@@ -497,6 +614,13 @@
         </div>
 
         <div class="agent-dashboard" id="agentDashboard">
+            <button class="back-btn" onclick="backToSearch()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to Search
+            </button>
+
             <div class="agent-card">
                 <div class="agent-header">
                     <div class="agent-avatar" id="agentAvatar">JD</div>
@@ -504,14 +628,27 @@
                     <p class="office" id="agentOffice">Brokerage Name</p>
                 </div>
 
+                <!-- Period Filter -->
+                <div class="period-filter">
+                    <div class="period-filter-header">
+                        <h3>Filter by Time Period</h3>
+                        <div class="period-tabs">
+                            <div class="period-tab active" data-period-type="year" onclick="selectPeriodType('year')">Year</div>
+                            <div class="period-tab" data-period-type="quarter" onclick="selectPeriodType('quarter')">Quarter</div>
+                            <div class="period-tab" data-period-type="month" onclick="selectPeriodType('month')">Month</div>
+                        </div>
+                    </div>
+                    <div class="period-grid" id="periodGrid"></div>
+                </div>
+
                 <div class="stats-grid">
                     <div class="stat-box">
-                        <div class="stat-box-value" id="totalListings">0</div>
-                        <div class="stat-box-label">Total Listings</div>
+                        <div class="stat-box-value" id="periodListings">0</div>
+                        <div class="stat-box-label" id="periodListingsLabel">Listings (2025)</div>
                     </div>
                     <div class="stat-box">
-                        <div class="stat-box-value" id="activeListings">0</div>
-                        <div class="stat-box-label">Currently Active</div>
+                        <div class="stat-box-value" id="totalListings">0</div>
+                        <div class="stat-box-label">Total All-Time</div>
                     </div>
                     <div class="stat-box">
                         <div class="stat-box-value" id="lpOrders">0</div>
@@ -521,7 +658,8 @@
 
                 <div class="listings-section">
                     <div class="section-header">
-                        <h3>Recent Listings</h3>
+                        <h3>Listings</h3>
+                        <span class="period-label" id="periodLabel">2025</span>
                     </div>
                     <div id="listingsContainer"></div>
                 </div>
@@ -539,22 +677,31 @@
         <a href="https://listerpros.com" class="footer-logo">
             <img src="https://listerpros.com/hubfs/logo-2.svg" alt="ListerPros">
         </a>
-        <p>&copy; 2025 ListerPros &middot; Tucson Listing Stats</p>
+        <p>&copy; 2025 ListerPros - Tucson Listing Stats</p>
     </footer>
 
     <script>
+        // Constants
+        const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        const MONTH_NAMES = {
+            'Jan': 'January', 'Feb': 'February', 'Mar': 'March', 'Apr': 'April',
+            'May': 'May', 'Jun': 'June', 'Jul': 'July', 'Aug': 'August',
+            'Sep': 'September', 'Oct': 'October', 'Nov': 'November', 'Dec': 'December'
+        };
+
+        // State
         let allAgents = [];
         let selectedAgent = null;
+        let currentAgent = null;
+        let selectedPeriodType = 'year';
+        let selectedPeriodValue = '2025';
 
-        // Load data
+        // Load data from Tucson-specific JSON
         async function loadData() {
             try {
-                const resp = await fetch('https://cdn.jsdelivr.net/gh/jjnielsen82/listings-feed-store@main/output/verified_agents.json');
+                const resp = await fetch('https://cdn.jsdelivr.net/gh/jjnielsen82/listings-feed-store@main/tuc-internal/verified_agents.json');
                 const data = await resp.json();
-
-                // Filter to Tucson only
-                allAgents = data.agents.filter(a => a.markets.includes('tucson'));
-
+                allAgents = data.agents || [];
                 document.getElementById('loadingOverlay').classList.add('hidden');
             } catch (e) {
                 console.error('Error loading data:', e);
@@ -589,7 +736,7 @@
                         <h3>${agent.name}</h3>
                         <p>${agent.office || ''}</p>
                     </div>
-                    <span class="result-badge">${agent.listing_count} listings</span>
+                    <span class="result-badge">${agent.total_listings} listings</span>
                 </div>
             `).join('');
         }
@@ -615,9 +762,203 @@
 
             if (inputEmail === agentEmail) {
                 closeModal();
-                showDashboard(selectedAgent);
+                currentAgent = selectedAgent;
+                showDashboard(currentAgent);
             } else {
                 document.getElementById('emailError').style.display = 'block';
+            }
+        }
+
+        function backToSearch() {
+            document.getElementById('searchSection').style.display = 'block';
+            document.getElementById('agentDashboard').classList.remove('active');
+            currentAgent = null;
+            selectedPeriodType = 'year';
+            selectedPeriodValue = '2025';
+        }
+
+        // Period filtering functions
+        function getListingsInPeriod(agent, periodType, periodValue) {
+            if (!agent.listing_dates || !Array.isArray(agent.listing_dates)) return [];
+
+            const listings = agent.recent_listings || [];
+
+            return listings.filter(listing => {
+                const dateStr = listing.list_date;
+                if (!dateStr) return false;
+
+                const date = new Date(dateStr);
+                const year = date.getFullYear();
+                const month = date.getMonth(); // 0-11
+                const quarter = Math.floor(month / 3) + 1;
+
+                if (periodType === 'year') {
+                    return year === parseInt(periodValue);
+                } else if (periodType === 'quarter') {
+                    const [q, y] = periodValue.split('-');
+                    return year === parseInt(y) && quarter === parseInt(q.replace('Q', ''));
+                } else if (periodType === 'month') {
+                    const [m, y] = periodValue.split('-');
+                    const monthIndex = MONTHS.indexOf(m);
+                    return year === parseInt(y) && month === monthIndex;
+                }
+                return false;
+            });
+        }
+
+        function getListingCountForPeriod(agent, periodType, periodValue) {
+            if (!agent.listing_dates || !Array.isArray(agent.listing_dates)) return 0;
+
+            return agent.listing_dates.filter(dateStr => {
+                if (!dateStr) return false;
+                const date = new Date(dateStr);
+                const year = date.getFullYear();
+                const month = date.getMonth();
+                const quarter = Math.floor(month / 3) + 1;
+
+                if (periodType === 'year') {
+                    return year === parseInt(periodValue);
+                } else if (periodType === 'quarter') {
+                    const [q, y] = periodValue.split('-');
+                    return year === parseInt(y) && quarter === parseInt(q.replace('Q', ''));
+                } else if (periodType === 'month') {
+                    const [m, y] = periodValue.split('-');
+                    const monthIndex = MONTHS.indexOf(m);
+                    return year === parseInt(y) && month === monthIndex;
+                }
+                return false;
+            }).length;
+        }
+
+        function selectPeriodType(type) {
+            selectedPeriodType = type;
+
+            // Update tab styles
+            document.querySelectorAll('.period-tab').forEach(tab => {
+                tab.classList.toggle('active', tab.dataset.periodType === type);
+            });
+
+            // Reset to default period for this type
+            if (type === 'year') {
+                selectedPeriodValue = '2025';
+            } else if (type === 'quarter') {
+                // Find first quarter with data
+                for (let i = 0; i < 4; i++) {
+                    const pv = `Q${i+1}-2025`;
+                    if (getListingCountForPeriod(currentAgent, 'quarter', pv) > 0) {
+                        selectedPeriodValue = pv;
+                        break;
+                    }
+                }
+            } else if (type === 'month') {
+                // Find first month with data
+                for (let i = 0; i < 12; i++) {
+                    const pv = `${MONTHS[i]}-2025`;
+                    if (getListingCountForPeriod(currentAgent, 'month', pv) > 0) {
+                        selectedPeriodValue = pv;
+                        break;
+                    }
+                }
+            }
+
+            renderPeriodGrid();
+            updateDashboard();
+        }
+
+        function selectPeriod(value) {
+            selectedPeriodValue = value;
+            renderPeriodGrid();
+            updateDashboard();
+        }
+
+        function renderPeriodGrid() {
+            const grid = document.getElementById('periodGrid');
+
+            if (selectedPeriodType === 'year') {
+                const count = getListingCountForPeriod(currentAgent, 'year', '2025');
+                grid.innerHTML = `
+                    <div class="period-cell active" onclick="selectPeriod('2025')">
+                        2025
+                        <div class="count">${count} listings</div>
+                    </div>
+                `;
+            } else if (selectedPeriodType === 'quarter') {
+                const quarterLabels = ['Q1 (Jan-Mar)', 'Q2 (Apr-Jun)', 'Q3 (Jul-Sep)', 'Q4 (Oct-Dec)'];
+                grid.innerHTML = [0, 1, 2, 3].map(i => {
+                    const periodValue = `Q${i+1}-2025`;
+                    const count = getListingCountForPeriod(currentAgent, 'quarter', periodValue);
+                    const isActive = selectedPeriodValue === periodValue;
+                    const isDisabled = count === 0;
+                    return `
+                        <div class="period-cell ${isActive ? 'active' : ''} ${isDisabled ? 'disabled' : ''}"
+                             onclick="${isDisabled ? '' : `selectPeriod('${periodValue}')`}">
+                            ${quarterLabels[i]} 2025
+                            <div class="count">${count} listings</div>
+                        </div>
+                    `;
+                }).join('');
+            } else if (selectedPeriodType === 'month') {
+                grid.innerHTML = MONTHS.map((m, i) => {
+                    const periodValue = `${m}-2025`;
+                    const count = getListingCountForPeriod(currentAgent, 'month', periodValue);
+                    const isActive = selectedPeriodValue === periodValue;
+                    const isDisabled = count === 0;
+                    return `
+                        <div class="period-cell ${isActive ? 'active' : ''} ${isDisabled ? 'disabled' : ''}"
+                             onclick="${isDisabled ? '' : `selectPeriod('${periodValue}')`}">
+                            ${m} 2025
+                            <div class="count">${count}</div>
+                        </div>
+                    `;
+                }).join('');
+            }
+        }
+
+        function getPeriodLabel() {
+            if (selectedPeriodType === 'year') {
+                return '2025';
+            } else if (selectedPeriodType === 'quarter') {
+                const [q, y] = selectedPeriodValue.split('-');
+                return `${q} ${y}`;
+            } else if (selectedPeriodType === 'month') {
+                const [m, y] = selectedPeriodValue.split('-');
+                return `${MONTH_NAMES[m]} ${y}`;
+            }
+            return '2025';
+        }
+
+        function updateDashboard() {
+            if (!currentAgent) return;
+
+            // Update period stats
+            const periodCount = getListingCountForPeriod(currentAgent, selectedPeriodType, selectedPeriodValue);
+            document.getElementById('periodListings').textContent = periodCount;
+            document.getElementById('periodListingsLabel').textContent = `Listings (${getPeriodLabel()})`;
+            document.getElementById('periodLabel').textContent = getPeriodLabel();
+
+            // Get filtered listings
+            const filteredListings = getListingsInPeriod(currentAgent, selectedPeriodType, selectedPeriodValue);
+
+            // Render listings
+            const container = document.getElementById('listingsContainer');
+            if (filteredListings.length === 0) {
+                container.innerHTML = '<div class="no-listings">No listings found for this period.</div>';
+            } else {
+                container.innerHTML = filteredListings.map(listing => {
+                    const statusClass = listing.status?.toLowerCase().includes('active') ? 'active' :
+                                       listing.status?.toLowerCase().includes('pending') ? 'pending' : 'closed';
+                    const listDate = listing.list_date ? new Date(listing.list_date).toLocaleDateString() : '';
+                    return `
+                        <div class="listing-card">
+                            <div class="listing-info">
+                                <h4>MLS# ${listing.mls}</h4>
+                                <p>${listing.address}</p>
+                                ${listDate ? `<p class="listing-date">Listed: ${listDate}</p>` : ''}
+                            </div>
+                            <span class="status-badge ${statusClass}">${listing.status || 'Unknown'}</span>
+                        </div>
+                    `;
+                }).join('');
             }
         }
 
@@ -632,47 +973,30 @@
             document.getElementById('agentName').textContent = agent.name;
             document.getElementById('agentOffice').textContent = agent.office || '';
 
-            // Stats
-            document.getElementById('totalListings').textContent = agent.listing_count;
-            const activeCount = agent.recent_listings?.filter(l =>
-                l.status?.toLowerCase().includes('active')
-            ).length || 0;
-            document.getElementById('activeListings').textContent = activeCount;
+            // Static stats
+            document.getElementById('totalListings').textContent = agent.total_listings || 0;
             document.getElementById('lpOrders').textContent = agent.lp_listings || 0;
 
-            // Recent listings
-            const container = document.getElementById('listingsContainer');
-            const listings = agent.recent_listings || [];
-            container.innerHTML = listings.slice(0, 10).map(listing => {
-                const statusClass = listing.status?.toLowerCase().includes('active') ? 'active' :
-                                   listing.status?.toLowerCase().includes('pending') ? 'pending' : 'closed';
-                return `
-                    <div class="listing-card">
-                        <div class="listing-info">
-                            <h4>MLS# ${listing.mls}</h4>
-                            <p>${listing.address}</p>
-                        </div>
-                        <span class="status-badge ${statusClass}">${listing.status || 'Unknown'}</span>
-                    </div>
-                `;
-            }).join('');
+            // Initialize period filter
+            selectedPeriodType = 'year';
+            selectedPeriodValue = '2025';
+            renderPeriodGrid();
+            updateDashboard();
 
             // Show dashboard
             document.getElementById('searchSection').style.display = 'none';
             document.getElementById('agentDashboard').classList.add('active');
         }
 
-        // Search on enter
+        // Event listeners
         document.getElementById('searchInput').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') performSearch();
         });
 
-        // Email modal enter key
         document.getElementById('emailInput').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') verifyEmail();
         });
 
-        // Live search
         document.getElementById('searchInput').addEventListener('input', function() {
             if (this.value.length >= 2) {
                 performSearch();
@@ -681,7 +1005,6 @@
             }
         });
 
-        // Click outside modal to close
         document.getElementById('emailModal').addEventListener('click', function(e) {
             if (e.target === this) closeModal();
         });
