@@ -233,3 +233,33 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6940880,Closed,"5656 S BLUM LN, Hereford, AZ 85615",5656 s blum ln hereford az 85615,"$333,500",,,,10/29/2025,2,Phoenix
 6951679,Active,"10080 E MOUNTAINVIEW LAKE DR 258, Scottsdale, AZ 85258",10080 e mountainview lake dr 258 scottsdale az 85258,"$650,000",,,,11/26/2025,2,Phoenix
 6960851,Active,"13219 N 99th DR, Sun City, AZ 85351",13219 n 99th dr sun city az 85351,"$189,900",,,,12/25/2025,2,Phoenix
+22521768,Withdrawn,"411 Post Way Way, Tubac, AZ 85646",411 post way way tubac az 85646,"$274,900",,,,12/25/2025,127,Tucson
+22524683,Active,"7255 E Snyder Road 6204, Tucson, AZ 85750",7255 e snyder road 6204 tucson az 85750,"$235,000",,,,12/25/2025,94,Tucson
+22519079,Active,"3710 E Bronco Lane, Tucson, AZ 85739",3710 e bronco lane tucson az 85739,"$199,000",,,,12/25/2025,160,Tucson
+22528465,Closed,"655 W Vistoso Highlands Drive 253, Oro Valley, AZ 85755",655 w vistoso highlands drive 253 oro valley az 85755,"$300,000",,,,12/25/2025,35,Tucson
+22530670,Active,"1381 W Calle Mendoza, Green Valley, AZ 85622",1381 w calle mendoza green valley az 85622,"$264,500",,,,12/25/2025,26,Tucson
+22529321,Cancelled,"1857 W Demetrie Loop, Green Valley, AZ 85622",1857 w demetrie loop green valley az 85622,"$220,000",,,,12/25/2025,16,Tucson
+22532372,Active,"30660 S Osprey Drive, Oracle, AZ 85623",30660 s osprey drive oracle az 85623,"$399,000",,,,12/26/2025,0,Tucson
+22530643,Active,"4938 W Desert Chicory Place, Marana, AZ 85658",4938 w desert chicory place marana az 85658,"$688,000",,,,12/26/2025,28,Tucson
+22531975,Active,"4315 N Alice Drive, Oracle, AZ 85623",4315 n alice drive oracle az 85623,"$49,000",,,,12/25/2025,8,Tucson
+22525027,Closed,"4126 S Evergreen Avenue, Tucson, AZ 85730",4126 s evergreen avenue tucson az 85730,"$230,000",,,,12/25/2025,51,Tucson
+22526125,Active,"15840 N Starboard, Tucson, AZ 85739",15840 n starboard tucson az 85739,"$330,000",,,,12/25/2025,78,Tucson
+22528061,Withdrawn,"13242 N Flintlock Road, Marana, AZ 85653",13242 n flintlock road marana az 85653,"$274,900",,,,12/25/2025,58,Tucson
+22523820,Closed,"995 Jar Court, Rio Rico, AZ 85648",995 jar court rio rico az 85648,"$281,900",,,,12/25/2025,77,Tucson
+22529432,Active,"10421 E Haymarket Street, Tucson, AZ 85747",10421 e haymarket street tucson az 85747,"$310,000",,,,12/25/2025,43,Tucson
+22531169,Active,"3725 N Warren Avenue, Tucson, AZ 85719",3725 n warren avenue tucson az 85719,"$409,000",,,,12/25/2025,20,Tucson
+22524678,Cancelled,"2874 W Simplicity Drive, Tucson, AZ 85741",2874 w simplicity drive tucson az 85741,"$340,000",,,,12/25/2025,94,Tucson
+22528133,Pending,"9214 E Calle María, Tucson, AZ 85710",9214 e calle maría tucson az 85710,"$338,000",,,,12/25/2025,25,Tucson
+22523337,Expired,"2536 N Tyndall Avenue, Tucson, AZ 85719",2536 n tyndall avenue tucson az 85719,"$425,000",,,,12/25/2025,92,Tucson
+22523702,Active,"38996 S Moonwood Drive, Saddlebrooke, AZ 85739",38996 s moonwood drive saddlebrooke az 85739,"$525,000",,,,12/25/2025,362,Tucson
+22522305,Expired,"12631 W Blue Aloe Street, Tucson, AZ 85735",12631 w blue aloe street tucson az 85735,"$260,000",,,,12/25/2025,122,Tucson
+22519296,Active,"8620 N Pomona Avenue, Tucson, AZ 85704",8620 n pomona avenue tucson az 85704,"$625,000",,,,12/25/2025,156,Tucson
+22532021,Active,"8022 S Fenway Drive, Tucson, AZ 85756",8022 s fenway drive tucson az 85756,"$379,000",,,,12/25/2025,8,Tucson
+22532371,Coming Soon,"3602 S Double Echo Road, Tucson, AZ 85735",3602 s double echo road tucson az 85735,"$350,000",,,,12/25/2025,1,Tucson
+22524446,Closed,"8676 N Zenyatta Drive, Tucson, AZ 85704",8676 n zenyatta drive tucson az 85704,"$690,000",,,,12/25/2025,55,Tucson
+22527889,Active,"17033 S Mesa Shadows Drive, Vail, AZ 85641",17033 s mesa shadows drive vail az 85641,"$362,500",,,,12/25/2025,80,Tucson
+22529408,Closed,"7601 N Shirley Place, Tucson, AZ 85741",7601 n shirley place tucson az 85741,"$360,000",,,,12/25/2025,9,Tucson
+22531710,Active,"7931 S Desert Indigo Drive, Tucson, AZ 85747",7931 s desert indigo drive tucson az 85747,"$850,000",,,,12/25/2025,12,Tucson
+22532368,Active,"2145 N Water View Court, Tucson, AZ 85749",2145 n water view court tucson az 85749,"$725,000",,,,12/25/2025,1,Tucson
+22525181,Expired,"6255 S Desert Peak Drive, Tucson, AZ 85706",6255 s desert peak drive tucson az 85706,"$449,999",,,,12/25/2025,196,Tucson
+22532243,Active,"5775 N Campbell Avenue, Tucson, AZ 85718",5775 n campbell avenue tucson az 85718,"$2,999,000",,,,12/25/2025,4,Tucson
