@@ -770,8 +770,8 @@ def build_photographers_data(rows: list, market_name: str) -> dict:
 
     return {
         'market': market_name,
-        'cameras': dict(sorted(cameras.items(), key=lambda x: x[1], reverse=True)[:50]),
-        'photographers': dict(sorted(photographers.items(), key=lambda x: x[1], reverse=True)[:100]),
+        'cameras': dict(sorted(cameras.items(), key=lambda x: x[1], reverse=True)),
+        'photographers': dict(sorted(photographers.items(), key=lambda x: x[1], reverse=True)),
         'preferred_photographers': dict(sorted(preferred_photographers.items(), key=lambda x: x[1], reverse=True)),
         'updated': datetime.now(timezone.utc).isoformat(),
     }
@@ -941,8 +941,8 @@ def build_photographer_analytics(rows: list, market_name: str) -> dict:
             })
         # Sort by photographer_listings descending (biggest customers first)
         agents_list.sort(key=lambda x: x['photographer_listings'], reverse=True)
-        # Store top 100 agents per photographer to keep file size manageable
-        artist_agents[artist] = agents_list[:100]
+        # Store all agents per photographer
+        artist_agents[artist] = agents_list
 
     # Calculate market share stats
     total_agents = len(agents_by_email)
@@ -963,10 +963,10 @@ def build_photographer_analytics(rows: list, market_name: str) -> dict:
             'unique_exif_artists': len(exif_artists),
         },
         'cameras': dict(sorted(cameras.items(), key=lambda x: x[1], reverse=True)),
-        'lenses': dict(sorted(lenses.items(), key=lambda x: x[1], reverse=True)[:100]),
+        'lenses': dict(sorted(lenses.items(), key=lambda x: x[1], reverse=True)),
         'exif_artists': dict(sorted(exif_artists.items(), key=lambda x: x[1], reverse=True)),
         'preferred_photographers': dict(sorted(preferred_photographers.items(), key=lambda x: x[1], reverse=True)),
-        'equipment_fingerprints': fingerprints_list[:500],  # Top 500 fingerprints
+        'equipment_fingerprints': fingerprints_list,  # All fingerprints
         # Artist to agents lookup - for photographer->customer drill-down
         'artist_agents': artist_agents,
         # Store listings only for Tucson (smaller market) - Phoenix is too large

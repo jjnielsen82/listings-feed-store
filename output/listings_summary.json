@@ -1,8 +1,8 @@
 {
   "phoenix": {
-    "total": 105570,
+    "total": 105636,
     "by_status": {
-      "Active": 51615,
+      "Active": 51681,
       "Status": 1,
       "Temp Off Market": 1312,
       "Coming Soon": 639,
@@ -16,9 +16,9 @@
     "lp_matched": 5380
   },
   "tucson": {
-    "total": 23444,
+    "total": 23462,
     "by_status": {
-      "Active": 11394,
+      "Active": 11412,
       "Coming Soon": 84,
       "Pending": 642,
       "Closed": 7023,
@@ -30,12 +30,12 @@
       "Cancellation Provision": 11,
       "Signature Pending": 6
     },
-    "lp_matched": 2139
+    "lp_matched": 2136
   },
   "combined": {
-    "total": 129014,
-    "lp_matched": 7519
+    "total": 129098,
+    "lp_matched": 7516
   },
-  "updated": "2025-12-25T06:34:15.287959+00:00",
+  "updated": "2025-12-26T02:45:11.470761+00:00",
   "note": "Market-specific data in phx-internal/ and tuc-internal/ folders"
 }
