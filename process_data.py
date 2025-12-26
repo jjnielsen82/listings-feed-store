@@ -807,6 +807,17 @@ def build_photographer_analytics(rows: list, market_name: str) -> dict:
         'lp_listings': 0,
     }))
 
+    # Track camera to agents (who uses each camera model)
+    camera_to_agents = defaultdict(lambda: defaultdict(lambda: {
+        'count': 0,
+        'email': '',
+        'name': '',
+        'phone': '',
+        'office': '',
+        'total_listings': 0,
+        'lp_listings': 0,
+    }))
+
     # Track LP stats
     total_listings = 0
     lp_listings = 0
@@ -851,6 +862,13 @@ def build_photographer_analytics(rows: list, market_name: str) -> dict:
         # Track cameras and lenses
         if camera != '-':
             cameras[camera] += 1
+            # Track this agent as a user of this camera
+            cam_agent = camera_to_agents[camera][email]
+            cam_agent['count'] += 1
+            cam_agent['email'] = email
+            cam_agent['name'] = row.get('agent_name', '') or cam_agent['name']
+            cam_agent['phone'] = row.get('agent_phone', '') or cam_agent['phone']
+            cam_agent['office'] = row.get('office_name', '') or cam_agent['office']
         if lens != '-':
             lenses[lens] += 1
 
@@ -944,6 +962,25 @@ def build_photographer_analytics(rows: list, market_name: str) -> dict:
         # Store all agents per photographer
         artist_agents[artist] = agents_list
 
+    # Build camera_agents lookup - who uses each camera model
+    camera_agents = {}
+    for camera, agents_dict in camera_to_agents.items():
+        agents_list = []
+        for email, agent_data in agents_dict.items():
+            final_agent = agents_by_email.get(email, {})
+            agents_list.append({
+                'email': agent_data['email'],
+                'name': agent_data['name'],
+                'phone': agent_data['phone'],
+                'office': agent_data['office'],
+                'camera_listings': agent_data['count'],  # Listings with this camera
+                'total_listings': final_agent.get('total_listings', 0),
+                'lp_listings': final_agent.get('lp_listings', 0),
+            })
+        # Sort by camera_listings descending
+        agents_list.sort(key=lambda x: x['camera_listings'], reverse=True)
+        camera_agents[camera] = agents_list
+
     # Calculate market share stats
     total_agents = len(agents_by_email)
     agents_using_lp = len(agents_with_lp)
@@ -969,6 +1006,8 @@ def build_photographer_analytics(rows: list, market_name: str) -> dict:
         'equipment_fingerprints': fingerprints_list,  # All fingerprints
         # Artist to agents lookup - for photographer->customer drill-down
         'artist_agents': artist_agents,
+        # Camera to agents lookup - for camera->user drill-down
+        'camera_agents': camera_agents,
         # Store listings only for Tucson (smaller market) - Phoenix is too large
         'listings': listings if len(listings) < 30000 else [],
         'updated': datetime.now(timezone.utc).isoformat(),
