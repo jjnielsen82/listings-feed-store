@@ -1,0 +1,4 @@
+change_date,mls_number,old_status,new_status,address,formatted_address,agent_name,agent_email,agent_phone,price,list_date,days_on_market,lp_order,market
+2025-12-25,6958597,Active,Pending,"2338 W Lindner AVE 47, Mesa, AZ 85202",2338 w lindner ave 47 mesa az 85202,,,,"$263,900",12/17/2025,2,FALSE,Phoenix
+2025-12-25,6953830,Active,Pending,"438 LIESEN DR, Morristown, AZ 85342",438 liesen dr morristown az 85342,,,,"$280,000",12/03/2025,2,FALSE,Phoenix
+2025-12-25,6955607,Coming Soon,Active,"6941 E FLAT IRON CT, Gold Canyon, AZ 85118",6941 e flat iron ct gold canyon az 85118,,,,"$2,700,000",12/05/2025,5,FALSE,Phoenix
