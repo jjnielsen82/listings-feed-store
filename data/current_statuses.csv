@@ -244,6 +244,7 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 22531975,Active,"4315 N Alice Drive, Oracle, AZ 85623",4315 n alice drive oracle az 85623,"$49,000",,,,12/25/2025,8,Tucson
 22525027,Closed,"4126 S Evergreen Avenue, Tucson, AZ 85730",4126 s evergreen avenue tucson az 85730,"$230,000",,,,12/25/2025,51,Tucson
 22526125,Active,"15840 N Starboard, Tucson, AZ 85739",15840 n starboard tucson az 85739,"$330,000",,,,12/25/2025,78,Tucson
+22532373,Active,"126 E Mountain Morning Drive, Oro Valley, AZ 85737",126 e mountain morning drive oro valley az 85737,"$310,000",,,,12/26/2025,0,Tucson
 22528061,Withdrawn,"13242 N Flintlock Road, Marana, AZ 85653",13242 n flintlock road marana az 85653,"$274,900",,,,12/25/2025,58,Tucson
 22523820,Closed,"995 Jar Court, Rio Rico, AZ 85648",995 jar court rio rico az 85648,"$281,900",,,,12/25/2025,77,Tucson
 22529432,Active,"10421 E Haymarket Street, Tucson, AZ 85747",10421 e haymarket street tucson az 85747,"$310,000",,,,12/25/2025,43,Tucson
