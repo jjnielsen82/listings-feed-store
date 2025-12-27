@@ -10,6 +10,7 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6953283,Pending,"6975 N La Burma RD, Maricopa, AZ 85139",6975 n la burma rd maricopa az 85139,"$285,000",,,,12/02/2025,2,Phoenix
 6918458,Active,"16017 N NICKLAUS LN, Sun City, AZ 85351",16017 n nicklaus ln sun city az 85351,"$289,500",,,,09/10/2025,2,Phoenix
 6923535,Closed,"1671 N ARABIAN LN, Cochise, AZ 85606",1671 n arabian ln cochise az 85606,"$415,000",,,,09/20/2025,2,Phoenix
+6887964,Active,"5873 SATURN DR, Lakeside, AZ 85929",5873 saturn dr lakeside az 85929,"$330,000",,,,07/02/2025,2,Phoenix
 6909682,Pending,"1139 E OCOTILLO RD, Phoenix, AZ 85014",1139 e ocotillo rd phoenix az 85014,"$975,000",,,,08/22/2025,2,Phoenix
 6934692,Active,"4739 N SCOTTSDALE RD H2002, Scottsdale, AZ 85251",4739 n scottsdale rd h2002 scottsdale az 85251,"$799,999",,,,10/16/2025,2,Phoenix
 6889387,Closed,"4498 E DUBLIN ST, Gilbert, AZ 85295",4498 e dublin st gilbert az 85295,"$565,000",,,,07/07/2025,3,Phoenix
@@ -17,6 +18,7 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6961043,Coming Soon,"4064 E HALE CIR, Mesa, AZ 85205",4064 e hale cir mesa az 85205,"$1,100,000",,,,12/23/2025,6,Phoenix
 6950620,Pending,"5742 S WINCHESTER ST, Mesa, AZ 85212",5742 s winchester st mesa az 85212,"$550,000",,,,11/22/2025,2,Phoenix
 6955267,Pending,"950 Shangri La DR, Sedona, AZ 86336",950 shangri la dr sedona az 86336,"$899,000",,,,12/07/2025,3,Phoenix
+6927141,Active,"628 S 26TH ST S, Mesa, AZ 85204",628 s 26th st s mesa az 85204,"$468,000",,,,10/01/2025,2,Phoenix
 6961112,Active,"2335 E HIDALGO AVE, Phoenix, AZ 85040",2335 e hidalgo ave phoenix az 85040,"$349,000",,,,12/26/2025,3,Phoenix
 6914226,Pending,"6334 S BLAKE ST, Gilbert, AZ 85298",6334 s blake st gilbert az 85298,"$385,000",,,,09/03/2025,2,Phoenix
 6946435,Pending,"3122 E COTTON LN, Gilbert, AZ 85234",3122 e cotton ln gilbert az 85234,"$659,999",,,,11/12/2025,2,Phoenix
@@ -29,6 +31,7 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6947259,Closed,"4185 E KILLARNEY ST, Gilbert, AZ 85298",4185 e killarney st gilbert az 85298,"$542,500",,,,11/12/2025,3,Phoenix
 6938824,Active,"10614 N 103RD AVE, Sun City, AZ 85351",10614 n 103rd ave sun city az 85351,"$275,000",,,,10/26/2025,1,Phoenix
 6961135,Active,"34555 S K FIELD RD, Black Canyon City, AZ 85324",34555 s k field rd black canyon city az 85324,"$188,000",,,,12/26/2025,1,Phoenix
+6956296,Pending,"6709 N 51ST DR, Glendale, AZ 85301",6709 n 51st dr glendale az 85301,"$309,900",,,,12/10/2025,1,Phoenix
 6959957,Active,"10833 N 140TH WAY, Scottsdale, AZ 85259",10833 n 140th way scottsdale az 85259,"$1,420,000",,,,12/20/2025,4,Phoenix
 6925758,Active,"8559 W SUNNYSLOPE LN, Peoria, AZ 85345",8559 w sunnyslope ln peoria az 85345,"$399,900",,,,09/27/2025,2,Phoenix
 6921194,Cancelled,"7243 W SANDRA TER, Peoria, AZ 85382",7243 w sandra ter peoria az 85382,"$715,000",,,,09/17/2025,3,Phoenix
@@ -75,8 +78,10 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6942712,Pending,"16973 W ALLEN ST, Goodyear, AZ 85338",16973 w allen st goodyear az 85338,"$528,995",,,,11/04/2025,3,Phoenix
 6944159,Pending,"4816 W SAN GABRIEL AVE, Laveen, AZ 85339",4816 w san gabriel ave laveen az 85339,"$649,995",,,,11/07/2025,4,Phoenix
 6783917,Closed,"39980 W ELM DR, Maricopa, AZ 85138",39980 w elm dr maricopa az 85138,"$365,995",,,,11/14/2024,2,Phoenix
+6957637,Withdrawn,"11069 E KILAREA AVE E 191, Mesa, AZ 85209",11069 e kilarea ave e 191 mesa az 85209,"$375,000",,,,11/30/2025,2,Phoenix
 6895092,Closed,"3242 E KRISTAL WAY, Phoenix, AZ 85050",3242 e kristal way phoenix az 85050,"$400,000",,,,07/19/2025,2,Phoenix
 6959692,Pending,"4717 E DRAGOON AVE, Mesa, AZ 85206",4717 e dragoon ave mesa az 85206,"$259,999",,,,12/19/2025,1,Phoenix
+6891942,Active,"17200 W BELL RD 452, Surprise, AZ 85374",17200 w bell rd 452 surprise az 85374,"$214,900",,,,07/12/2025,2,Phoenix
 6949616,Pending,"4041 E LIBRA AVE, Gilbert, AZ 85234",4041 e libra ave gilbert az 85234,"$474,000",,,,11/20/2025,2,Phoenix
 6956812,Active,"13220 W MICHELTORENA DR, Sun City West, AZ 85375",13220 w micheltorena dr sun city west az 85375,"$875,000",,,,12/11/2025,3,Phoenix
 6961132,Coming Soon,"13600 N FOUNTAIN HILLS BLVD 805, Fountain Hills, AZ 85268",13600 n fountain hills blvd 805 fountain hills az 85268,"$624,900",,,,12/26/2025,3,Phoenix
@@ -86,6 +91,7 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6945473,Cancelled,"12048 N 40TH WAY, Phoenix, AZ 85028",12048 n 40th way phoenix az 85028,"$660,000",,,,11/10/2025,3,Phoenix
 6925479,Expired,"5518 W BELMONT AVE, Glendale, AZ 85301",5518 w belmont ave glendale az 85301,"$599,900",,,,09/26/2025,2,Phoenix
 6961018,Active,"1640 IRONMASTER ST, Sierra Vista, AZ 85635",1640 ironmaster st sierra vista az 85635,"$285,000",,,,12/26/2025,2,Phoenix
+6925980,Withdrawn,"3894 E MOUNTAIN VISTA RD, Hereford, AZ 85615",3894 e mountain vista rd hereford az 85615,"$450,000",,,,09/28/2025,2,Phoenix
 6898316,Closed,"5616 W INDIAN SCHOOL RD, Phoenix, AZ 85031",5616 w indian school rd phoenix az 85031,"$327,000",,,,07/28/2025,2,Phoenix
 6961004,Active,"14203 N 19TH AVE 2026, Phoenix, AZ 85023",14203 n 19th ave 2026 phoenix az 85023,"$205,000",,,,12/26/2025,2,Phoenix
 6926660,Pending,"3724 S 54TH GLN, Phoenix, AZ 85043",3724 s 54th gln phoenix az 85043,"$329,500",,,,09/30/2025,3,Phoenix
@@ -101,17 +107,22 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6805813,Closed,"1331 W BASELINE RD 251, Mesa, AZ 85202",1331 w baseline rd 251 mesa az 85202,"$280,000",,,,01/16/2025,3,Phoenix
 6947540,Active,"10572 E TIERRA BUENA LN, Scottsdale, AZ 85255",10572 e tierra buena ln scottsdale az 85255,"$825,000",,,,11/14/2025,2,Phoenix
 6961065,Coming Soon,"2546 N 9TH ST, Phoenix, AZ 85006",2546 n 9th st phoenix az 85006,"$799,000",,,,12/26/2025,5,Phoenix
+6919995,Cancelled,"12224 N DESERT SAGE DR, Fountain Hills, AZ 85268",12224 n desert sage dr fountain hills az 85268,"$699,000",,,,09/15/2025,2,Phoenix
 6954189,Active,"1529 S Mara DR, Apache Junction, AZ 85120",1529 s mara dr apache junction az 85120,"$355,000",,,,12/04/2025,2,Phoenix
 6958058,Active,"20331 N WAGNER WASH DR, Buckeye, AZ 85396",20331 n wagner wash dr buckeye az 85396,"$499,900",,,,12/15/2025,2,Phoenix
-6806960,Active,"9020 E BRITTLE BUSH RD, Gold Canyon, AZ 85118",9020 e brittle bush rd gold canyon az 85118,"$379,900",,,,01/17/2025,2,Phoenix
 6851953,Active,"377 W PINNACLE RIDGE DR, San Tan Valley, AZ 85140",377 w pinnacle ridge dr san tan valley az 85140,"$430,000",,,,04/15/2025,2,Phoenix
+6806960,Withdrawn,"9020 E BRITTLE BUSH RD, Gold Canyon, AZ 85118",9020 e brittle bush rd gold canyon az 85118,"$379,900",,,,01/17/2025,2,Phoenix
 6956594,Active,"3163 E MINERAL PARK RD, San Tan Valley, AZ 85143",3163 e mineral park rd san tan valley az 85143,"$499,900",,,,12/11/2025,4,Phoenix
+6961161,Coming Soon,"9010 W RUTH AVE, Peoria, AZ 85345",9010 w ruth ave peoria az 85345,"$564,900",,,,12/27/2025,4,Phoenix
 6958990,Pending,"16501 N 157TH AVE, Surprise, AZ 85374",16501 n 157th ave surprise az 85374,"$225,000",,,,12/18/2025,2,Phoenix
 6960924,Coming Soon,"8535 E AMELIA AVE, Scottsdale, AZ 85251",8535 e amelia ave scottsdale az 85251,"$789,000",,,,12/26/2025,4,Phoenix
 6872636,Active,"9130 W UTOPIA RD, Peoria, AZ 85382",9130 w utopia rd peoria az 85382,"$400,000",,,,05/29/2025,2,Phoenix
+6938274,Withdrawn,"7740 E GAINEY RANCH RD 51, Scottsdale, AZ 85258",7740 e gainey ranch rd 51 scottsdale az 85258,"$1,885,000",,,,10/24/2025,2,Phoenix
 6886228,Expired,"2715 N 73RD DR, Phoenix, AZ 85035",2715 n 73rd dr phoenix az 85035,"$344,000",,,,06/27/2025,3,Phoenix
 6953957,Active,"38 W VERNON AVE, Phoenix, AZ 85003",38 w vernon ave phoenix az 85003,"$1,600,000",,,,12/03/2025,3,Phoenix
+6961165,Coming Soon,"9826 E RADIOACTIVE DR, Mesa, AZ 85212",9826 e radioactive dr mesa az 85212,"$590,000",,,,12/27/2025,4,Phoenix
 6940243,Active,"17428 N 20th ST, Phoenix, AZ 85022",17428 n 20th st phoenix az 85022,"$379,825",,,,10/29/2025,2,Phoenix
+6894456,Pending,"931 W EMELITA CIR, Mesa, AZ 85210",931 w emelita cir mesa az 85210,"$284,900",,,,07/01/2025,2,Phoenix
 6958880,Pending,"20750 N 87th ST 1106, Scottsdale, AZ 85255",20750 n 87th st 1106 scottsdale az 85255,"$669,000",,,,12/17/2025,3,Phoenix
 6960927,Coming Soon,"14550 W GEORGIA AVE, Litchfield Park, AZ 85340",14550 w georgia ave litchfield park az 85340,"$899,999",,,,12/26/2025,4,Phoenix
 6922825,Pending,"8930 W OCOTILLO RD, Glendale, AZ 85305",8930 w ocotillo rd glendale az 85305,"$475,000",,,,09/20/2025,3,Phoenix
@@ -119,7 +130,9 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6952384,Active,"5539 E ARROYO VERDE DR, Paradise Valley, AZ 85253",5539 e arroyo verde dr paradise valley az 85253,"$2,700,000",,,,11/28/2025,3,Phoenix
 6840358,Active,"6340 W DONALD DR, Glendale, AZ 85310",6340 w donald dr glendale az 85310,"$849,000",,,,03/24/2025,3,Phoenix
 6960248,Active,"7940 E DARTMOUTH ST, Mesa, AZ 85207",7940 e dartmouth st mesa az 85207,"$495,000",,,,12/22/2025,2,Phoenix
+6834791,Active,"25515 N FOREST RD N 2, Rio Verde, AZ 85263",25515 n forest rd n 2 rio verde az 85263,"$395,000",,,,03/13/2025,2,Phoenix
 6960738,Active,"8649 E ROYAL PALM RD 232, Scottsdale, AZ 85258",8649 e royal palm rd 232 scottsdale az 85258,"$425,000",,,,12/24/2025,2,Phoenix
+6885997,Cancelled,"3842 W OCOTILLO RD, Phoenix, AZ 85019",3842 w ocotillo rd phoenix az 85019,"$360,000",,,,06/27/2025,2,Phoenix
 6897033,Active,"27829 N 162nd WAY, Scottsdale, AZ 85262",27829 n 162nd way scottsdale az 85262,"$1,195,000",,,,07/24/2025,4,Phoenix
 6961003,Active,"1036 E OAK RD, San Tan Valley, AZ 85140",1036 e oak rd san tan valley az 85140,"$525,000",,,,12/06/2025,3,Phoenix
 6961102,Active,"3332 E CANYON WAY, Chandler, AZ 85249",3332 e canyon way chandler az 85249,"$900,000",,,,12/26/2025,5,Phoenix
@@ -127,19 +140,24 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6942935,Pending,"10211 W Hilton AVE, Tolleson, AZ 85353",10211 w hilton ave tolleson az 85353,"$400,000",,,,11/03/2025,3,Phoenix
 6934435,Pending,"42938 W KINGFISHER DR, Maricopa, AZ 85138",42938 w kingfisher dr maricopa az 85138,"$447,500",,,,10/16/2025,2,Phoenix
 6875620,Active,"3624 N PASEO DEL SOL --, Mesa, AZ 85207",3624 n paseo del sol -- mesa az 85207,"$739,000",,,,06/04/2025,3,Phoenix
+6945032,Active,"35 W KAYETAN DR, Sierra Vista, AZ 85635",35 w kayetan dr sierra vista az 85635,"$230,000",,,,11/09/2025,2,Phoenix
 6958388,Withdrawn,"1678 E RAWHIDE ST, Gilbert, AZ 85296",1678 e rawhide st gilbert az 85296,"$779,900",,,,12/16/2025,4,Phoenix
+6954027,Closed,"1683 E KENT AVE, Chandler, AZ 85225",1683 e kent ave chandler az 85225,"$619,995",,,,12/04/2025,2,Phoenix
+6939581,Active,"4646 E SHADOW ROCK RD, Phoenix, AZ 85028",4646 e shadow rock rd phoenix az 85028,"$3,500,000",,,,10/28/2025,5,Phoenix
 6934306,Active,"1200 S Riordan Ranch ST 121, Flagstaff, AZ 86001",1200 s riordan ranch st 121 flagstaff az 86001,"$235,000",,,,10/16/2025,1,Phoenix
 6959501,Active,"507 W Philomena DR, Flagstaff, AZ 86001",507 w philomena dr flagstaff az 86001,"$725,000",,,,12/04/2025,2,Phoenix
 6954826,Closed,"3812 W BARBARA AVE, Phoenix, AZ 85051",3812 w barbara ave phoenix az 85051,"$264,000",,,,12/03/2025,2,Phoenix
 6899831,Closed,"636 E 6TH PL, Mesa, AZ 85203",636 e 6th pl mesa az 85203,"$635,000",,,,07/31/2025,3,Phoenix
 6809856,Cancelled,"2657 W SUPERSTITION BLVD, Apache Junction, AZ 85120",2657 w superstition blvd apache junction az 85120,"$267,500",,,,01/23/2025,2,Phoenix
 6925132,Active,"1266 E Donato DR, Gilbert, AZ 85298",1266 e donato dr gilbert az 85298,"$1,249,000",,,,09/26/2025,5,Phoenix
+6961156,Active,"571 W PORPHYRY ST, Superior, AZ 85173",571 w porphyry st superior az 85173,"$152,000",,,,12/27/2025,3,Phoenix
 6813742,Active,"12349 N 145TH AVE, Surprise, AZ 85379",12349 n 145th ave surprise az 85379,"$540,000",,,,01/31/2025,3,Phoenix
 6921055,Withdrawn,"10378 E RISING SUN PL, Gold Canyon, AZ 85118",10378 e rising sun pl gold canyon az 85118,"$409,000",,,,09/17/2025,2,Phoenix
 6961125,Coming Soon,"4628 W KINGS AVE, Glendale, AZ 85306",4628 w kings ave glendale az 85306,"$475,000",,,,12/26/2025,4,Phoenix
 6922458,Pending,"22374 N Dietz DR, Maricopa, AZ 85138",22374 n dietz dr maricopa az 85138,"$359,900",,,,09/19/2025,2,Phoenix
 6941010,Pending,"7575 E INDIAN BEND RD 2114, Scottsdale, AZ 85250",7575 e indian bend rd 2114 scottsdale az 85250,"$409,900",,,,10/31/2025,2,Phoenix
-6933569,Active,"3160 W RUTH AVE, Phoenix, AZ 85051",3160 w ruth ave phoenix az 85051,"$385,350",,,,10/15/2025,3,Phoenix
+6958916,Active,"4107 W WONDERVIEW RD, Phoenix, AZ 85019",4107 w wonderview rd phoenix az 85019,"$220,000",,,,12/17/2025,1,Phoenix
+6933569,Pending,"3160 W RUTH AVE, Phoenix, AZ 85051",3160 w ruth ave phoenix az 85051,"$385,350",,,,10/15/2025,3,Phoenix
 6957389,Active,"15303 E MELANIE DR, Scottsdale, AZ 85262",15303 e melanie dr scottsdale az 85262,"$1,235,000",,,,12/12/2025,3,Phoenix
 6882106,Expired,"22788 E ORION WAY, Queen Creek, AZ 85142",22788 e orion way queen creek az 85142,"$589,000",,,,06/05/2025,3,Phoenix
 6836107,Active,"2211 E CAMELBACK RD 605, Phoenix, AZ 85016",2211 e camelback rd 605 phoenix az 85016,"$1,550,000",,,,03/15/2025,3,Phoenix
@@ -149,6 +167,7 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6912336,Expired,"11865 W EDGEMONT AVE, Avondale, AZ 85392",11865 w edgemont ave avondale az 85392,"$344,849",,,,08/29/2025,2,Phoenix
 6909295,Closed,"31033 N 251ST AVE, Wittmann, AZ 85361",31033 n 251st ave wittmann az 85361,"$500,000",,,,08/22/2025,2,Phoenix
 6927464,Closed,"16176 W TONTO ST, Goodyear, AZ 85338",16176 w tonto st goodyear az 85338,"$342,000",,,,10/01/2025,2,Phoenix
+6921421,Pending,"2919 S CHATSWORTH --, Mesa, AZ 85212",2919 s chatsworth -- mesa az 85212,"$610,000",,,,09/18/2025,2,Phoenix
 6883056,Cancelled,"4346 S SYNAPSE DR, Mesa, AZ 85212",4346 s synapse dr mesa az 85212,"$630,000",,,,06/20/2025,3,Phoenix
 6960875,Pending,"8141 N CENTRAL AVE 9, Phoenix, AZ 85020",8141 n central ave 9 phoenix az 85020,"$312,000",,,,12/25/2025,1,Phoenix
 6960983,Active,"12728 E Kalil DR, Scottsdale, AZ 85259",12728 e kalil dr scottsdale az 85259,"$1,350,000",,,,12/26/2025,3,Phoenix
@@ -156,6 +175,10 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6932211,Active,"4429 E FRIESS DR, Phoenix, AZ 85032",4429 e friess dr phoenix az 85032,"$845,000",,,,10/10/2025,3,Phoenix
 6916310,Cancelled,"4032 N 11TH AVE, Phoenix, AZ 85013",4032 n 11th ave phoenix az 85013,"$589,088",,,,09/07/2025,3,Phoenix
 6875271,Closed,"2731 N 23RD AVE, Phoenix, AZ 85009",2731 n 23rd ave phoenix az 85009,"$510,000",,,,06/03/2025,3,Phoenix
+6961175,Active,"1346 W TIGUA WAY, Coolidge, AZ 85128",1346 w tigua way coolidge az 85128,"$338,225",,,,12/27/2025,2,Phoenix
+6961187,Active,"18003 W CALLE LEJOS RD, Surprise, AZ 85387",18003 w calle lejos rd surprise az 85387,"$375,010",,,,12/27/2025,2,Phoenix
+6961181,Active,"17991 W CALLE LEJOS RD, Surprise, AZ 85387",17991 w calle lejos rd surprise az 85387,"$398,610",,,,12/27/2025,2,Phoenix
+6951097,Pending,"1335 W AZTEC DR, Coolidge, AZ 85128",1335 w aztec dr coolidge az 85128,"$317,320",,,,11/24/2025,2,Phoenix
 6961085,Active,"12222 N PARADISE VILLAGE PKWY S 411, Phoenix, AZ 85032",12222 n paradise village pkwy s 411 phoenix az 85032,"$244,000",,,,12/26/2025,1,Phoenix
 6959903,Active,"18826 N 101ST PL, Scottsdale, AZ 85255",18826 n 101st pl scottsdale az 85255,"$5,100,000",,,,12/18/2025,4,Phoenix
 6961047,Active,"2110 W TALLGRASS TRL 132, Phoenix, AZ 85085",2110 w tallgrass trl 132 phoenix az 85085,"$355,000",,,,12/26/2025,2,Phoenix
@@ -169,7 +192,9 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6939885,Active,"3115 E CAMELLIA DR, Gilbert, AZ 85296",3115 e camellia dr gilbert az 85296,"$529,899",,,,10/29/2025,3,Phoenix
 6954593,Active,"254 W ORGAN PIPE DR, San Tan Valley, AZ 85140",254 w organ pipe dr san tan valley az 85140,"$460,000",,,,12/05/2025,3,Phoenix
 6960792,Active,"4093 S LAS VILLA WAY, Gold Canyon, AZ 85118",4093 s las villa way gold canyon az 85118,"$750,000",,,,12/23/2025,4,Phoenix
+6738279,Pending,"1517 W SAHUARO DR, Phoenix, AZ 85029",1517 w sahuaro dr phoenix az 85029,"$485,000",,,,08/01/2024,4,Phoenix
 6959364,Active,"20524 N SOJOURNER DR, Surprise, AZ 85387",20524 n sojourner dr surprise az 85387,"$399,000",,,,12/18/2025,2,Phoenix
+6900543,Withdrawn,"4831 W TURQUOISE AVE, Glendale, AZ 85302",4831 w turquoise ave glendale az 85302,"$410,000",,,,08/01/2025,2,Phoenix
 6960917,Active,"3703 W MCCAULEY CT, Phoenix, AZ 85086",3703 w mccauley ct phoenix az 85086,"$380,000",,,,12/26/2025,3,Phoenix
 6956086,Pending,"2437 E NORTH LN, Phoenix, AZ 85028",2437 e north ln phoenix az 85028,"$1,095,000",,,,12/09/2025,2,Phoenix
 6961071,Coming Soon,"12860 W JUNIPERO DR, Sun City West, AZ 85375",12860 w junipero dr sun city west az 85375,"$599,999",,,,12/23/2025,2,Phoenix
@@ -188,11 +213,12 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6944196,Closed,"9502 W PINERIDGE DR, Sun City, AZ 85351",9502 w pineridge dr sun city az 85351,"$330,000",,,,11/07/2025,2,Phoenix
 6878259,Active,"30128 W WELDON AVE, Buckeye, AZ 85396",30128 w weldon ave buckeye az 85396,"$364,900",,,,06/10/2025,2,Phoenix
 6922949,Active,"13248 N 88TH AVE, Peoria, AZ 85381",13248 n 88th ave peoria az 85381,"$310,000",,,,09/21/2025,2,Phoenix
+6874824,Pending,"28834 N 175th AVE, Surprise, AZ 85387",28834 n 175th ave surprise az 85387,"$609,999",,,,06/02/2025,2,Phoenix
 6930667,Active,"32746 N 73RD WAY, Scottsdale, AZ 85266",32746 n 73rd way scottsdale az 85266,"$1,099,000",,,,10/08/2025,2,Phoenix
 6953979,Pending,"10636 W BAYSIDE RD, Sun City, AZ 85351",10636 w bayside rd sun city az 85351,"$604,900",,,,12/03/2025,1,Phoenix
 6813030,Pending,"1032 W J WALTZ WAY, Apache Junction, AZ 85120",1032 w j waltz way apache junction az 85120,"$801,637",,,,01/30/2025,3,Phoenix
 6854910,Closed,"19949 W MARSHALL AVE, Litchfield Park, AZ 85340",19949 w marshall ave litchfield park az 85340,"$974,444",,,,04/21/2025,4,Phoenix
-6884944,Active,"18026 N CAVE CREEK RD 140, Phoenix, AZ 85032",18026 n cave creek rd 140 phoenix az 85032,"$85,000",,,,06/25/2025,2,Phoenix
+6884944,Active,"18026 N CAVE CREEK RD 140, Phoenix, AZ 85032",18026 n cave creek rd 140 phoenix az 85032,"$78,000",,,,06/25/2025,2,Phoenix
 6949639,Closed,"17375 W WHISPERING WIND DR, Surprise, AZ 85387",17375 w whispering wind dr surprise az 85387,"$333,000",,,,11/19/2025,2,Phoenix
 6946662,Closed,"9841 W CATALINA DR, Phoenix, AZ 85037",9841 w catalina dr phoenix az 85037,"$416,000",,,,11/13/2025,3,Phoenix
 6926770,Expired,"3145 W SANDRA TER, Phoenix, AZ 85053",3145 w sandra ter phoenix az 85053,"$615,000",,,,09/26/2025,3,Phoenix
@@ -200,10 +226,12 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6924025,Active,"920 W GRAND CAYMEN DR, Gilbert, AZ 85233",920 w grand caymen dr gilbert az 85233,"$739,999",,,,09/24/2025,3,Phoenix
 6943806,Cancelled,"11398 E DESERT VISTA RD, Scottsdale, AZ 85255",11398 e desert vista rd scottsdale az 85255,"$2,090,000",,,,11/06/2025,6,Phoenix
 6934707,Pending,"3535 W MONTE CRISTO AVE W 101, Phoenix, AZ 85053",3535 w monte cristo ave w 101 phoenix az 85053,"$268,977",,,,10/16/2025,2,Phoenix
+6961153,Active,"10536 W MAGNOLIA ST, Tolleson, AZ 85353",10536 w magnolia st tolleson az 85353,"$515,000",,,,12/27/2025,3,Phoenix
 6905946,Closed,"1255 N ARIZONA AVE 1062, Chandler, AZ 85225",1255 n arizona ave 1062 chandler az 85225,"$462,750",,,,08/14/2025,3,Phoenix
 6959902,Active,"914 S 132ND ST, Gilbert, AZ 85233",914 s 132nd st gilbert az 85233,"$1,050,000",,,,12/20/2025,3,Phoenix
 6930840,Pending,"25578 W ST CATHERINE AVE, Buckeye, AZ 85326",25578 w st catherine ave buckeye az 85326,"$330,000",,,,10/08/2025,2,Phoenix
 6947202,Pending,"32119 N 23rd AVE, Phoenix, AZ 85085",32119 n 23rd ave phoenix az 85085,"$579,000",,,,10/29/2025,2,Phoenix
+6952007,Active,"4992 E GOSS DR, Rimrock, AZ 86335",4992 e goss dr rimrock az 86335,"$318,900",,,,11/27/2025,2,Phoenix
 6959992,Withdrawn,"656 W JOHNSON DR, Gilbert, AZ 85233",656 w johnson dr gilbert az 85233,"$719,900",,,,12/19/2025,2,Phoenix
 6960006,Active,"1358 N RAVEN --, Mesa, AZ 85207",1358 n raven -- mesa az 85207,"$474,999",,,,12/20/2025,3,Phoenix
 6934725,Pending,"224 N 176TH LN, Goodyear, AZ 85338",224 n 176th ln goodyear az 85338,"$486,440",,,,10/16/2025,3,Phoenix
@@ -211,6 +239,7 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6960070,Active,"1392 E POWELL WAY, Chandler, AZ 85249",1392 e powell way chandler az 85249,"$959,990",,,,12/17/2025,4,Phoenix
 6961082,Active,"1524 E GARY WAY, Phoenix, AZ 85042",1524 e gary way phoenix az 85042,"$425,000",,,,12/26/2025,2,Phoenix
 6953794,Active,"15203 S 14TH PL, Phoenix, AZ 85048",15203 s 14th pl phoenix az 85048,"$540,000",,,,12/03/2025,3,Phoenix
+6948139,Active,"10626 W EMERALD PT, Sun City, AZ 85351",10626 w emerald pt sun city az 85351,"$725,000",,,,11/16/2025,3,Phoenix
 6927983,Closed,"9325 W ARROWHEAD DR 0, Sun City, AZ 85351",9325 w arrowhead dr 0 sun city az 85351,"$305,000",,,,10/02/2025,2,Phoenix
 6944415,Active,"5830 E MCKELLIPS RD 139, Mesa, AZ 85215",5830 e mckellips rd 139 mesa az 85215,"$362,500",,,,11/05/2025,2,Phoenix
 6949748,Pending,"930 S DOBSON RD 80, Mesa, AZ 85202",930 s dobson rd 80 mesa az 85202,"$225,000",,,,11/20/2025,2,Phoenix
@@ -237,6 +266,7 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6960894,Active,"4775 S DUSTY COYOTE TRL, Gold Canyon, AZ 85118",4775 s dusty coyote trl gold canyon az 85118,"$790,000",,,,12/26/2025,790,Phoenix
 6898349,Active,"35027 N EL Caminito --, San Tan Valley, AZ 85140",35027 n el caminito -- san tan valley az 85140,"$444,900",,,,07/28/2025,2,Phoenix
 6959044,Active,"13031 W SEVILLE DR, Sun City West, AZ 85375",13031 w seville dr sun city west az 85375,"$325,000",,,,12/18/2025,2,Phoenix
+6908328,Pending,"325 N FLYNN JANS CT, Pearce, AZ 85625",325 n flynn jans ct pearce az 85625,"$119,900",,,,08/20/2025,2,Phoenix
 6953128,Active,"15986 W QUAIL CREEK LN, Surprise, AZ 85374",15986 w quail creek ln surprise az 85374,"$399,000",,,,12/01/2025,2,Phoenix
 6960880,Active,"6990 E 6TH ST 1022, Scottsdale, AZ 85251",6990 e 6th st 1022 scottsdale az 85251,"$749,000",,,,12/26/2025,3,Phoenix
 6960995,Active,"4456 E HIDALGO AVE, Phoenix, AZ 85040",4456 e hidalgo ave phoenix az 85040,"$480,000",,,,12/26/2025,2,Phoenix
@@ -247,14 +277,20 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6961066,Active,"16809 W BRADFORD WAY W, Surprise, AZ 85374",16809 w bradford way w surprise az 85374,"$475,000",,,,12/26/2025,2,Phoenix
 6943666,Active,"14562 S 179TH AVE, Goodyear, AZ 85338",14562 s 179th ave goodyear az 85338,"$500,000",,,,11/06/2025,2,Phoenix
 6960975,Active,"7431 N ALSUP AVE, Litchfield Park, AZ 85340",7431 n alsup ave litchfield park az 85340,"$1,400,000",,,,12/26/2025,2,Phoenix
+6942294,Closed,"2353 N RICKE LN, Flagstaff, AZ 86004",2353 n ricke ln flagstaff az 86004,"$1,048,000",,,,11/03/2025,4,Phoenix
 6940573,Pending,"1014 E Osborn RD A, Phoenix, AZ 85014",1014 e osborn rd a phoenix az 85014,"$210,000",,,,10/30/2025,1,Phoenix
-6960889,Coming Soon,"5819 E LUDLOW DR, Scottsdale, AZ 85254",5819 e ludlow dr scottsdale az 85254,"$1,399,999",,,,12/25/2025,4,Phoenix
+6879942,Pending,"515 S SAGUARO WAY, Mesa, AZ 85208",515 s saguaro way mesa az 85208,"$189,000",,,,06/13/2025,1,Phoenix
+6960889,Active,"5819 E LUDLOW DR, Scottsdale, AZ 85254",5819 e ludlow dr scottsdale az 85254,"$1,399,999",,,,12/25/2025,3,Phoenix
 6960690,Active,"16937 W HOLLY ST, Goodyear, AZ 85395",16937 w holly st goodyear az 85395,"$485,000",,,,12/23/2025,2,Phoenix
+6877026,Pending,"1825 E HAMPTON LN 108, Gilbert, AZ 85295",1825 e hampton ln 108 gilbert az 85295,"$439,999",,,,06/06/2025,3,Phoenix
 6961092,Coming Soon,"15326 E Mustang DR, Fountain Hills, AZ 85268",15326 e mustang dr fountain hills az 85268,"$660,000",,,,12/26/2025,2,Phoenix
+6908824,Withdrawn,"2911 E Quiet Hollow LN, Phoenix, AZ 85024",2911 e quiet hollow ln phoenix az 85024,"$670,000",,,,08/21/2025,2,Phoenix
+6895532,Closed,"29543 N Cherokee TRL, Florence, AZ 85132",29543 n cherokee trl florence az 85132,"$780,000",,,,07/21/2025,3,Phoenix
 6942981,Pending,"25270 W PLEASANT LN, Buckeye, AZ 85326",25270 w pleasant ln buckeye az 85326,"$339,000",,,,11/05/2025,3,Phoenix
-6942960,Closed,"6923 W RANCHO DR, Glendale, AZ 85303",6923 w rancho dr glendale az 85303,"$372,000",,,,11/05/2025,3,Phoenix
+6942960,Pending,"6923 W RANCHO DR, Glendale, AZ 85303",6923 w rancho dr glendale az 85303,"$384,900",,,,11/05/2025,3,Phoenix
 6865114,Cancelled,"20411 W MOUNTAIN SAGE DR W, Buckeye, AZ 85326",20411 w mountain sage dr w buckeye az 85326,"$604,000",,,,05/11/2025,2,Phoenix
 6917086,Expired,"18017 W DESERT LN, Surprise, AZ 85388",18017 w desert ln surprise az 85388,"$469,900",,,,09/09/2025,3,Phoenix
+6880884,Active,"2269 W SILVER CREEK LN, San Tan Valley, AZ 85144",2269 w silver creek ln san tan valley az 85144,"$299,999",,,,06/16/2025,2,Phoenix
 6958343,Active,"1714 W HIDDENVIEW DR, Phoenix, AZ 85045",1714 w hiddenview dr phoenix az 85045,"$460,000",,,,12/16/2025,2,Phoenix
 6961094,Active,"12966 W CATALINA DR, Avondale, AZ 85392",12966 w catalina dr avondale az 85392,"$439,000",,,,12/26/2025,3,Phoenix
 6926862,Cancelled,"7569 W MAUI LN, Peoria, AZ 85381",7569 w maui ln peoria az 85381,"$539,900",,,,09/30/2025,2,Phoenix
@@ -271,8 +307,11 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6950564,Closed,"136 E SOLANO DR, Goodyear, AZ 85338",136 e solano dr goodyear az 85338,"$295,000",,,,11/21/2025,2,Phoenix
 6961020,Active,"20620 N 5TH DR, Phoenix, AZ 85027",20620 n 5th dr phoenix az 85027,"$350,000",,,,12/26/2025,2,Phoenix
 6961051,Active,"35740 S CALICO CIR, Wickenburg, AZ 85390",35740 s calico cir wickenburg az 85390,"$967,000",,,,12/26/2025,2,Phoenix
+6900989,Active,"16157 W CHRISTY DR, Surprise, AZ 85379",16157 w christy dr surprise az 85379,"$549,999",,,,08/03/2025,4,Phoenix
+6931285,Pending,"20418 N Kino DR, Surprise, AZ 85374",20418 n kino dr surprise az 85374,"$459,000",,,,10/09/2025,2,Phoenix
 6961025,Active,"11917 E MARIPOSA GRANDE DR, Scottsdale, AZ 85255",11917 e mariposa grande dr scottsdale az 85255,"$1,750,000",,,,12/26/2025,3,Phoenix
 6952350,Closed,"4225 W GRISWOLD RD, Phoenix, AZ 85051",4225 w griswold rd phoenix az 85051,"$265,000",,,,11/28/2025,2,Phoenix
+6961178,Coming Soon,"373 W THOMPSON PL, Chandler, AZ 85286",373 w thompson pl chandler az 85286,"$642,000",,,,12/27/2025,3,Phoenix
 6961144,Active,"1711 W LATHAM ST, Phoenix, AZ 85007",1711 w latham st phoenix az 85007,"$299,999",,,,12/19/2025,0,Phoenix
 6927634,Pending,"5164 S BARLEY WAY, Gilbert, AZ 85298",5164 s barley way gilbert az 85298,"$470,000",,,,10/02/2025,2,Phoenix
 6927802,Pending,"9929 S DUTCHMAN DR, Apache Junction, AZ 85120",9929 s dutchman dr apache junction az 85120,"$680,890",,,,10/02/2025,3,Phoenix
@@ -296,7 +335,9 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6960159,Active,"4813 W HAYWARD AVE, Glendale, AZ 85301",4813 w hayward ave glendale az 85301,"$465,000",,,,12/18/2025,2,Phoenix
 6961121,Active,"6168 E Starlight Ridge PKWY, Lakeside, AZ 85929",6168 e starlight ridge pkwy lakeside az 85929,"$360,000",,,,12/26/2025,3,Phoenix
 6952266,Pending,"740 W SARAGOSA ST, Chandler, AZ 85225",740 w saragosa st chandler az 85225,"$550,000",,,,11/28/2025,2,Phoenix
+6961155,Active,"38030 N FRONT RUNNER LN, San Tan Valley, AZ 85140",38030 n front runner ln san tan valley az 85140,"$395,000",,,,12/27/2025,2,Phoenix
 6954476,Active,"2556 S KEENE --, Mesa, AZ 85209",2556 s keene -- mesa az 85209,"$769,000",,,,12/04/2025,3,Phoenix
+6961152,Active,"19426 W WASHINGTON ST, Buckeye, AZ 85326",19426 w washington st buckeye az 85326,"$355,000",,,,12/26/2025,3,Phoenix
 6932721,Active,"2269 S OSBORN LN, Gilbert, AZ 85295",2269 s osborn ln gilbert az 85295,"$487,000",,,,10/12/2025,3,Phoenix
 6950473,Pending,"17754 W WOOD DR, Surprise, AZ 85388",17754 w wood dr surprise az 85388,"$785,000",,,,11/21/2025,4,Phoenix
 6853438,Active,"2346 E SYLVIA ST, Phoenix, AZ 85022",2346 e sylvia st phoenix az 85022,"$399,900",,,,04/17/2025,2,Phoenix
@@ -320,6 +361,7 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6876217,Closed,"19209 W ELM ST, Litchfield Park, AZ 85340",19209 w elm st litchfield park az 85340,"$440,000",,,,06/05/2025,5,Phoenix
 6834659,Closed,"4839 E MARILYN RD, Scottsdale, AZ 85254",4839 e marilyn rd scottsdale az 85254,"$795,000",,,,03/13/2025,2,Phoenix
 6909341,Cancelled,"10964 E KEATS AVE, Mesa, AZ 85209",10964 e keats ave mesa az 85209,"$418,000",,,,08/22/2025,2,Phoenix
+6960720,Active,"4322 W MONTE WAY, Laveen, AZ 85339",4322 w monte way laveen az 85339,"$455,000",,,,12/23/2025,4,Phoenix
 6961013,Active,"5735 E McDowell RD 243, Mesa, AZ 85215",5735 e mcdowell rd 243 mesa az 85215,"$225,000",,,,12/26/2025,2,Phoenix
 6957863,Active,"3334 N 42ND ST, Phoenix, AZ 85018",3334 n 42nd st phoenix az 85018,"$710,000",,,,12/15/2025,2,Phoenix
 6947990,Closed,"5839 N GALLERY LN, Prescott Valley, AZ 86314",5839 n gallery ln prescott valley az 86314,"$435,000",,,,11/16/2025,2,Phoenix
@@ -331,12 +373,14 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6927804,Active,"1945 COYOTE RD, Prescott, AZ 86303",1945 coyote rd prescott az 86303,"$650,000",,,,10/02/2025,3,Phoenix
 6855896,Pending,"7840 E CAMELBACK RD 110, Scottsdale, AZ 85251",7840 e camelback rd 110 scottsdale az 85251,"$249,900",,,,04/23/2025,2,Phoenix
 6961146,Active,"5239 N CELESTINE CT, Prescott Valley, AZ 86314",5239 n celestine ct prescott valley az 86314,"$387,900",,,,12/26/2025,2,Phoenix
+6961190,Coming Soon,"1303 S TUMBLEWEED CT, Chandler, AZ 85286",1303 s tumbleweed ct chandler az 85286,"$580,000",,,,12/27/2025,3,Phoenix
 6899694,Active,"3724 W BLOOMFIELD RD, Phoenix, AZ 85029",3724 w bloomfield rd phoenix az 85029,"$298,080",,,,07/31/2025,3,Phoenix
 6948481,Closed,"9804 W ATLANTIS WAY, Tolleson, AZ 85353",9804 w atlantis way tolleson az 85353,"$400,000",,,,11/17/2025,2,Phoenix
 6960893,Coming Soon,"16580 N 92ND ST 4001, Scottsdale, AZ 85260",16580 n 92nd st 4001 scottsdale az 85260,"$2,950,000",,,,12/26/2025,4,Phoenix
 6891945,Active,"720 E GOLDENROD ST, Phoenix, AZ 85048",720 e goldenrod st phoenix az 85048,"$699,000",,,,07/10/2025,2,Phoenix
 6954536,Active,"8250 E INVERNESS AVE, Mesa, AZ 85209",8250 e inverness ave mesa az 85209,"$424,900",,,,12/04/2025,3,Phoenix
 6960980,Coming Soon,"10046 E HUMMINGBIRD LN, Gold Canyon, AZ 85118",10046 e hummingbird ln gold canyon az 85118,"$1,495,000",,,,12/26/2025,4,Phoenix
+6960074,Active,"1735 LEISURE WORLD --, Mesa, AZ 85206",1735 leisure world -- mesa az 85206,"$310,000",,,,12/17/2025,2,Phoenix
 6950002,Pending,"3315 W TRONA DR, Eloy, AZ 85131",3315 w trona dr eloy az 85131,"$150,000",,,,11/14/2025,2,Phoenix
 6879376,Withdrawn,"4312 E ROMA AVE, Phoenix, AZ 85018",4312 e roma ave phoenix az 85018,"$1,225,000",,,,06/12/2025,3,Phoenix
 6923536,Active,"11594 W MOUNTAIN VIEW DR, Avondale, AZ 85323",11594 w mountain view dr avondale az 85323,"$399,000",,,,09/23/2025,4,Phoenix
@@ -345,6 +389,7 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6913720,Closed,"1601 N SABA ST 271, Chandler, AZ 85225",1601 n saba st 271 chandler az 85225,"$280,000",,,,09/02/2025,2,Phoenix
 6960929,Active,"20886 E VIA DE ARBOLES --, Queen Creek, AZ 85142",20886 e via de arboles -- queen creek az 85142,"$699,900",,,,12/22/2025,3,Phoenix
 6917586,Cancelled,"5923 E NORTH LN, Paradise Valley, AZ 85253",5923 e north ln paradise valley az 85253,"$2,999,000",,,,09/10/2025,5,Phoenix
+6913155,Closed,"5188 E PHILLIPS RD, Willcox, AZ 85643",5188 e phillips rd willcox az 85643,"$145,000",,,,08/29/2025,2,Phoenix
 6960969,Active,"18268 W AVENIDA DEL SOL --, Surprise, AZ 85387",18268 w avenida del sol -- surprise az 85387,"$424,990",,,,12/26/2025,3,Phoenix
 6961110,Active,"10153 N 156TH DR, Waddell, AZ 85355",10153 n 156th dr waddell az 85355,"$454,990",,,,12/26/2025,3,Phoenix
 6961063,Active,"9533 W TAMARISK AVE, Tolleson, AZ 85353",9533 w tamarisk ave tolleson az 85353,"$459,990",,,,12/26/2025,3,Phoenix
@@ -362,18 +407,24 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6870579,Closed,"4124 E INDIANOLA AVE, Phoenix, AZ 85018",4124 e indianola ave phoenix az 85018,"$1,500,000",,,,05/22/2025,5,Phoenix
 6899257,Closed,"15402 N 28TH ST 112, Phoenix, AZ 85032",15402 n 28th st 112 phoenix az 85032,"$160,000",,,,07/30/2025,2,Phoenix
 6943876,Closed,"19838 N PALO VERDE DR, Sun City, AZ 85373",19838 n palo verde dr sun city az 85373,"$359,000",,,,11/06/2025,2,Phoenix
+6961188,Active,"48346 N DURAN WAY, Gold Canyon, AZ 85118",48346 n duran way gold canyon az 85118,"$431,080",,,,12/27/2025,2,Phoenix
+6893992,Active,"824 E WASHINGTON ST, Avondale, AZ 85323",824 e washington st avondale az 85323,"$280,000",,,,07/17/2025,2,Phoenix
 6925867,Closed,"6915 E QUINCE ST, Mesa, AZ 85207",6915 e quince st mesa az 85207,"$730,000",,,,09/27/2025,3,Phoenix
+6961173,Coming Soon,"26638 W IRMA LN, Buckeye, AZ 85396",26638 w irma ln buckeye az 85396,"$389,900",,,,12/27/2025,2,Phoenix
 6931549,Closed,"9011 S DATELAND DR, Tempe, AZ 85284",9011 s dateland dr tempe az 85284,"$681,062",,,,10/09/2025,2,Phoenix
 6943100,Pending,"18145 E VENCINO ST, Gilbert, AZ 85298",18145 e vencino st gilbert az 85298,"$1,025,000",,,,11/05/2025,3,Phoenix
 6918229,Active,"1912 N WOODRUFF --, Mesa, AZ 85207",1912 n woodruff -- mesa az 85207,"$775,000",,,,09/11/2025,3,Phoenix
 6838654,Closed,"17633 W PALO VERDE DR, Litchfield Park, AZ 85340",17633 w palo verde dr litchfield park az 85340,"$559,990",,,,03/20/2025,4,Phoenix
+6961183,Active,"30609 N 144TH ST, Scottsdale, AZ 85262",30609 n 144th st scottsdale az 85262,"$3,695,000",,,,12/27/2025,8,Phoenix
 6944839,Pending,"2383 W JAKE HVN, Phoenix, AZ 85085",2383 w jake hvn phoenix az 85085,"$465,000",,,,11/08/2025,3,Phoenix
+6944227,Pending,"363 N 157TH LN, Goodyear, AZ 85338",363 n 157th ln goodyear az 85338,"$422,000",,,,11/07/2025,3,Phoenix
 6961046,Active,"16909 W GRANADA RD, Goodyear, AZ 85395",16909 w granada rd goodyear az 85395,"$525,000",,,,12/26/2025,2,Phoenix
 6947250,Active,"9762 E INGLEWOOD CIR, Mesa, AZ 85207",9762 e inglewood cir mesa az 85207,"$1,150,000",,,,11/14/2025,3,Phoenix
 6960992,Coming Soon,"5109 E PADDOCK PL, Scottsdale, AZ 85254",5109 e paddock pl scottsdale az 85254,"$859,000",,,,12/26/2025,4,Phoenix
 6960400,Active,"1555 S JACANA LN, Gilbert, AZ 85296",1555 s jacana ln gilbert az 85296,"$375,000",,,,12/20/2025,3,Phoenix
 6961127,Active,"5065 E BOULDER CANYON DR, Cornville, AZ 86325",5065 e boulder canyon dr cornville az 86325,"$565,000",,,,12/26/2025,2,Phoenix
 6947011,Active,"4752 E ENCANTO ST, Mesa, AZ 85205",4752 e encanto st mesa az 85205,"$479,000",,,,11/13/2025,2,Phoenix
+6961158,Active,"7452 E BAYWOOD AVE, Mesa, AZ 85208",7452 e baywood ave mesa az 85208,"$199,900",,,,12/26/2025,2,Phoenix
 6960347,Active,"9807 E BROKEN SPUR DR, Scottsdale, AZ 85262",9807 e broken spur dr scottsdale az 85262,"$3,150,000",,,,12/22/2025,4,Phoenix
 6960829,Active,"26034 S BRENTWOOD DR, Sun Lakes, AZ 85248",26034 s brentwood dr sun lakes az 85248,"$490,000",,,,12/24/2025,2,Phoenix
 6932803,Pending,"9119 E FAIRWAY BLVD, Sun Lakes, AZ 85248",9119 e fairway blvd sun lakes az 85248,"$414,000",,,,10/13/2025,2,Phoenix
@@ -390,11 +441,14 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6917713,Active,"9990 N SCOTTSDALE RD 3025, Paradise Valley, AZ 85253",9990 n scottsdale rd 3025 paradise valley az 85253,"$250,000",,,,09/10/2025,1,Phoenix
 6947157,Active,"4228 E AVALON DR, Phoenix, AZ 85018",4228 e avalon dr phoenix az 85018,"$2,175,000",,,,11/13/2025,5,Phoenix
 6960912,Active,"14365 N PLUMMET SHELL AVE, Marana, AZ 85658",14365 n plummet shell ave marana az 85658,"$340,000",,,,12/26/2025,2,Phoenix
+6961189,Active,"9027 S Palo Verde DR, Apache Junction, AZ 85120",9027 s palo verde dr apache junction az 85120,"$469,990",,,,12/27/2025,3,Phoenix
+6957341,Pending,"9109 S Palo Verde DR, Apache Junction, AZ 85120",9109 s palo verde dr apache junction az 85120,"$466,990",,,,12/12/2025,3,Phoenix
 6961133,Active,"20660 N 40TH ST 2155, Phoenix, AZ 85050",20660 n 40th st 2155 phoenix az 85050,"$450,000",,,,12/26/2025,2,Phoenix
 6860469,Active,"11889 N 113TH PL, Scottsdale, AZ 85259",11889 n 113th pl scottsdale az 85259,"$1,085,000",,,,05/02/2025,3,Phoenix
 6946524,Active,"40666 W CRANE DR, Maricopa, AZ 85138",40666 w crane dr maricopa az 85138,"$379,900",,,,11/13/2025,3,Phoenix
 6895843,Pending,"2721 E DRY CREEK RD, Phoenix, AZ 85048",2721 e dry creek rd phoenix az 85048,"$449,000",,,,07/22/2025,3,Phoenix
 6961109,Active,"19012 E Karsten DR, Queen Creek, AZ 85142",19012 e karsten dr queen creek az 85142,"$775,000",,,,12/26/2025,2,Phoenix
+6961171,Active,"3420 E GLENEAGLE PL, Chandler, AZ 85249",3420 e gleneagle pl chandler az 85249,"$415,000",,,,12/27/2025,2,Phoenix
 6960905,Active,"1311 N BANNING --, Mesa, AZ 85205",1311 n banning -- mesa az 85205,"$455,000",,,,12/26/2025,4,Phoenix
 6959327,Active,"13626 N 89TH ST, Scottsdale, AZ 85260",13626 n 89th st scottsdale az 85260,"$825,000",,,,12/18/2025,3,Phoenix
 6908085,Active,"4405 W HEYERDAHL DR, New River, AZ 85087",4405 w heyerdahl dr new river az 85087,"$425,000",,,,08/19/2025,3,Phoenix
@@ -408,12 +462,14 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6960834,Active,"311 14th TER, Bisbee, AZ 85603",311 14th ter bisbee az 85603,"$335,000",,,,12/21/2025,2,Phoenix
 6959872,Active,"3751 W WHITMAN DR, Anthem, AZ 85086",3751 w whitman dr anthem az 85086,"$550,000",,,,12/20/2025,3,Phoenix
 6949011,Pending,"7164 E CANYON WREN DR, Gold Canyon, AZ 85118",7164 e canyon wren dr gold canyon az 85118,"$465,000",,,,11/14/2025,2,Phoenix
+6961176,Active,"16237 S 13TH ST, Phoenix, AZ 85048",16237 s 13th st phoenix az 85048,"$675,000",,,,12/27/2025,3,Phoenix
 6960086,Active,"3130 E Squaw Peak CIR, Phoenix, AZ 85016",3130 e squaw peak cir phoenix az 85016,"$1,650,000",,,,12/21/2025,3,Phoenix
 6960971,Active,"5532 E SANNA ST, Paradise Valley, AZ 85253",5532 e sanna st paradise valley az 85253,"$4,395,000",,,,12/26/2025,4,Phoenix
 6887907,Expired,"5822 W ABRAHAM LN, Glendale, AZ 85308",5822 w abraham ln glendale az 85308,"$739,999",,,,07/02/2025,2,Phoenix
 6961036,Active,"18811 N 19TH AVE 2016, Phoenix, AZ 85027",18811 n 19th ave 2016 phoenix az 85027,"$199,900",,,,12/26/2025,2,Phoenix
 6961067,Active,"740 W ELM ST 160, Phoenix, AZ 85013",740 w elm st 160 phoenix az 85013,"$229,900",,,,12/26/2025,2,Phoenix
 6961059,Active,"8520 W PALM LN 1125, Phoenix, AZ 85037",8520 w palm ln 1125 phoenix az 85037,"$249,900",,,,12/26/2025,2,Phoenix
+6906715,Pending,"52772 W Quail CT, Maricopa, AZ 85139",52772 w quail ct maricopa az 85139,"$349,900",,,,08/15/2025,3,Phoenix
 6934651,Pending,"10701 W EL CAPITAN CIR, Sun City, AZ 85351",10701 w el capitan cir sun city az 85351,"$275,000",,,,10/07/2025,2,Phoenix
 6934619,Withdrawn,"2219 W PASO TRL, Phoenix, AZ 85085",2219 w paso trl phoenix az 85085,"$645,000",,,,10/16/2025,3,Phoenix
 6957894,Active,"8311 E MACKENZIE DR, Scottsdale, AZ 85251",8311 e mackenzie dr scottsdale az 85251,"$629,900",,,,12/12/2025,2,Phoenix
@@ -424,15 +480,20 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6940972,Pending,"2309 W YAHOO TRL, Phoenix, AZ 85085",2309 w yahoo trl phoenix az 85085,"$1,125,000",,,,10/29/2025,4,Phoenix
 6953825,Closed,"10548 W Crown King RD, Tolleson, AZ 85353",10548 w crown king rd tolleson az 85353,"$420,000",,,,12/02/2025,3,Phoenix
 6960973,Coming Soon,"11831 N 111TH PL, Scottsdale, AZ 85259",11831 n 111th pl scottsdale az 85259,"$745,000",,,,12/26/2025,3,Phoenix
+6961186,Active,"6718 W CATALINA DR, Phoenix, AZ 85033",6718 w catalina dr phoenix az 85033,"$355,000",,,,12/27/2025,2,Phoenix
 6956704,Active,"10301 N 70TH ST 106, Paradise Valley, AZ 85253",10301 n 70th st 106 paradise valley az 85253,"$310,000",,,,12/09/2025,1,Phoenix
+6956113,Pending,"31859 N 53RD ST, Cave Creek, AZ 85331",31859 n 53rd st cave creek az 85331,"$1,098,000",,,,12/09/2025,3,Phoenix
 6950646,Active,"4749 E EDGEWOOD AVE, Mesa, AZ 85206",4749 e edgewood ave mesa az 85206,"$375,000",,,,11/22/2025,2,Phoenix
 6696296,Active,"320 S 11TH AVE, Show Low, AZ 85901",320 s 11th ave show low az 85901,"$300,000",,,,04/24/2024,2,Phoenix
+6961180,Active,"2045 S HILLCREST DR, Camp Verde, AZ 86322",2045 s hillcrest dr camp verde az 86322,"$650,000",,,,12/27/2025,2,Phoenix
 6906277,Closed,"3542 W NEW RIVER RD, New River, AZ 85087",3542 w new river rd new river az 85087,"$560,000",,,,08/15/2025,3,Phoenix
 6960998,Active,"2902 N 141ST AVE, Goodyear, AZ 85395",2902 n 141st ave goodyear az 85395,"$669,000",,,,12/26/2025,3,Phoenix
 6961124,Active,"8451 W DALEY LN, Peoria, AZ 85383",8451 w daley ln peoria az 85383,"$1,100,777",,,,12/26/2025,3,Phoenix
 6960946,Pending,"2409 W IRONWOOD DR, Chandler, AZ 85224",2409 w ironwood dr chandler az 85224,"$350,000",,,,12/26/2025,2,Phoenix
-6960541,Active,"1633 E WESLEYAN DR E, Tempe, AZ 85282",1633 e wesleyan dr e tempe az 85282,"$500,000",,,,12/22/2025,2,Phoenix
+6961151,Coming Soon,"10408 W BURNETT RD, Peoria, AZ 85382",10408 w burnett rd peoria az 85382,"$315,000",,,,12/27/2025,2,Phoenix
 6911407,Active,"1046 E ELM ST, Phoenix, AZ 85014",1046 e elm st phoenix az 85014,"$539,500",,,,08/18/2025,2,Phoenix
+6960541,Withdrawn,"1633 E WESLEYAN DR E, Tempe, AZ 85282",1633 e wesleyan dr e tempe az 85282,"$500,000",,,,12/22/2025,2,Phoenix
+6951592,Pending,"13430 W PORT ROYALE LN, Surprise, AZ 85379",13430 w port royale ln surprise az 85379,"$365,000",,,,11/25/2025,2,Phoenix
 6961030,Coming Soon,"68 E CALLE DE ARCOS --, Tempe, AZ 85284",68 e calle de arcos -- tempe az 85284,"$515,000",,,,12/26/2025,3,Phoenix
 6933619,Cancelled,"4415 W MORROW DR, Glendale, AZ 85308",4415 w morrow dr glendale az 85308,"$425,000",,,,09/26/2025,2,Phoenix
 6957611,Pending,"1815 W CITRUS WAY, Phoenix, AZ 85015",1815 w citrus way phoenix az 85015,"$339,900",,,,12/13/2025,2,Phoenix
@@ -440,12 +501,13 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6852347,Closed,"2250 E STATE AVE, Phoenix, AZ 85020",2250 e state ave phoenix az 85020,"$950,000",,,,04/16/2025,3,Phoenix
 6926842,Active,"7710 E MONICA DR, Scottsdale, AZ 85255",7710 e monica dr scottsdale az 85255,"$1,850,000",,,,09/30/2025,4,Phoenix
 6932024,Active,"1817 W HORSETAIL TRL, Phoenix, AZ 85085",1817 w horsetail trl phoenix az 85085,"$849,900",,,,10/10/2025,4,Phoenix
+6952158,Closed,"15534 E THISTLE DR, Fountain Hills, AZ 85268",15534 e thistle dr fountain hills az 85268,"$785,000",,,,11/28/2025,3,Phoenix
 6934259,Active,"814 N 82ND ST G108, Scottsdale, AZ 85257",814 n 82nd st g108 scottsdale az 85257,"$132,000",,,,10/09/2025,1,Phoenix
 6928867,Active,"4870 N MEIXNER RD, Prescott Valley, AZ 86314",4870 n meixner rd prescott valley az 86314,"$499,000",,,,10/03/2025,2,Phoenix
 6949047,Active,"3350 W SPAULDING AVE, Apache Junction, AZ 85120",3350 w spaulding ave apache junction az 85120,"$448,350",,,,11/18/2025,2,Phoenix
 6947239,Withdrawn,"76 S NAPLES LN, Casa Grande, AZ 85122",76 s naples ln casa grande az 85122,"$389,000",,,,11/13/2025,3,Phoenix
 6930501,Pending,"25031 S DESERT TRAIL CT, Sun Lakes, AZ 85248",25031 s desert trail ct sun lakes az 85248,"$799,000",,,,10/07/2025,2,Phoenix
-6911174,Closed,"4614 S EULER LN, Mesa, AZ 85212",4614 s euler ln mesa az 85212,"$573,000",,,,08/27/2025,3,Phoenix
+6911174,Pending,"4614 S EULER LN, Mesa, AZ 85212",4614 s euler ln mesa az 85212,"$584,900",,,,08/27/2025,3,Phoenix
 6960945,Coming Soon,"9258 E DESERT VW, Scottsdale, AZ 85255",9258 e desert vw scottsdale az 85255,"$1,200,000",,,,12/26/2025,3,Phoenix
 6846037,Closed,"6908 W WANDA LYNN LN, Peoria, AZ 85382",6908 w wanda lynn ln peoria az 85382,"$412,000",,,,03/18/2025,2,Phoenix
 6961023,Coming Soon,"9083 E SANDS DR, Scottsdale, AZ 85255",9083 e sands dr scottsdale az 85255,"$3,400,000",,,,12/26/2025,5,Phoenix
@@ -468,12 +530,15 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6949980,Pending,"6221 N 20TH LN, Phoenix, AZ 85015",6221 n 20th ln phoenix az 85015,"$514,999",,,,11/20/2025,2,Phoenix
 6948936,Active,"3505 E CAMPBELL AVE 6, Phoenix, AZ 85018",3505 e campbell ave 6 phoenix az 85018,"$330,000",,,,11/17/2025,2,Phoenix
 6922494,Active,"2704 S 199TH AVE, Buckeye, AZ 85326",2704 s 199th ave buckeye az 85326,"$985,000",,,,09/19/2025,3,Phoenix
+6931018,Closed,"9250 W RUNION DR, Peoria, AZ 85382",9250 w runion dr peoria az 85382,"$440,000",,,,10/08/2025,2,Phoenix
 6859766,Cancelled,"20606 E AVENIDA DEL VALLE CT, Queen Creek, AZ 85142",20606 e avenida del valle ct queen creek az 85142,"$648,000",,,,04/23/2025,670,Phoenix
 6952333,Active,"1150 N 88TH ST, Mesa, AZ 85207",1150 n 88th st mesa az 85207,"$470,000",,,,11/28/2025,3,Phoenix
 6907601,Cancelled,"6113 E ATHENA RD, Florence, AZ 85132",6113 e athena rd florence az 85132,"$299,000",,,,08/04/2025,3,Phoenix
 6906479,Cancelled,"1615 W MORROW DR, Phoenix, AZ 85027",1615 w morrow dr phoenix az 85027,"$445,000",,,,08/15/2025,2,Phoenix
 6951408,Pending,"2514 E BROWNING PL, Chandler, AZ 85286",2514 e browning pl chandler az 85286,"$460,000",,,,11/25/2025,3,Phoenix
+6945792,Closed,"5505 E MCLELLAN RD 46, Mesa, AZ 85205",5505 e mclellan rd 46 mesa az 85205,"$390,000",,,,11/11/2025,2,Phoenix
 6945995,Pending,"6530 N 12TH ST 13, Phoenix, AZ 85014",6530 n 12th st 13 phoenix az 85014,"$225,000",,,,11/11/2025,2,Phoenix
+6907142,Pending,"455 W ORCHARD WAY, Gilbert, AZ 85233",455 w orchard way gilbert az 85233,"$598,000",,,,08/17/2025,3,Phoenix
 6944784,Closed,"20622 N 226TH LN, Surprise, AZ 85387",20622 n 226th ln surprise az 85387,"$419,990",,,,11/08/2025,3,Phoenix
 6861418,Closed,"8005 S 352ND LN, Tonopah, AZ 85354",8005 s 352nd ln tonopah az 85354,"$367,000",,,,05/02/2025,2,Phoenix
 6954520,Pending,"2114 N 69TH PL, Scottsdale, AZ 85257",2114 n 69th pl scottsdale az 85257,"$665,000",,,,12/03/2025,2,Phoenix
@@ -495,6 +560,7 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6956044,Pending,"2262 E LOCKWOOD ST, Mesa, AZ 85213",2262 e lockwood st mesa az 85213,"$520,000",,,,12/07/2025,2,Phoenix
 6961000,Active,"8403 N 33RD AVE N, Phoenix, AZ 85051",8403 n 33rd ave n phoenix az 85051,"$269,990",,,,12/26/2025,3,Phoenix
 6876647,Cancelled,"2471 W LODGEPOLE LN, Show Low, AZ 85901",2471 w lodgepole ln show low az 85901,"$429,900",,,,06/06/2025,2,Phoenix
+6849198,Active,"4950 N MILLER RD 212, Scottsdale, AZ 85251",4950 n miller rd 212 scottsdale az 85251,"$270,000",,,,04/10/2025,2,Phoenix
 6960963,Coming Soon,"9324 W VIA DEL SOL --, Peoria, AZ 85383",9324 w via del sol -- peoria az 85383,"$1,029,000",,,,12/17/2025,5,Phoenix
 6952737,Active,"9701 W GREENWAY RD, Sun City, AZ 85351",9701 w greenway rd sun city az 85351,"$349,900",,,,12/01/2025,2,Phoenix
 6879210,Expired,"38030 N FRONT RUNNER LN, San Tan Valley, AZ 85140",38030 n front runner ln san tan valley az 85140,"$392,999",,,,06/12/2025,2,Phoenix
@@ -504,13 +570,19 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6917029,Pending,"5915 E Calle Del Sud --, Phoenix, AZ 85018",5915 e calle del sud -- phoenix az 85018,"$7,995,000",,,,09/09/2025,7,Phoenix
 6906820,Withdrawn,"453 E WHITE WING DR, Casa Grande, AZ 85122",453 e white wing dr casa grande az 85122,"$405,000",,,,08/04/2025,3,Phoenix
 6961117,Coming Soon,"2810 E GLENROSA AVE 18, Phoenix, AZ 85016",2810 e glenrosa ave 18 phoenix az 85016,"$395,000",,,,12/26/2025,2,Phoenix
+6889600,Cancelled,"17376 W BAJADA RD, Surprise, AZ 85387",17376 w bajada rd surprise az 85387,"$399,000",,,,07/01/2025,2,Phoenix
+6961168,Active,"42805 N 7TH ST, New River, AZ 85087",42805 n 7th st new river az 85087,"$550,000",,,,12/20/2025,2,Phoenix
 6949824,Closed,"3860 E THORNTON AVE, Gilbert, AZ 85297",3860 e thornton ave gilbert az 85297,"$450,000",,,,11/20/2025,2,Phoenix
 6910707,Active,"16332 N 2ND DR, Phoenix, AZ 85023",16332 n 2nd dr phoenix az 85023,"$699,999",,,,08/26/2025,3,Phoenix
 6897955,Expired,"2221 N AVENIDA TABICA --, Green Valley, AZ 85614",2221 n avenida tabica -- green valley az 85614,"$299,999",,,,07/27/2025,2,Phoenix
 6960944,Active,"4400 W MISSOURI AVE OFC, Glendale, AZ 85301",4400 w missouri ave ofc glendale az 85301,"$99,900",,,,12/26/2025,2,Phoenix
 6923157,Active,"41721 W ANNE LN, Maricopa, AZ 85138",41721 w anne ln maricopa az 85138,"$399,999",,,,09/22/2025,2,Phoenix
 6961128,Active,"14950 W MOUNTAIN VIEW BLVD 5112, Surprise, AZ 85374",14950 w mountain view blvd 5112 surprise az 85374,"$259,000",,,,12/23/2025,2,Phoenix
+6950922,Withdrawn,"41907 N SPY GLASS DR, Phoenix, AZ 85086",41907 n spy glass dr phoenix az 85086,"$1,550,000",,,,11/24/2025,6,Phoenix
+6955039,Active,"7873 W ADOBE DR, Glendale, AZ 85308",7873 w adobe dr glendale az 85308,"$540,000",,,,12/06/2025,2,Phoenix
 6891702,Withdrawn,"1337 E NORTHSHORE DR, Tempe, AZ 85283",1337 e northshore dr tempe az 85283,"$780,000",,,,07/11/2025,3,Phoenix
+6961160,Coming Soon,"13723 W GREENVIEW DR, Sun City West, AZ 85375",13723 w greenview dr sun city west az 85375,"$394,900",,,,12/27/2025,2,Phoenix
+6935896,Closed,"2837 N 21ST ST, Phoenix, AZ 85006",2837 n 21st st phoenix az 85006,"$375,000",,,,10/18/2025,2,Phoenix
 6961120,Coming Soon,"1436 E LINDA DR, Casa Grande, AZ 85122",1436 e linda dr casa grande az 85122,"$350,000",,,,12/16/2025,3,Phoenix
 6961139,Active,"15675 N 29TH ST 21, Phoenix, AZ 85032",15675 n 29th st 21 phoenix az 85032,"$252,500",,,,12/26/2025,2,Phoenix
 6961115,Active,"641 W LINGER LN, Phoenix, AZ 85021",641 w linger ln phoenix az 85021,"$1,100,000",,,,12/26/2025,3,Phoenix
@@ -555,6 +627,7 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6961123,Coming Soon,"844 E SAN REMO AVE, Gilbert, AZ 85234",844 e san remo ave gilbert az 85234,"$670,000",,,,12/26/2025,5,Phoenix
 6961061,Coming Soon,"1137 LEISURE WORLD --, Mesa, AZ 85206",1137 leisure world -- mesa az 85206,"$550,000",,,,12/26/2025,3,Phoenix
 6961084,Coming Soon,"1902 E REDFIELD RD, Tempe, AZ 85283",1902 e redfield rd tempe az 85283,"$840,000",,,,12/26/2025,5,Phoenix
+6961162,Coming Soon,"8009 E NATAL AVE, Mesa, AZ 85209",8009 e natal ave mesa az 85209,"$559,900",,,,12/22/2025,2,Phoenix
 6896523,Pending,"7411 N Toya Vista RD, Payson, AZ 85541",7411 n toya vista rd payson az 85541,"$275,000",,,,07/23/2025,2,Phoenix
 6852962,Pending,"296 W Burtons LN, Tonto Basin, AZ 85553",296 w burtons ln tonto basin az 85553,"$449,900",,,,04/17/2025,3,Phoenix
 6919017,Closed,"29021 N 125TH DR, Peoria, AZ 85383",29021 n 125th dr peoria az 85383,"$408,500",,,,09/12/2025,4,Phoenix
@@ -580,12 +653,13 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6956688,Pending,"16229 S 33RD ST, Phoenix, AZ 85048",16229 s 33rd st phoenix az 85048,"$540,000",,,,12/11/2025,2,Phoenix
 6905142,Active,"1745 E SAN JUAN AVE, Phoenix, AZ 85016",1745 e san juan ave phoenix az 85016,"$899,990",,,,08/13/2025,4,Phoenix
 6960877,Coming Soon,"5608 W Soft Wind DR, Glendale, AZ 85310",5608 w soft wind dr glendale az 85310,"$1,725,000",,,,12/26/2025,7,Phoenix
-6923856,Closed,"9646 N 47TH AVE, Glendale, AZ 85302",9646 n 47th ave glendale az 85302,"$310,000",,,,09/23/2025,3,Phoenix
+6923856,Pending,"9646 N 47TH AVE, Glendale, AZ 85302",9646 n 47th ave glendale az 85302,"$375,000",,,,09/23/2025,3,Phoenix
 6961149,Coming Soon,"3327 S Felix WAY, Chandler, AZ 85248",3327 s felix way chandler az 85248,"$650,000",,,,12/27/2025,4,Phoenix
 6960916,Coming Soon,"5860 E BLUE OAK CT, Hereford, AZ 85615",5860 e blue oak ct hereford az 85615,"$475,000",,,,12/20/2025,3,Phoenix
 6930885,Pending,"426 S Taylors TRL, Sierra Vista, AZ 85635",426 s taylors trl sierra vista az 85635,"$185,000",,,,10/08/2025,2,Phoenix
 6892100,Active,"2412 S JOYCE LN, Pinetop, AZ 85935",2412 s joyce ln pinetop az 85935,"$254,500",,,,07/12/2025,2,Phoenix
 6946359,Active,"3732 E Altadena AVE, Phoenix, AZ 85028",3732 e altadena ave phoenix az 85028,"$585,000",,,,11/11/2025,2,Phoenix
+6954568,Active,"2186 SANTA FE TRL, Sierra Vista, AZ 85635",2186 santa fe trl sierra vista az 85635,"$315,000",,,,12/05/2025,2,Phoenix
 6891360,Active,"5536 N 375TH AVE, Tonopah, AZ 85354",5536 n 375th ave tonopah az 85354,"$480,000",,,,07/11/2025,3,Phoenix
 6961028,Active,"37911 W RANCHO DR, Tonopah, AZ 85354",37911 w rancho dr tonopah az 85354,"$520,000",,,,12/26/2025,2,Phoenix
 6934979,Active,"2453 N TRAVIS --, Mesa, AZ 85207",2453 n travis -- mesa az 85207,"$829,500",,,,10/17/2025,2,Phoenix
@@ -600,8 +674,17 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6945132,Closed,"2425 W HEDGEHOG PL, Phoenix, AZ 85085",2425 w hedgehog pl phoenix az 85085,"$559,900",,,,11/09/2025,2,Phoenix
 6797807,Expired,"10294 S FALL AVE, Yuma, AZ 85365",10294 s fall ave yuma az 85365,"$318,900",,,,12/27/2024,2,Phoenix
 6904088,Closed,"5689 E FLOWING SPRING --, Florence, AZ 85132",5689 e flowing spring -- florence az 85132,"$273,000",,,,08/09/2025,2,Phoenix
+6957261,Pending,"9019 S PALO VERDE DR, Apache Junction, AZ 85120",9019 s palo verde dr apache junction az 85120,"$389,990",,,,12/12/2025,2,Phoenix
+6884501,Pending,"2024 W Sheridan AVE, Apache Junction, AZ 85120",2024 w sheridan ave apache junction az 85120,"$419,990",,,,06/24/2025,3,Phoenix
+6957328,Pending,"9122 S Hohokam DR, Apache Junction, AZ 85120",9122 s hohokam dr apache junction az 85120,"$474,990",,,,12/12/2025,2,Phoenix
+6941437,Pending,"2263 W Sebring AVE, Apache Junction, AZ 85120",2263 w sebring ave apache junction az 85120,"$484,990",,,,10/31/2025,3,Phoenix
+6945481,Pending,"9368 S HOLANDES DR, Apache Junction, AZ 85120",9368 s holandes dr apache junction az 85120,"$504,990",,,,11/10/2025,2,Phoenix
+6936262,Closed,"2043 W Sentiero AVE, Apache Junction, AZ 85120",2043 w sentiero ave apache junction az 85120,"$412,990",,,,10/20/2025,2,Phoenix
+6937870,Closed,"9208 S HOLANDES DR, Apache Junction, AZ 85120",9208 s holandes dr apache junction az 85120,"$517,990",,,,10/23/2025,2,Phoenix
+6871501,Closed,"2118 W Starfire AVE, Apache Junction, AZ 85120",2118 w starfire ave apache junction az 85120,"$519,990",,,,05/26/2025,3,Phoenix
 6960904,Coming Soon,"4985 S LAS MANANITAS TRL, Gold Canyon, AZ 85118",4985 s las mananitas trl gold canyon az 85118,"$560,000",,,,12/24/2025,3,Phoenix
 6961005,Coming Soon,"5676 N 206TH LN, Buckeye, AZ 85396",5676 n 206th ln buckeye az 85396,"$700,000",,,,12/23/2025,2,Phoenix
+6881456,Withdrawn,"23370 N 175TH LN, Surprise, AZ 85387",23370 n 175th ln surprise az 85387,"$415,900",,,,06/17/2025,2,Phoenix
 6851912,Pending,"4949 E GARY ST, Mesa, AZ 85205",4949 e gary st mesa az 85205,"$529,000",,,,04/15/2025,3,Phoenix
 6910245,Expired,"328 S 98TH ST, Mesa, AZ 85208",328 s 98th st mesa az 85208,"$299,000",,,,08/24/2025,2,Phoenix
 6953173,Closed,"12450 S KOSH ST, Phoenix, AZ 85044",12450 s kosh st phoenix az 85044,"$399,000",,,,12/02/2025,2,Phoenix
@@ -612,6 +695,7 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6914159,Active,"30017 W AVALON DR, Buckeye, AZ 85396",30017 w avalon dr buckeye az 85396,"$439,000",,,,09/03/2025,3,Phoenix
 6876000,Closed,"6516 E ROCHELLE ST, Mesa, AZ 85215",6516 e rochelle st mesa az 85215,"$510,000",,,,06/05/2025,3,Phoenix
 6961098,Active,"3055 N RED MTN 148, Mesa, AZ 85207",3055 n red mtn 148 mesa az 85207,"$525,000",,,,12/10/2025,2,Phoenix
+6877236,Pending,"230 E FAIRMONT DR, Tempe, AZ 85282",230 e fairmont dr tempe az 85282,"$475,000",,,,06/07/2025,2,Phoenix
 6903202,Pending,"7126 W COLUMBINE DR, Peoria, AZ 85381",7126 w columbine dr peoria az 85381,"$565,000",,,,08/08/2025,2,Phoenix
 6938268,Withdrawn,"17828 N 48TH DR, Glendale, AZ 85308",17828 n 48th dr glendale az 85308,"$399,000",,,,10/23/2025,2,Phoenix
 6961015,Coming Soon,"12803 N 57th AVE, Glendale, AZ 85304",12803 n 57th ave glendale az 85304,"$580,000",,,,12/26/2025,4,Phoenix
@@ -625,6 +709,7 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6961080,Coming Soon,"12525 N 85TH ST, Scottsdale, AZ 85260",12525 n 85th st scottsdale az 85260,"$2,350,000",,,,12/26/2025,5,Phoenix
 6955363,Closed,"1609 W Capri AVE, Mesa, AZ 85202",1609 w capri ave mesa az 85202,"$294,000",,,,12/07/2025,2,Phoenix
 6805095,Active,"24604 W Duane LN, Wittmann, AZ 85361",24604 w duane ln wittmann az 85361,"$439,900",,,,01/15/2025,2,Phoenix
+6961154,Active,"132 E KANIKSU ST, Apache Junction, AZ 85119",132 e kaniksu st apache junction az 85119,"$995,000",,,,12/26/2025,3,Phoenix
 6961086,Active,"317 W VERDE DR, Taylor, AZ 85939",317 w verde dr taylor az 85939,"$310,000",,,,12/26/2025,2,Phoenix
 6946026,Active,"18108 W CASSIA WAY, Goodyear, AZ 85338",18108 w cassia way goodyear az 85338,"$714,999",,,,11/12/2025,3,Phoenix
 6937791,Closed,"6527 E Aspen AVE, Mesa, AZ 85206",6527 e aspen ave mesa az 85206,"$375,000",,,,10/18/2025,2,Phoenix
@@ -639,10 +724,14 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6961056,Active,"619 W CHIPMAN RD, Phoenix, AZ 85041",619 w chipman rd phoenix az 85041,"$315,000",,,,12/26/2025,3,Phoenix
 6961100,Active,"8042 S 25TH ST, Phoenix, AZ 85042",8042 s 25th st phoenix az 85042,"$395,000",,,,12/26/2025,3,Phoenix
 6960967,Active,"5263 E McDowell RD, Mesa, AZ 85215",5263 e mcdowell rd mesa az 85215,"$375,000",,,,12/26/2025,2,Phoenix
+6832921,Withdrawn,"2916 E Loma Alto DR, Douglas, AZ 85607",2916 e loma alto dr douglas az 85607,"$183,000",,,,03/10/2025,2,Phoenix
+6691599,Withdrawn,"5287 W HUDGINS RANCH RD, McNeal, AZ 85617",5287 w hudgins ranch rd mcneal az 85617,"$189,000",,,,04/14/2024,2,Phoenix
+6694898,Withdrawn,"2916 E Loma Alto DR, Douglas, AZ 85607",2916 e loma alto dr douglas az 85607,"$205,000",,,,04/21/2024,2,Phoenix
 6942959,Closed,"6339 W RANGE MULE DR, Phoenix, AZ 85083",6339 w range mule dr phoenix az 85083,"$562,400",,,,11/05/2025,3,Phoenix
 6960988,Active,"111 W CHAMBERS ST, Phoenix, AZ 85041",111 w chambers st phoenix az 85041,"$345,000",,,,12/26/2025,2,Phoenix
 6941705,Closed,"4509 N 20TH AVE, Phoenix, AZ 85015",4509 n 20th ave phoenix az 85015,"$390,000",,,,10/29/2025,3,Phoenix
 6958334,Active,"3033 N SAWYER --, Mesa, AZ 85207",3033 n sawyer -- mesa az 85207,"$799,000",,,,12/10/2025,3,Phoenix
+6936722,Pending,"7004 S 30TH AVE, Phoenix, AZ 85041",7004 s 30th ave phoenix az 85041,"$415,000",,,,10/21/2025,2,Phoenix
 6961031,Active,"3209 E MARILYN RD, Phoenix, AZ 85032",3209 e marilyn rd phoenix az 85032,"$459,900",,,,12/26/2025,3,Phoenix
 6960900,Active,"3213 N 49TH LN, Phoenix, AZ 85031",3213 n 49th ln phoenix az 85031,"$362,500",,,,12/26/2025,2,Phoenix
 6961042,Active,"32050 S Lisa DR, Black Canyon City, AZ 85324",32050 s lisa dr black canyon city az 85324,"$475,000",,,,12/26/2025,1,Phoenix
@@ -659,29 +748,36 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6960896,Active,"9990 N SCOTTSDALE RD 1014, Paradise Valley, AZ 85253",9990 n scottsdale rd 1014 paradise valley az 85253,"$299,000",,,,12/26/2025,1,Phoenix
 6961024,Coming Soon,"3284 W LOCKWOOD WAY, Flagstaff, AZ 86001",3284 w lockwood way flagstaff az 86001,"$800,000",,,,12/26/2025,3,Phoenix
 6943602,Closed,"2395 S POLARIS WAY, Flagstaff, AZ 86001",2395 s polaris way flagstaff az 86001,"$925,000",,,,11/06/2025,3,Phoenix
+6961164,Active,"4044 E CARSON RD, Phoenix, AZ 85042",4044 e carson rd phoenix az 85042,"$205,000",,,,12/27/2025,1,Phoenix
 6904968,Pending,"6726 E SHEA BLVD, Scottsdale, AZ 85254",6726 e shea blvd scottsdale az 85254,"$1,049,000",,,,08/12/2025,3,Phoenix
 6847289,Active,"9555 E RAINTREE DR E 2061, Scottsdale, AZ 85260",9555 e raintree dr e 2061 scottsdale az 85260,"$415,000",,,,04/06/2025,2,Phoenix
 6960295,Active,"1232 E MCLELLAN RD, Mesa, AZ 85203",1232 e mclellan rd mesa az 85203,"$400,000",,,,12/22/2025,2,Phoenix
 6927201,Pending,"8807 E SAGUARO BLOSSOM RD, Gold Canyon, AZ 85118",8807 e saguaro blossom rd gold canyon az 85118,"$560,000",,,,10/01/2025,2,Phoenix
 6960947,Active,"6842 N 10TH PL, Phoenix, AZ 85014",6842 n 10th pl phoenix az 85014,"$564,000",,,,12/26/2025,3,Phoenix
 6959167,Active,"948 S ASH AVE, Tempe, AZ 85281",948 s ash ave tempe az 85281,"$1,450,000",,,,12/18/2025,5,Phoenix
+6959517,Active,"10737 E TERRA DR, Scottsdale, AZ 85258",10737 e terra dr scottsdale az 85258,"$999,900",,,,12/19/2025,3,Phoenix
+6936096,Pending,"3846 S BUTTERCUP CIR, Mesa, AZ 85212",3846 s buttercup cir mesa az 85212,"$634,990",,,,10/20/2025,3,Phoenix
 6960884,Active,"1844 E PILGRAM ST, Casa Grande, AZ 85122",1844 e pilgram st casa grande az 85122,"$425,000",,,,12/26/2025,2,Phoenix
+6944957,Active,"614 N 110TH DR, Avondale, AZ 85323",614 n 110th dr avondale az 85323,"$399,999",,,,11/08/2025,3,Phoenix
 6961021,Active,"10262 W SNEAD CIR N, Sun City, AZ 85351",10262 w snead cir n sun city az 85351,"$235,000",,,,12/26/2025,2,Phoenix
 6961052,Active,"10281 E ANIKO DR, Scottsdale, AZ 85262",10281 e aniko dr scottsdale az 85262,"$5,750,000",,,,12/26/2025,6,Phoenix
 6957059,Active,"23065 E CARRIAGE WAY, Queen Creek, AZ 85142",23065 e carriage way queen creek az 85142,"$599,999",,,,12/12/2025,3,Phoenix
 6945640,Pending,"1825 E AIRE LIBRE AVE, Phoenix, AZ 85022",1825 e aire libre ave phoenix az 85022,"$449,900",,,,11/07/2025,2,Phoenix
 6943563,Active,"35802 N 7TH ST, Phoenix, AZ 85086",35802 n 7th st phoenix az 85086,"$725,000",,,,11/06/2025,2,Phoenix
+6949659,Pending,"10048 W PICCADILLY RD, Avondale, AZ 85392",10048 w piccadilly rd avondale az 85392,"$416,000",,,,11/20/2025,3,Phoenix
 6933100,Pending,"23165 W WINSLOW AVE, Buckeye, AZ 85326",23165 w winslow ave buckeye az 85326,"$459,990",,,,10/13/2025,3,Phoenix
 6938701,Pending,"216 W Fremont RD, Phoenix, AZ 85041",216 w fremont rd phoenix az 85041,"$850,000",,,,10/25/2025,6,Phoenix
 6960959,Active,"8414 N 32ND AVE, Phoenix, AZ 85051",8414 n 32nd ave phoenix az 85051,"$258,000",,,,12/26/2025,3,Phoenix
 6923385,Active,"1339 S 369th LN, Tonopah, AZ -",1339 s 369th ln tonopah az -,"$449,000",,,,09/23/2025,2,Phoenix
 6960937,Active,"101 W PARK AVE, Gilbert, AZ 85233",101 w park ave gilbert az 85233,"$425,000",,,,12/26/2025,2,Phoenix
 6919986,Closed,"6101 W MARLETTE AVE, Glendale, AZ 85301",6101 w marlette ave glendale az 85301,"$385,000",,,,09/15/2025,4,Phoenix
+6955979,Active,"4418 W JUDSON DR, New River, AZ 85087",4418 w judson dr new river az 85087,"$524,900",,,,12/09/2025,2,Phoenix
 6929489,Withdrawn,"10838 N 32ND LN, Phoenix, AZ 85029",10838 n 32nd ln phoenix az 85029,"$439,900",,,,10/05/2025,2,Phoenix
 6952836,Active,"6304 E FOREST PLEASANT PL, Cave Creek, AZ 85331",6304 e forest pleasant pl cave creek az 85331,"$2,395,000",,,,12/01/2025,4,Phoenix
 6948215,Active,"6417 N 52nd PL, Paradise Valley, AZ 85253",6417 n 52nd pl paradise valley az 85253,"$3,790,000",,,,11/17/2025,4,Phoenix
 6949605,Closed,"7062 W PALMAIRE AVE, Glendale, AZ 85303",7062 w palmaire ave glendale az 85303,"$356,000",,,,11/19/2025,2,Phoenix
 6937441,Closed,"616 S VERDE PL, Payson, AZ 85541",616 s verde pl payson az 85541,"$308,750",,,,10/21/2025,4,Phoenix
+6945182,Cancelled,"3749 E Laurel LN, Phoenix, AZ 85028",3749 e laurel ln phoenix az 85028,"$739,000",,,,11/10/2025,2,Phoenix
 6939299,Closed,"910 E YUMA CT, Florence, AZ 85132",910 e yuma ct florence az 85132,"$215,000",,,,10/27/2025,2,Phoenix
 6961045,Coming Soon,"18952 N 101ST ST 4, Scottsdale, AZ 85255",18952 n 101st st 4 scottsdale az 85255,"$3,200,000",,,,12/26/2025,4,Phoenix
 6960120,Active,"9155 E LEONORA ST, Mesa, AZ 85207",9155 e leonora st mesa az 85207,"$924,000",,,,12/21/2025,3,Phoenix
@@ -702,12 +798,16 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6960479,Active,"4228 N 44TH PL, Phoenix, AZ 85018",4228 n 44th pl phoenix az 85018,"$795,000",,,,12/23/2025,3,Phoenix
 6810573,Closed,"318 S ELLSWORTH RD, Mesa, AZ 85208",318 s ellsworth rd mesa az 85208,"$289,000",,,,01/24/2025,2,Phoenix
 6961062,Active,"7598 W JESSIE LN, Peoria, AZ 85383",7598 w jessie ln peoria az 85383,"$1,436,000",,,,12/26/2025,4,Phoenix
+6961169,Coming Soon,"3338 W CORRINE DR, Phoenix, AZ 85029",3338 w corrine dr phoenix az 85029,"$399,999",,,,12/27/2025,3,Phoenix
+6961157,Coming Soon,"8025 W Nicolet AVE, Glendale, AZ 85303",8025 w nicolet ave glendale az 85303,"$749,900",,,,12/26/2025,4,Phoenix
 6892475,Active,"3405 W DANBURY DR D121, Phoenix, AZ 85053",3405 w danbury dr d121 phoenix az 85053,"$185,000",,,,07/14/2025,2,Phoenix
 6947252,Pending,"1505 E CHIPMAN RD, Phoenix, AZ 85040",1505 e chipman rd phoenix az 85040,"$309,900",,,,11/14/2025,3,Phoenix
 6937777,Closed,"1033 N GRANITE REEF RD, Scottsdale, AZ 85257",1033 n granite reef rd scottsdale az 85257,"$305,000",,,,10/23/2025,2,Phoenix
 6943807,Cancelled,"3885 POSITANO PL 6, Sedona, AZ 86336",3885 positano pl 6 sedona az 86336,"$1,024,000",,,,11/06/2025,2,Phoenix
 6959546,Pending,"10629 E EL MORO AVE, Mesa, AZ 85208",10629 e el moro ave mesa az 85208,"$499,999",,,,12/19/2025,2,Phoenix
+6923926,Closed,"22461 E CAMINA PLATA --, Queen Creek, AZ 85142",22461 e camina plata -- queen creek az 85142,"$435,000",,,,09/24/2025,2,Phoenix
 6927116,Closed,"6906 W BUCKHORN TRL, Peoria, AZ 85383",6906 w buckhorn trl peoria az 85383,"$715,000",,,,10/01/2025,3,Phoenix
+6961166,Active,"26956 N SHIRLEY RD, San Tan Valley, AZ 85144",26956 n shirley rd san tan valley az 85144,"$400,000",,,,12/27/2025,1,Phoenix
 6883405,Closed,"4455 W HANNA DR, Eloy, AZ 85131",4455 w hanna dr eloy az 85131,"$255,000",,,,06/21/2025,2,Phoenix
 6960891,Coming Soon,"3146 E MONTEROSA ST, Phoenix, AZ 85016",3146 e monterosa st phoenix az 85016,"$1,045,000",,,,12/26/2025,4,Phoenix
 6915723,Cancelled,"9012 S 47TH PL, Phoenix, AZ 85044",9012 s 47th pl phoenix az 85044,"$537,900",,,,09/05/2025,2,Phoenix
@@ -721,6 +821,7 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6961107,Active,"7502 E THOMAS RD 109, Scottsdale, AZ 85251",7502 e thomas rd 109 scottsdale az 85251,"$218,000",,,,12/26/2025,1,Phoenix
 6957233,Active,"20121 N 76TH ST 2031, Scottsdale, AZ 85255",20121 n 76th st 2031 scottsdale az 85255,"$695,000",,,,12/12/2025,2,Phoenix
 6912339,Pending,"4256 N PARKWAY AVE, Scottsdale, AZ 85251",4256 n parkway ave scottsdale az 85251,"$539,900",,,,08/29/2025,3,Phoenix
+6961193,Coming Soon,"11064 E OLLA AVE, Mesa, AZ 85212",11064 e olla ave mesa az 85212,"$540,000",,,,12/27/2025,3,Phoenix
 6923362,Pending,"3329 E CAVE VIEW LN, Camp Verde, AZ 86322",3329 e cave view ln camp verde az 86322,"$319,999",,,,09/22/2025,2,Phoenix
 6944280,Active,"2748 S SAILORS WAY, Gilbert, AZ 85295",2748 s sailors way gilbert az 85295,"$559,499",,,,11/07/2025,3,Phoenix
 6953713,Withdrawn,"3734 W BECKER LN, Phoenix, AZ 85029",3734 w becker ln phoenix az 85029,"$379,000",,,,12/03/2025,2,Phoenix
@@ -731,6 +832,9 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6949195,Pending,"15312 W HERITAGE DR, Sun City West, AZ 85375",15312 w heritage dr sun city west az 85375,"$355,000",,,,11/19/2025,2,Phoenix
 6961088,Active,"5118 E SIERRA SUNSET TRL, Cave Creek, AZ 85331",5118 e sierra sunset trl cave creek az 85331,"$1,149,000",,,,12/26/2025,3,Phoenix
 6961012,Coming Soon,"1909 E VILLA THERESA DR, Phoenix, AZ 85022",1909 e villa theresa dr phoenix az 85022,"$436,000",,,,12/26/2025,3,Phoenix
+6929675,Withdrawn,"21122 W EDGEMONT AVE, Buckeye, AZ 85396",21122 w edgemont ave buckeye az 85396,"$779,900",,,,10/06/2025,3,Phoenix
+6954249,Active,"563 E KRISTA WAY, Tempe, AZ 85284",563 e krista way tempe az 85284,"$829,900",,,,12/04/2025,3,Phoenix
+6951889,Active,"2050 W STATE ROUTE 89A -- 141, Cottonwood, AZ 86326",2050 w state route 89a -- 141 cottonwood az 86326,"$198,000",,,,11/26/2025,2,Phoenix
 6958834,Withdrawn,"2938 N 61ST PL 212, Scottsdale, AZ 85251",2938 n 61st pl 212 scottsdale az 85251,"$325,000",,,,12/16/2025,2,Phoenix
 6951679,Active,"10080 E MOUNTAINVIEW LAKE DR 258, Scottsdale, AZ 85258",10080 e mountainview lake dr 258 scottsdale az 85258,"$650,000",,,,11/26/2025,2,Phoenix
 6926160,Active,"30 SUNSET LN, Elgin, AZ 85611",30 sunset ln elgin az 85611,"$250,000",,,,09/29/2025,2,Phoenix
@@ -742,150 +846,3 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6918374,Active,"27159 N 67TH ST, Scottsdale, AZ 85266",27159 n 67th st scottsdale az 85266,"$3,895,000",,,,09/11/2025,6,Phoenix
 6931933,Pending,"43415 N 22nd ST, New River, AZ 85087",43415 n 22nd st new river az 85087,"$674,900",,,,10/10/2025,3,Phoenix
 6960933,Active,"14820 N 35TH ST, Phoenix, AZ 85032",14820 n 35th st phoenix az 85032,"$515,000",,,,12/26/2025,2,Phoenix
-22517246,Expired,"30884 E Sianna Drive, Marana, AZ 85658",30884 e sianna drive marana az 85658,"$239,900",,,,12/26/2025,110,Tucson
-22532395,Active,"364 S Paseo Lobo, Green Valley, AZ 85614",364 s paseo lobo green valley az 85614,"$105,000",,,,12/26/2025,1,Tucson
-22522563,Active,"1600 N Wilmot Road 138, Tucson, AZ 85712",1600 n wilmot road 138 tucson az 85712,"$70,000",,,,12/26/2025,119,Tucson
-22511720,Active,"928 S 5th Avenue, Tucson, AZ 85701",928 s 5th avenue tucson az 85701,"$350,000",,,,12/26/2025,245,Tucson
-22529918,Cancelled,"430 S Paseo Sarta D, Green Valley, AZ 85614",430 s paseo sarta d green valley az 85614,"$163,000",,,,12/26/2025,29,Tucson
-22529072,Closed,"224 W McCourt, Willcox, AZ 85643",224 w mccourt willcox az 85643,"$110,000",,,,12/26/2025,5,Tucson
-22527065,Active,"4032 S Desert Spring Drive, Tucson, AZ 85730",4032 s desert spring drive tucson az 85730,"$209,900",,,,12/26/2025,70,Tucson
-22527414,Cancelled,"725 E 37th Street, Tucson, AZ 85713",725 e 37th street tucson az 85713,"$230,000",,,,12/26/2025,66,Tucson
-22526191,Pending,"612 W 2nd Avenue, San Manuel, AZ 85631",612 w 2nd avenue san manuel az 85631,"$75,899",,,,12/26/2025,79,Tucson
-22523032,Active,"7601 N Calle Sin Envidia 72, Tucson, AZ 85718",7601 n calle sin envidia 72 tucson az 85718,"$329,000",,,,12/26/2025,113,Tucson
-22530562,Withdrawn,"4271 N River Grove Circle APT 139, Tucson, AZ 85719",4271 n river grove circle apt 139 tucson az 85719,"$230,000",,,,12/26/2025,30,Tucson
-22524885,Closed,"541 W Pelaar Drive, Tucson, AZ 85705",541 w pelaar drive tucson az 85705,"$185,000",,,,12/26/2025,56,Tucson
-22528272,Pending,"2870 N Beverly Avenue, Tucson, AZ 85712",2870 n beverly avenue tucson az 85712,"$203,000",,,,12/26/2025,34,Tucson
-22532405,Active,"5051 N Sabino Canyon Road 1139, Tucson, AZ 85750",5051 n sabino canyon road 1139 tucson az 85750,"$254,900",,,,12/26/2025,1,Tucson
-22532389,Coming Soon,"5625 E 2nd Street, Tucson, AZ 85711",5625 e 2nd street tucson az 85711,"$250,000",,,,12/26/2025,0,Tucson
-22532417,Active,"2744 N Country Club Road 106, Tucson, AZ 85716",2744 n country club road 106 tucson az 85716,"$145,000",,,,12/26/2025,1,Tucson
-22532398,Active,"2550 E River Road 13305, Tucson, AZ 85718",2550 e river road 13305 tucson az 85718,"$295,000",,,,12/26/2025,1,Tucson
-22530223,Active,"362 N Calle Del Chancero, Green Valley, AZ 85614",362 n calle del chancero green valley az 85614,"$215,000",,,,12/26/2025,35,Tucson
-22532380,Active,"1007 E Mescal Drive, Sunsites, AZ 85625",1007 e mescal drive sunsites az 85625,"$190,000",,,,12/26/2025,1,Tucson
-22532402,Active,"948 W Ashworth Road, Green Valley, AZ 85614",948 w ashworth road green valley az 85614,"$290,000",,,,12/26/2025,1,Tucson
-22522329,Cancelled,"2833 S Full Moon Drive, Tucson, AZ 85713",2833 s full moon drive tucson az 85713,"$297,000",,,,12/26/2025,121,Tucson
-22524322,Closed,"2979 E Winterhaven Drive, Tucson, AZ 85716",2979 e winterhaven drive tucson az 85716,"$255,000",,,,12/26/2025,52,Tucson
-22532418,Coming Soon,"2162 E Barrett Lane, Tucson, AZ 85719",2162 e barrett lane tucson az 85719,"$390,000",,,,12/26/2025,0,Tucson
-22532373,Active,"126 E Mountain Morning Drive, Oro Valley, AZ 85704",126 e mountain morning drive oro valley az 85704,"$310,000",,,,12/26/2025,1,Tucson
-22527855,Cancelled,"838 Broken Hills Drive, Green Valley, AZ 85614",838 broken hills drive green valley az 85614,"$350,000",,,,12/26/2025,60,Tucson
-22532372,Active,"30660 S Osprey Drive, Oracle, AZ 85623",30660 s osprey drive oracle az 85623,"$399,000",,,,12/26/2025,1,Tucson
-22532378,Active,"2245 W Camino Amigo, Oracle, AZ 85623",2245 w camino amigo oracle az 85623,"$150,000",,,,12/26/2025,1,Tucson
-22531827,Pending,"2175 E Bluejay Vista Lane, Green Valley, AZ 85614",2175 e bluejay vista lane green valley az 85614,"$329,000",,,,12/26/2025,5,Tucson
-22519509,Closed,"4995 S Terrain Drive, Tucson, AZ 85746",4995 s terrain drive tucson az 85746,"$250,900",,,,12/26/2025,153,Tucson
-22508941,Closed,"4769 S Meadow Ridge Drive, Green Valley, AZ 85622",4769 s meadow ridge drive green valley az 85622,"$371,000",,,,12/26/2025,248,Tucson
-22525049,Expired,"13122 N Rivercane Loop, Marana, AZ 85658",13122 n rivercane loop marana az 85658,"$425,000",,,,12/26/2025,93,Tucson
-22506706,Active,"2090 E Buster Mountain Drive, Oro Valley, AZ 85755",2090 e buster mountain drive oro valley az 85755,"$459,000",,,,12/26/2025,277,Tucson
-22516940,Pending,"615 W Moorwood Street, Green Valley, AZ 85614",615 w moorwood street green valley az 85614,"$354,900",,,,12/26/2025,168,Tucson
-22526736,Cancelled,"2791 W Casas Circle, Tucson, AZ 85742",2791 w casas circle tucson az 85742,"$590,000",,,,12/26/2025,71,Tucson
-22530643,Active,"4938 W Desert Chicory Place, Marana, AZ 85658",4938 w desert chicory place marana az 85658,"$688,000",,,,12/26/2025,29,Tucson
-22527177,Active,"1006 N Paseo Iris, Green Valley, AZ 85614",1006 n paseo iris green valley az 85614,"$350,000",,,,12/26/2025,58,Tucson
-22530528,Pending,"1964 W Calle Estio, Green Valley, AZ 85622",1964 w calle estio green valley az 85622,"$375,000",,,,12/26/2025,12,Tucson
-22531902,Pending,"38015 S Samaniego Drive, Tucson, AZ 85739",38015 s samaniego drive tucson az 85739,"$422,000",,,,12/26/2025,10,Tucson
-22532407,Active,"1202 N La Canoa, Green Valley, AZ 85614",1202 n la canoa green valley az 85614,"$369,990",,,,12/26/2025,1,Tucson
-22525539,Active,"66220 E Mount Lemmon Lane, Tucson, AZ 85739",66220 e mount lemmon lane tucson az 85739,"$925,000",,,,12/26/2025,86,Tucson
-22532422,Coming Soon,"14663 N Silent Spring Place, Marana, AZ 85658",14663 n silent spring place marana az 85658,"$3,000,000",,,,12/27/2025,3,Tucson
-22526955,Closed,"6245 S Mark Road, Tucson, AZ 85757",6245 s mark road tucson az 85757,"$120,000",,,,12/26/2025,19,Tucson
-22529987,Active,"426 E Blacklidge Drive, Tucson, AZ 85705",426 e blacklidge drive tucson az 85705,"$175,000",,,,12/26/2025,24,Tucson
-22522519,Pending,"3013 E Blacklidge Drive, Tucson, AZ 85716",3013 e blacklidge drive tucson az 85716,"$210,000",,,,12/27/2025,99,Tucson
-22517229,Expired,"1130 E Spring Street, Tucson, AZ 85719",1130 e spring street tucson az 85719,"$345,000",,,,12/26/2025,184,Tucson
-22527655,Active,"12055 N Musket Road, Marana, AZ 85653",12055 n musket road marana az 85653,"$250,000",,,,12/26/2025,27,Tucson
-22532186,Active,"16880 S Country Club Road, Sahuarita, AZ 85629",16880 s country club road sahuarita az 85629,"$275,000",,,,12/26/2025,6,Tucson
-22532384,Active,"8825 E Fruit Tree Drive, Tucson, AZ 85730",8825 e fruit tree drive tucson az 85730,"$285,000",,,,12/26/2025,1,Tucson
-22522622,Pending,"3265 N Little Horse Drive, Tucson, AZ 85712",3265 n little horse drive tucson az 85712,"$295,000",,,,12/26/2025,89,Tucson
-22524729,Closed,"7501 W Teton Road, Tucson, AZ 85757",7501 w teton road tucson az 85757,"$285,000",,,,12/26/2025,66,Tucson
-22527784,Pending,"4243 E Los Robles Street, Tucson, AZ 85712",4243 e los robles street tucson az 85712,"$190,000",,,,12/26/2025,36,Tucson
-22520034,Closed,"3784 W Long Drive, Eloy, AZ 85131",3784 w long drive eloy az 85131,"$209,990",,,,12/26/2025,100,Tucson
-22527129,Closed,"6433 E Barnan Street, Tucson, AZ 85710",6433 e barnan street tucson az 85710,"$320,000",,,,12/26/2025,36,Tucson
-22514910,Closed,"1036 W Michigan Street, Tucson, AZ 85714",1036 w michigan street tucson az 85714,"$270,000",,,,12/26/2025,188,Tucson
-22518236,Expired,"11371 N Flat Granite Drive, Tucson, AZ 85737",11371 n flat granite drive tucson az 85737,"$370,000",,,,12/26/2025,149,Tucson
-22520180,Active,"6940 N Galaxy Place, Tucson, AZ 85741",6940 n galaxy place tucson az 85741,"$274,900",,,,12/26/2025,128,Tucson
-22518099,Closed,"11851 W Rancho Drive, Marana, AZ 85653",11851 w rancho drive marana az 85653,"$324,900",,,,12/26/2025,134,Tucson
-22529074,Closed,"17499 S Paseo Rondalla, Sahuarita, AZ 85629",17499 s paseo rondalla sahuarita az 85629,"$259,790",,,,12/26/2025,31,Tucson
-22532045,Active,"3592 W Sky Ridge Loop, Tucson, AZ 85742",3592 w sky ridge loop tucson az 85742,"$319,000",,,,12/26/2025,8,Tucson
-22526605,Active,"6275 W Velvet Senna Drive, Tucson, AZ 85757",6275 w velvet senna drive tucson az 85757,"$289,900",,,,12/26/2025,28,Tucson
-22525401,Active,"16536 S Paseo El Panal, Sahuarita, AZ 85629",16536 s paseo el panal sahuarita az 85629,"$264,000",,,,12/26/2025,27,Tucson
-22532397,Active,"2571 W Kippy Trail, Tucson, AZ 85745",2571 w kippy trail tucson az 85745,"$375,000",,,,12/26/2025,1,Tucson
-22532403,Active,"1030 S Barrel Cactus Ridge 120, Benson, AZ 85602",1030 s barrel cactus ridge 120 benson az 85602,"$270,000",,,,12/26/2025,1,Tucson
-22527891,Pending,"8771 E Crimson Snowberry Way, Vail, AZ 85641",8771 e crimson snowberry way vail az 85641,"$327,240",,,,12/26/2025,60,Tucson
-22529076,Closed,"17493 S Paseo Rondalla, Sahuarita, AZ 85629",17493 s paseo rondalla sahuarita az 85629,"$279,990",,,,12/26/2025,32,Tucson
-22519307,Cancelled,"2319 W Horseshoe Place, Tucson, AZ 85745",2319 w horseshoe place tucson az 85745,"$349,900",,,,12/26/2025,157,Tucson
-22532374,Active,"7364 E Placita Luz De La Luna, Tucson, AZ 85715",7364 e placita luz de la luna tucson az 85715,"$374,900",,,,12/26/2025,1,Tucson
-22532386,Active,"2383 E Precious Shard Court, Oro Valley, AZ 85755",2383 e precious shard court oro valley az 85755,"$425,000",,,,12/26/2025,1,Tucson
-22530743,Cancelled,"13625 E Crazy Horse Trail, Vail, AZ 85641",13625 e crazy horse trail vail az 85641,"$314,500",,,,12/26/2025,14,Tucson
-22518483,Pending,"12285 W Windchime Drive, Tucson, AZ 85743",12285 w windchime drive tucson az 85743,"$260,000",,,,12/27/2025,158,Tucson
-22528131,Closed,"12227 E Patricia Ann Drive, Vail, AZ 85641",12227 e patricia ann drive vail az 85641,"$342,900",,,,12/26/2025,10,Tucson
-22525512,Closed,"87 Avenida Pastor, Rio Rico, AZ 85648",87 avenida pastor rio rico az 85648,"$315,000",,,,12/26/2025,45,Tucson
-22526596,Pending,"6215 N Van Ark Road, Tucson, AZ 85743",6215 n van ark road tucson az 85743,"$324,900",,,,12/26/2025,194,Tucson
-22526388,Active,"6242 E Ship Rock Drive, Tucson, AZ 85756",6242 e ship rock drive tucson az 85756,"$237,000",,,,12/26/2025,77,Tucson
-22525321,Active,"30 Sunset Lane, Elgin, AZ 85611",30 sunset lane elgin az 85611,"$250,000",,,,12/26/2025,72,Tucson
-22510148,Closed,"24950 E Low Lane, Benson, AZ 85602",24950 e low lane benson az 85602,"$205,000",,,,12/26/2025,208,Tucson
-22527025,Closed,"1200 S Normandy Place, Tucson, AZ 85748",1200 s normandy place tucson az 85748,"$469,000",,,,12/26/2025,14,Tucson
-22526241,Active,"400 W Placita De La Poza, Tucson, AZ 85704",400 w placita de la poza tucson az 85704,"$530,000",,,,12/26/2025,67,Tucson
-22532385,Active,"8318 S Via De Ronaldo, Tucson, AZ 85747",8318 s via de ronaldo tucson az 85747,"$344,900",,,,12/26/2025,1,Tucson
-22524890,Closed,"3704 E Ellington Place, Tucson, AZ 85713",3704 e ellington place tucson az 85713,"$280,000",,,,12/26/2025,58,Tucson
-22430925,Expired,"10025 S Rolling Water Drive, Vail, AZ 85641",10025 s rolling water drive vail az 85641,"$489,990",,,,12/26/2025,366,Tucson
-22532419,Active,"105 E Manor View Road, Tucson, AZ 85756",105 e manor view road tucson az 85756,"$300,000",,,,12/26/2025,1,Tucson
-22532412,Active,"10158 E Fairway Heights Place, Tucson, AZ 85749",10158 e fairway heights place tucson az 85749,"$625,000",,,,12/26/2025,1,Tucson
-22530282,Pending,"9042 N Sanguine Drive, Tucson, AZ 85743",9042 n sanguine drive tucson az 85743,"$365,000",,,,12/26/2025,21,Tucson
-22526474,Closed,"2910 S Sunland Vista, Tucson, AZ 85713",2910 s sunland vista tucson az 85713,"$262,000",,,,12/26/2025,13,Tucson
-22531668,Active,"121 W Paseo Recortado, Green Valley, AZ 85614",121 w paseo recortado green valley az 85614,"$315,000",,,,12/26/2025,14,Tucson
-22532406,Active,"112 W Mountain Sage Drive, Oro Valley, AZ 85755",112 w mountain sage drive oro valley az 85755,"$549,900",,,,12/26/2025,1,Tucson
-22512540,Closed,"941 E Vault Mine Court, Green Valley, AZ 85614",941 e vault mine court green valley az 85614,"$428,020",,,,12/26/2025,173,Tucson
-22532415,Active,"7238 E Montecito Drive, Tucson, AZ 85710",7238 e montecito drive tucson az 85710,"$337,000",,,,12/27/2025,4,Tucson
-22525222,Expired,"8686 N Calle La Canoa, Tucson, AZ 85742",8686 n calle la canoa tucson az 85742,"$445,000",,,,12/26/2025,92,Tucson
-22532409,Active,"10187 E Watson Drive, Tucson, AZ 85730",10187 e watson drive tucson az 85730,"$399,900",,,,12/26/2025,1,Tucson
-22532383,Active,"1115 W Giaconda Way, Tucson, AZ 85704",1115 w giaconda way tucson az 85704,"$575,000",,,,12/26/2025,1,Tucson
-22430831,Expired,"1157 E Gerring Street E, Tucson, AZ 85713",1157 e gerring street e tucson az 85713,"$470,423",,,,12/26/2025,369,Tucson
-22521891,Active,"2488 W Chris Oliver Way, Tucson, AZ 85705",2488 w chris oliver way tucson az 85705,"$360,000",,,,12/26/2025,127,Tucson
-22527488,Active,"4645 N Black Rock Place, Tucson, AZ 85750",4645 n black rock place tucson az 85750,"$850,000",,,,12/26/2025,34,Tucson
-22430917,Expired,"9895 S Rolling Water Drive, Vail, AZ 85641",9895 s rolling water drive vail az 85641,"$629,490",,,,12/26/2025,366,Tucson
-22524110,Active,"5359 W Avenida Tierra Alta, Tucson, AZ 85742",5359 w avenida tierra alta tucson az 85742,"$578,000",,,,12/26/2025,100,Tucson
-22532400,Active,"3347 S Desert Scroll Place, Tucson, AZ 85735",3347 s desert scroll place tucson az 85735,"$379,900",,,,12/26/2025,1,Tucson
-22525276,Active,"969 Circulo Golondrina, Rio Rico, AZ 85648",969 circulo golondrina rio rico az 85648,"$300,000",,,,12/26/2025,90,Tucson
-22532307,Active,"2682 E Glen Canyon Road, Green Valley, AZ 85614",2682 e glen canyon road green valley az 85614,"$599,000",,,,12/26/2025,1,Tucson
-22516300,Withdrawn,"335 W Oak Hills Drive, Oracle, AZ 85623",335 w oak hills drive oracle az 85623,"$554,000",,,,12/26/2025,193,Tucson
-22532331,Active,"37467 S Ridgeview Boulevard, Tucson, AZ 85739",37467 s ridgeview boulevard tucson az 85739,"$699,000",,,,12/27/2025,0,Tucson
-22530464,Active,"1250 E El Conquistador Way, Tucson, AZ 85704",1250 e el conquistador way tucson az 85704,"$1,098,000",,,,12/26/2025,31,Tucson
-22529130,Closed,"8901 N Riviera Drive, Oro Valley, AZ 85704",8901 n riviera drive oro valley az 85704,"$635,000",,,,12/26/2025,5,Tucson
-22532310,Active,"6290 E Paseo Tierra Alta, Tucson, AZ 85715",6290 e paseo tierra alta tucson az 85715,"$815,000",,,,12/26/2025,3,Tucson
-22524922,Closed,"2880 W Coyote Desert Drive, Tucson, AZ 85755",2880 w coyote desert drive tucson az 85755,"$975,000",,,,12/26/2025,55,Tucson
-22527656,Active,"1814 W Tortolita Mountain Circle, Oro Valley, AZ 85755",1814 w tortolita mountain circle oro valley az 85755,"$2,350,000",,,,12/26/2025,55,Tucson
-22520954,Active,"104 S Casas Lindas Drive, Willcox, AZ 85643",104 s casas lindas drive willcox az 85643,"$179,500",,,,12/26/2025,110,Tucson
-22518281,Pending,"2864 N Xochipilli Drive, Tucson, AZ 85745",2864 n xochipilli drive tucson az 85745,"$310,000",,,,12/26/2025,170,Tucson
-22531287,Pending,"2081 W Cholla Vista Drive, Tucson, AZ 85704",2081 w cholla vista drive tucson az 85704,"$345,500",,,,12/26/2025,18,Tucson
-22532391,Active,"3080 W Cox Road, Willcox, AZ 85643",3080 w cox road willcox az 85643,"$379,900",,,,12/26/2025,25,Tucson
-22515972,Closed,"7051 E Rosewood Street, Tucson, AZ 85710",7051 e rosewood street tucson az 85710,"$295,000",,,,12/26/2025,159,Tucson
-22527646,Active,"535 W Elm Street, Nogales, AZ 85621",535 w elm street nogales az 85621,"$89,000",,,,12/26/2025,63,Tucson
-22532390,Active,"2036 S Avenida Ursa, Tucson, AZ 85710",2036 s avenida ursa tucson az 85710,"$320,000",,,,12/26/2025,1,Tucson
-22516541,Closed,"1517 W Oak Shadows Drive, Tucson, AZ 85737",1517 w oak shadows drive tucson az 85737,"$420,000",,,,12/26/2025,158,Tucson
-22529326,Active,"9557 N Patagonia Place, Tucson, AZ 85742",9557 n patagonia place tucson az 85742,"$445,000",,,,12/26/2025,45,Tucson
-22522305,Active,"12631 W Blue Aloe Street, Tucson, AZ 85735",12631 w blue aloe street tucson az 85735,"$260,000",,,,12/26/2025,123,Tucson
-22530507,Active,"3017 W Desert Glory Drive, Tucson, AZ 85745",3017 w desert glory drive tucson az 85745,"$497,000",,,,12/26/2025,31,Tucson
-22532388,Active,"7042 E Calle Ileo, Tucson, AZ 85710",7042 e calle ileo tucson az 85710,"$359,876",,,,12/26/2025,1,Tucson
-22526106,Active,"399 W Klinger Canyon Drive, Oro Valley, AZ 85755",399 w klinger canyon drive oro valley az 85755,"$492,000",,,,12/26/2025,77,Tucson
-22504164,Pending,"102 E Avenue H, San Manuel, AZ 85631",102 e avenue h san manuel az 85631,"$139,500",,,,12/26/2025,273,Tucson
-22532404,Active,"10916 W Claxton Drive, Marana, AZ 85653",10916 w claxton drive marana az 85653,"$385,000",,,,12/26/2025,1,Tucson
-22532379,Expired,"10138 E Sunrise Meadow Place, Tucson, AZ 85747",10138 e sunrise meadow place tucson az 85747,"$339,900",,,,12/26/2025,1,Tucson
-22527837,Active,"6330 N Orange Blossom Lane, Tucson, AZ 85741",6330 n orange blossom lane tucson az 85741,"$145,000",,,,12/26/2025,61,Tucson
-22532377,Active,"3318 W Orange Grove Road, Tucson, AZ 85741",3318 w orange grove road tucson az 85741,"$389,000",,,,12/26/2025,1,Tucson
-22532399,Active,"8729 E Stone Meadow Circle, Tucson, AZ 85730",8729 e stone meadow circle tucson az 85730,"$450,000",,,,12/26/2025,1,Tucson
-22530558,Closed,"2405 W Rubicon Sky Place, Oro Valley, AZ 85742",2405 w rubicon sky place oro valley az 85742,"$725,875",,,,12/26/2025,12,Tucson
-22522722,Closed,"298 Camino Josefina, Rio Rico, AZ 85648",298 camino josefina rio rico az 85648,"$750,000",,,,12/26/2025,67,Tucson
-22520526,Pending,"5578 W Red Racer Drive, Tucson, AZ 85742",5578 w red racer drive tucson az 85742,"$529,000",,,,12/26/2025,97,Tucson
-22531809,Pending,"5450 N Crescent Ridge Drive, Tucson, AZ 85718",5450 n crescent ridge drive tucson az 85718,"$640,000",,,,12/26/2025,3,Tucson
-22525143,Pending,"14053 E Race Horse Place, Vail, AZ 85641",14053 e race horse place vail az 85641,"$310,000",,,,12/26/2025,71,Tucson
-22532387,Active,"9505 S Quiet Dove Drive, Tucson, AZ 85747",9505 s quiet dove drive tucson az 85747,"$399,900",,,,12/26/2025,1,Tucson
-22531670,Active,"113 Sutter Place, Tubac, AZ 85646",113 sutter place tubac az 85646,"$585,000",,,,12/26/2025,14,Tucson
-22527299,Cancelled,"3431 N Tonto Place, Tucson, AZ 85750",3431 n tonto place tucson az 85750,"$494,900",,,,12/26/2025,63,Tucson
-22519968,Pending,"7182 W Irvington Road, Tucson, AZ 85735",7182 w irvington road tucson az 85735,"$599,000",,,,12/26/2025,84,Tucson
-22532392,Active,"12867 E Pantano View Drive, Vail, AZ 85641",12867 e pantano view drive vail az 85641,"$380,000",,,,12/26/2025,1,Tucson
-22529363,Active,"7831 S Walnutview Drive, Tucson, AZ 85757",7831 s walnutview drive tucson az 85757,"$409,000",,,,12/26/2025,28,Tucson
-22509239,Pending,"350 N Schrader Lane, Tucson, AZ 85748",350 n schrader lane tucson az 85748,"$625,000",,,,12/26/2025,152,Tucson
-22522046,Closed,"37286 S Copper Ridge Court, Tucson, AZ 85739",37286 s copper ridge court tucson az 85739,"$620,000",,,,12/26/2025,106,Tucson
-22532408,Active,"6025 E Center Village Drive, Tucson, AZ 85750",6025 e center village drive tucson az 85750,"$1,150,000",,,,12/26/2025,1,Tucson
-22529252,Closed,"4834 W Willow Wind Way, Tucson, AZ 85741",4834 w willow wind way tucson az 85741,"$610,000",,,,12/26/2025,15,Tucson
-22517580,Expired,"10577 S Sunshower Way, Vail, AZ 85641",10577 s sunshower way vail az 85641,"$499,500",,,,12/26/2025,23,Tucson
-22532396,Active,"8001 N Firethorn Avenue, Tucson, AZ 85741",8001 n firethorn avenue tucson az 85741,"$370,000",,,,12/26/2025,1,Tucson
-22524860,Cancelled,"918 W Calle Tipoy, Sahuarita, AZ 85629",918 w calle tipoy sahuarita az 85629,"$450,000",,,,12/26/2025,87,Tucson
-22511776,Closed,"5174 E AGAVE VISTA Drive, Tucson, AZ 85756",5174 e agave vista drive tucson az 85756,"$425,000",,,,12/26/2025,74,Tucson
-22528290,Active,"6445 N SilverSmith Place, Tucson, AZ 85750",6445 n silversmith place tucson az 85750,"$999,000",,,,12/26/2025,57,Tucson
-22532207,Active,"13465 E Joseph Mills Lane, Tucson, AZ 85747",13465 e joseph mills lane tucson az 85747,"$729,000",,,,12/26/2025,5,Tucson
