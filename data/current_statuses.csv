@@ -647,3 +647,135 @@ mls_number,status,address,formatted_address,price,agent_name,agent_email,agent_p
 6918374,Active,"27159 N 67TH ST, Scottsdale, AZ 85266",27159 n 67th st scottsdale az 85266,"$3,895,000",,,,09/11/2025,6,Phoenix
 6931933,Pending,"43415 N 22nd ST, New River, AZ 85087",43415 n 22nd st new river az 85087,"$674,900",,,,10/10/2025,3,Phoenix
 6960933,Active,"14820 N 35TH ST, Phoenix, AZ 85032",14820 n 35th st phoenix az 85032,"$515,000",,,,12/26/2025,2,Phoenix
+22532395,Active,"364 S Paseo Lobo, Green Valley, AZ 85614",364 s paseo lobo green valley az 85614,"$105,000",,,,12/26/2025,1,Tucson
+22522563,Active,"1600 N Wilmot Road 138, Tucson, AZ 85712",1600 n wilmot road 138 tucson az 85712,"$70,000",,,,12/26/2025,119,Tucson
+22511720,Active,"928 S 5th Avenue, Tucson, AZ 85701",928 s 5th avenue tucson az 85701,"$350,000",,,,12/26/2025,245,Tucson
+22529918,Cancelled,"430 S Paseo Sarta D, Green Valley, AZ 85614",430 s paseo sarta d green valley az 85614,"$163,000",,,,12/26/2025,29,Tucson
+22529072,Closed,"224 W McCourt, Willcox, AZ 85643",224 w mccourt willcox az 85643,"$110,000",,,,12/26/2025,5,Tucson
+22527065,Active,"4032 S Desert Spring Drive, Tucson, AZ 85730",4032 s desert spring drive tucson az 85730,"$209,900",,,,12/26/2025,70,Tucson
+22527414,Cancelled,"725 E 37th Street, Tucson, AZ 85713",725 e 37th street tucson az 85713,"$230,000",,,,12/26/2025,66,Tucson
+22526191,Pending,"612 W 2nd Avenue, San Manuel, AZ 85631",612 w 2nd avenue san manuel az 85631,"$75,899",,,,12/26/2025,79,Tucson
+22523032,Active,"7601 N Calle Sin Envidia 72, Tucson, AZ 85718",7601 n calle sin envidia 72 tucson az 85718,"$329,000",,,,12/26/2025,113,Tucson
+22530562,Withdrawn,"4271 N River Grove Circle APT 139, Tucson, AZ 85719",4271 n river grove circle apt 139 tucson az 85719,"$230,000",,,,12/26/2025,30,Tucson
+22524885,Closed,"541 W Pelaar Drive, Tucson, AZ 85705",541 w pelaar drive tucson az 85705,"$185,000",,,,12/26/2025,56,Tucson
+22528272,Pending,"2870 N Beverly Avenue, Tucson, AZ 85712",2870 n beverly avenue tucson az 85712,"$203,000",,,,12/26/2025,34,Tucson
+22532405,Active,"5051 N Sabino Canyon Road 1139, Tucson, AZ 85750",5051 n sabino canyon road 1139 tucson az 85750,"$254,900",,,,12/26/2025,1,Tucson
+22532389,Coming Soon,"5625 E 2nd Street, Tucson, AZ 85711",5625 e 2nd street tucson az 85711,"$250,000",,,,12/26/2025,0,Tucson
+22532417,Active,"2744 N Country Club Road 106, Tucson, AZ 85716",2744 n country club road 106 tucson az 85716,"$145,000",,,,12/26/2025,1,Tucson
+22532398,Active,"2550 E River Road 13305, Tucson, AZ 85718",2550 e river road 13305 tucson az 85718,"$295,000",,,,12/26/2025,1,Tucson
+22530223,Active,"362 N Calle Del Chancero, Green Valley, AZ 85614",362 n calle del chancero green valley az 85614,"$215,000",,,,12/26/2025,35,Tucson
+22532380,Active,"1007 E Mescal Drive, Sunsites, AZ 85625",1007 e mescal drive sunsites az 85625,"$190,000",,,,12/26/2025,1,Tucson
+22532402,Active,"948 W Ashworth Road, Green Valley, AZ 85614",948 w ashworth road green valley az 85614,"$290,000",,,,12/26/2025,1,Tucson
+22522329,Cancelled,"2833 S Full Moon Drive, Tucson, AZ 85713",2833 s full moon drive tucson az 85713,"$297,000",,,,12/26/2025,121,Tucson
+22524322,Closed,"2979 E Winterhaven Drive, Tucson, AZ 85716",2979 e winterhaven drive tucson az 85716,"$255,000",,,,12/26/2025,52,Tucson
+22532418,Coming Soon,"2162 E Barrett Lane, Tucson, AZ 85719",2162 e barrett lane tucson az 85719,"$390,000",,,,12/26/2025,0,Tucson
+22532373,Active,"126 E Mountain Morning Drive, Oro Valley, AZ 85704",126 e mountain morning drive oro valley az 85704,"$310,000",,,,12/26/2025,1,Tucson
+22527855,Cancelled,"838 Broken Hills Drive, Green Valley, AZ 85614",838 broken hills drive green valley az 85614,"$350,000",,,,12/26/2025,60,Tucson
+22532372,Active,"30660 S Osprey Drive, Oracle, AZ 85623",30660 s osprey drive oracle az 85623,"$399,000",,,,12/26/2025,1,Tucson
+22532378,Active,"2245 W Camino Amigo, Oracle, AZ 85623",2245 w camino amigo oracle az 85623,"$150,000",,,,12/26/2025,1,Tucson
+22531827,Pending,"2175 E Bluejay Vista Lane, Green Valley, AZ 85614",2175 e bluejay vista lane green valley az 85614,"$329,000",,,,12/26/2025,5,Tucson
+22519509,Closed,"4995 S Terrain Drive, Tucson, AZ 85746",4995 s terrain drive tucson az 85746,"$250,900",,,,12/26/2025,153,Tucson
+22508941,Closed,"4769 S Meadow Ridge Drive, Green Valley, AZ 85622",4769 s meadow ridge drive green valley az 85622,"$371,000",,,,12/26/2025,248,Tucson
+22506706,Active,"2090 E Buster Mountain Drive, Oro Valley, AZ 85755",2090 e buster mountain drive oro valley az 85755,"$459,000",,,,12/26/2025,277,Tucson
+22516940,Pending,"615 W Moorwood Street, Green Valley, AZ 85614",615 w moorwood street green valley az 85614,"$354,900",,,,12/26/2025,168,Tucson
+22526736,Cancelled,"2791 W Casas Circle, Tucson, AZ 85742",2791 w casas circle tucson az 85742,"$590,000",,,,12/26/2025,71,Tucson
+22530643,Active,"4938 W Desert Chicory Place, Marana, AZ 85658",4938 w desert chicory place marana az 85658,"$688,000",,,,12/26/2025,29,Tucson
+22527177,Active,"1006 N Paseo Iris, Green Valley, AZ 85614",1006 n paseo iris green valley az 85614,"$350,000",,,,12/26/2025,58,Tucson
+22530528,Pending,"1964 W Calle Estio, Green Valley, AZ 85622",1964 w calle estio green valley az 85622,"$375,000",,,,12/26/2025,12,Tucson
+22531902,Pending,"38015 S Samaniego Drive, Tucson, AZ 85739",38015 s samaniego drive tucson az 85739,"$422,000",,,,12/26/2025,10,Tucson
+22532407,Active,"1202 N La Canoa, Green Valley, AZ 85614",1202 n la canoa green valley az 85614,"$369,990",,,,12/26/2025,1,Tucson
+22525539,Active,"66220 E Mount Lemmon Lane, Tucson, AZ 85739",66220 e mount lemmon lane tucson az 85739,"$925,000",,,,12/26/2025,86,Tucson
+22526955,Closed,"6245 S Mark Road, Tucson, AZ 85757",6245 s mark road tucson az 85757,"$120,000",,,,12/26/2025,19,Tucson
+22527655,Active,"12055 N Musket Road, Marana, AZ 85653",12055 n musket road marana az 85653,"$250,000",,,,12/26/2025,27,Tucson
+22532186,Active,"16880 S Country Club Road, Sahuarita, AZ 85629",16880 s country club road sahuarita az 85629,"$275,000",,,,12/26/2025,6,Tucson
+22532384,Active,"8825 E Fruit Tree Drive, Tucson, AZ 85730",8825 e fruit tree drive tucson az 85730,"$285,000",,,,12/26/2025,1,Tucson
+22522622,Pending,"3265 N Little Horse Drive, Tucson, AZ 85712",3265 n little horse drive tucson az 85712,"$295,000",,,,12/26/2025,89,Tucson
+22524729,Closed,"7501 W Teton Road, Tucson, AZ 85757",7501 w teton road tucson az 85757,"$285,000",,,,12/26/2025,66,Tucson
+22527784,Pending,"4243 E Los Robles Street, Tucson, AZ 85712",4243 e los robles street tucson az 85712,"$190,000",,,,12/26/2025,36,Tucson
+22520034,Closed,"3784 W Long Drive, Eloy, AZ 85131",3784 w long drive eloy az 85131,"$209,990",,,,12/26/2025,100,Tucson
+22527129,Closed,"6433 E Barnan Street, Tucson, AZ 85710",6433 e barnan street tucson az 85710,"$320,000",,,,12/26/2025,36,Tucson
+22520180,Active,"6940 N Galaxy Place, Tucson, AZ 85741",6940 n galaxy place tucson az 85741,"$274,900",,,,12/26/2025,128,Tucson
+22518099,Closed,"11851 W Rancho Drive, Marana, AZ 85653",11851 w rancho drive marana az 85653,"$324,900",,,,12/26/2025,134,Tucson
+22529074,Closed,"17499 S Paseo Rondalla, Sahuarita, AZ 85629",17499 s paseo rondalla sahuarita az 85629,"$259,790",,,,12/26/2025,31,Tucson
+22532045,Active,"3592 W Sky Ridge Loop, Tucson, AZ 85742",3592 w sky ridge loop tucson az 85742,"$319,000",,,,12/26/2025,8,Tucson
+22526605,Active,"6275 W Velvet Senna Drive, Tucson, AZ 85757",6275 w velvet senna drive tucson az 85757,"$289,900",,,,12/26/2025,28,Tucson
+22525401,Active,"16536 S Paseo El Panal, Sahuarita, AZ 85629",16536 s paseo el panal sahuarita az 85629,"$264,000",,,,12/26/2025,27,Tucson
+22532397,Active,"2571 W Kippy Trail, Tucson, AZ 85745",2571 w kippy trail tucson az 85745,"$375,000",,,,12/26/2025,1,Tucson
+22532403,Active,"1030 S Barrel Cactus Ridge 120, Benson, AZ 85602",1030 s barrel cactus ridge 120 benson az 85602,"$270,000",,,,12/26/2025,1,Tucson
+22527891,Pending,"8771 E Crimson Snowberry Way, Vail, AZ 85641",8771 e crimson snowberry way vail az 85641,"$327,240",,,,12/26/2025,60,Tucson
+22529076,Closed,"17493 S Paseo Rondalla, Sahuarita, AZ 85629",17493 s paseo rondalla sahuarita az 85629,"$279,990",,,,12/26/2025,32,Tucson
+22519307,Cancelled,"2319 W Horseshoe Place, Tucson, AZ 85745",2319 w horseshoe place tucson az 85745,"$349,900",,,,12/26/2025,157,Tucson
+22532374,Active,"7364 E Placita Luz De La Luna, Tucson, AZ 85715",7364 e placita luz de la luna tucson az 85715,"$374,900",,,,12/26/2025,1,Tucson
+22532386,Active,"2383 E Precious Shard Court, Oro Valley, AZ 85755",2383 e precious shard court oro valley az 85755,"$425,000",,,,12/26/2025,1,Tucson
+22530743,Cancelled,"13625 E Crazy Horse Trail, Vail, AZ 85641",13625 e crazy horse trail vail az 85641,"$314,500",,,,12/26/2025,14,Tucson
+22528131,Closed,"12227 E Patricia Ann Drive, Vail, AZ 85641",12227 e patricia ann drive vail az 85641,"$342,900",,,,12/26/2025,10,Tucson
+22525512,Closed,"87 Avenida Pastor, Rio Rico, AZ 85648",87 avenida pastor rio rico az 85648,"$315,000",,,,12/26/2025,45,Tucson
+22526596,Pending,"6215 N Van Ark Road, Tucson, AZ 85743",6215 n van ark road tucson az 85743,"$324,900",,,,12/26/2025,194,Tucson
+22526388,Active,"6242 E Ship Rock Drive, Tucson, AZ 85756",6242 e ship rock drive tucson az 85756,"$237,000",,,,12/26/2025,77,Tucson
+22525321,Active,"30 Sunset Lane, Elgin, AZ 85611",30 sunset lane elgin az 85611,"$250,000",,,,12/26/2025,72,Tucson
+22510148,Closed,"24950 E Low Lane, Benson, AZ 85602",24950 e low lane benson az 85602,"$205,000",,,,12/26/2025,208,Tucson
+22527025,Closed,"1200 S Normandy Place, Tucson, AZ 85748",1200 s normandy place tucson az 85748,"$469,000",,,,12/26/2025,14,Tucson
+22526241,Active,"400 W Placita De La Poza, Tucson, AZ 85704",400 w placita de la poza tucson az 85704,"$530,000",,,,12/26/2025,67,Tucson
+22532385,Active,"8318 S Via De Ronaldo, Tucson, AZ 85747",8318 s via de ronaldo tucson az 85747,"$344,900",,,,12/26/2025,1,Tucson
+22524890,Closed,"3704 E Ellington Place, Tucson, AZ 85713",3704 e ellington place tucson az 85713,"$280,000",,,,12/26/2025,58,Tucson
+22532419,Active,"105 E Manor View Road, Tucson, AZ 85756",105 e manor view road tucson az 85756,"$300,000",,,,12/26/2025,1,Tucson
+22532412,Active,"10158 E Fairway Heights Place, Tucson, AZ 85749",10158 e fairway heights place tucson az 85749,"$625,000",,,,12/26/2025,1,Tucson
+22530282,Pending,"9042 N Sanguine Drive, Tucson, AZ 85743",9042 n sanguine drive tucson az 85743,"$365,000",,,,12/26/2025,21,Tucson
+22526474,Closed,"2910 S Sunland Vista, Tucson, AZ 85713",2910 s sunland vista tucson az 85713,"$262,000",,,,12/26/2025,13,Tucson
+22531668,Active,"121 W Paseo Recortado, Green Valley, AZ 85614",121 w paseo recortado green valley az 85614,"$315,000",,,,12/26/2025,14,Tucson
+22532406,Active,"112 W Mountain Sage Drive, Oro Valley, AZ 85755",112 w mountain sage drive oro valley az 85755,"$549,900",,,,12/26/2025,1,Tucson
+22512540,Closed,"941 E Vault Mine Court, Green Valley, AZ 85614",941 e vault mine court green valley az 85614,"$428,020",,,,12/26/2025,173,Tucson
+22532415,Coming Soon,"7238 E Montecito Drive, Tucson, AZ 85710",7238 e montecito drive tucson az 85710,"$337,000",,,,12/26/2025,0,Tucson
+22532409,Active,"10187 E Watson Drive, Tucson, AZ 85730",10187 e watson drive tucson az 85730,"$399,900",,,,12/26/2025,1,Tucson
+22532383,Active,"1115 W Giaconda Way, Tucson, AZ 85704",1115 w giaconda way tucson az 85704,"$575,000",,,,12/26/2025,1,Tucson
+22521891,Active,"2488 W Chris Oliver Way, Tucson, AZ 85705",2488 w chris oliver way tucson az 85705,"$360,000",,,,12/26/2025,127,Tucson
+22527488,Active,"4645 N Black Rock Place, Tucson, AZ 85750",4645 n black rock place tucson az 85750,"$850,000",,,,12/26/2025,34,Tucson
+22524110,Active,"5359 W Avenida Tierra Alta, Tucson, AZ 85742",5359 w avenida tierra alta tucson az 85742,"$578,000",,,,12/26/2025,100,Tucson
+22532400,Active,"3347 S Desert Scroll Place, Tucson, AZ 85735",3347 s desert scroll place tucson az 85735,"$379,900",,,,12/26/2025,1,Tucson
+22525276,Active,"969 Circulo Golondrina, Rio Rico, AZ 85648",969 circulo golondrina rio rico az 85648,"$300,000",,,,12/26/2025,90,Tucson
+22532307,Active,"2682 E Glen Canyon Road, Green Valley, AZ 85614",2682 e glen canyon road green valley az 85614,"$599,000",,,,12/26/2025,1,Tucson
+22516300,Withdrawn,"335 W Oak Hills Drive, Oracle, AZ 85623",335 w oak hills drive oracle az 85623,"$554,000",,,,12/26/2025,193,Tucson
+22530464,Active,"1250 E El Conquistador Way, Tucson, AZ 85704",1250 e el conquistador way tucson az 85704,"$1,098,000",,,,12/26/2025,31,Tucson
+22529130,Closed,"8901 N Riviera Drive, Oro Valley, AZ 85704",8901 n riviera drive oro valley az 85704,"$635,000",,,,12/26/2025,5,Tucson
+22532310,Active,"6290 E Paseo Tierra Alta, Tucson, AZ 85715",6290 e paseo tierra alta tucson az 85715,"$815,000",,,,12/26/2025,3,Tucson
+22524922,Closed,"2880 W Coyote Desert Drive, Tucson, AZ 85755",2880 w coyote desert drive tucson az 85755,"$975,000",,,,12/26/2025,55,Tucson
+22527656,Active,"1814 W Tortolita Mountain Circle, Oro Valley, AZ 85755",1814 w tortolita mountain circle oro valley az 85755,"$2,350,000",,,,12/26/2025,55,Tucson
+22520954,Active,"104 S Casas Lindas Drive, Willcox, AZ 85643",104 s casas lindas drive willcox az 85643,"$179,500",,,,12/26/2025,110,Tucson
+22518281,Pending,"2864 N Xochipilli Drive, Tucson, AZ 85745",2864 n xochipilli drive tucson az 85745,"$310,000",,,,12/26/2025,170,Tucson
+22531287,Pending,"2081 W Cholla Vista Drive, Tucson, AZ 85704",2081 w cholla vista drive tucson az 85704,"$345,500",,,,12/26/2025,18,Tucson
+22532391,Active,"3080 W Cox Road, Willcox, AZ 85643",3080 w cox road willcox az 85643,"$379,900",,,,12/26/2025,25,Tucson
+22515972,Closed,"7051 E Rosewood Street, Tucson, AZ 85710",7051 e rosewood street tucson az 85710,"$295,000",,,,12/26/2025,159,Tucson
+22527646,Active,"535 W Elm Street, Nogales, AZ 85621",535 w elm street nogales az 85621,"$89,000",,,,12/26/2025,63,Tucson
+22532390,Active,"2036 S Avenida Ursa, Tucson, AZ 85710",2036 s avenida ursa tucson az 85710,"$320,000",,,,12/26/2025,1,Tucson
+22516541,Closed,"1517 W Oak Shadows Drive, Tucson, AZ 85737",1517 w oak shadows drive tucson az 85737,"$420,000",,,,12/26/2025,158,Tucson
+22529326,Active,"9557 N Patagonia Place, Tucson, AZ 85742",9557 n patagonia place tucson az 85742,"$445,000",,,,12/26/2025,45,Tucson
+22522305,Active,"12631 W Blue Aloe Street, Tucson, AZ 85735",12631 w blue aloe street tucson az 85735,"$260,000",,,,12/26/2025,123,Tucson
+22530507,Active,"3017 W Desert Glory Drive, Tucson, AZ 85745",3017 w desert glory drive tucson az 85745,"$497,000",,,,12/26/2025,31,Tucson
+22532388,Active,"7042 E Calle Ileo, Tucson, AZ 85710",7042 e calle ileo tucson az 85710,"$359,876",,,,12/26/2025,1,Tucson
+22526106,Active,"399 W Klinger Canyon Drive, Oro Valley, AZ 85755",399 w klinger canyon drive oro valley az 85755,"$492,000",,,,12/26/2025,77,Tucson
+22504164,Pending,"102 E Avenue H, San Manuel, AZ 85631",102 e avenue h san manuel az 85631,"$139,500",,,,12/26/2025,273,Tucson
+22532404,Active,"10916 W Claxton Drive, Marana, AZ 85653",10916 w claxton drive marana az 85653,"$385,000",,,,12/26/2025,1,Tucson
+22532379,Active,"10138 E Sunrise Meadow Place, Tucson, AZ 85747",10138 e sunrise meadow place tucson az 85747,"$339,900",,,,12/26/2025,1,Tucson
+22527837,Active,"6330 N Orange Blossom Lane, Tucson, AZ 85741",6330 n orange blossom lane tucson az 85741,"$145,000",,,,12/26/2025,61,Tucson
+22532377,Active,"3318 W Orange Grove Road, Tucson, AZ 85741",3318 w orange grove road tucson az 85741,"$389,000",,,,12/26/2025,1,Tucson
+22532399,Active,"8729 E Stone Meadow Circle, Tucson, AZ 85730",8729 e stone meadow circle tucson az 85730,"$450,000",,,,12/26/2025,1,Tucson
+22530558,Closed,"2405 W Rubicon Sky Place, Oro Valley, AZ 85742",2405 w rubicon sky place oro valley az 85742,"$725,875",,,,12/26/2025,12,Tucson
+22522722,Closed,"298 Camino Josefina, Rio Rico, AZ 85648",298 camino josefina rio rico az 85648,"$750,000",,,,12/26/2025,67,Tucson
+22520526,Pending,"5578 W Red Racer Drive, Tucson, AZ 85742",5578 w red racer drive tucson az 85742,"$529,000",,,,12/26/2025,97,Tucson
+22531809,Pending,"5450 N Crescent Ridge Drive, Tucson, AZ 85718",5450 n crescent ridge drive tucson az 85718,"$640,000",,,,12/26/2025,3,Tucson
+22525143,Pending,"14053 E Race Horse Place, Vail, AZ 85641",14053 e race horse place vail az 85641,"$310,000",,,,12/26/2025,71,Tucson
+22532387,Active,"9505 S Quiet Dove Drive, Tucson, AZ 85747",9505 s quiet dove drive tucson az 85747,"$399,900",,,,12/26/2025,1,Tucson
+22531670,Active,"113 Sutter Place, Tubac, AZ 85646",113 sutter place tubac az 85646,"$585,000",,,,12/26/2025,14,Tucson
+22527299,Cancelled,"3431 N Tonto Place, Tucson, AZ 85750",3431 n tonto place tucson az 85750,"$494,900",,,,12/26/2025,63,Tucson
+22519968,Pending,"7182 W Irvington Road, Tucson, AZ 85735",7182 w irvington road tucson az 85735,"$599,000",,,,12/26/2025,84,Tucson
+22532392,Active,"12867 E Pantano View Drive, Vail, AZ 85641",12867 e pantano view drive vail az 85641,"$380,000",,,,12/26/2025,1,Tucson
+22529363,Active,"7831 S Walnutview Drive, Tucson, AZ 85757",7831 s walnutview drive tucson az 85757,"$409,000",,,,12/26/2025,28,Tucson
+22509239,Pending,"350 N Schrader Lane, Tucson, AZ 85748",350 n schrader lane tucson az 85748,"$625,000",,,,12/26/2025,152,Tucson
+22522046,Closed,"37286 S Copper Ridge Court, Tucson, AZ 85739",37286 s copper ridge court tucson az 85739,"$620,000",,,,12/26/2025,106,Tucson
+22532408,Active,"6025 E Center Village Drive, Tucson, AZ 85750",6025 e center village drive tucson az 85750,"$1,150,000",,,,12/26/2025,1,Tucson
+22529252,Closed,"4834 W Willow Wind Way, Tucson, AZ 85741",4834 w willow wind way tucson az 85741,"$610,000",,,,12/26/2025,15,Tucson
+22532396,Active,"8001 N Firethorn Avenue, Tucson, AZ 85741",8001 n firethorn avenue tucson az 85741,"$370,000",,,,12/26/2025,1,Tucson
+22524860,Cancelled,"918 W Calle Tipoy, Sahuarita, AZ 85629",918 w calle tipoy sahuarita az 85629,"$450,000",,,,12/26/2025,87,Tucson
+22511776,Closed,"5174 E AGAVE VISTA Drive, Tucson, AZ 85756",5174 e agave vista drive tucson az 85756,"$425,000",,,,12/26/2025,74,Tucson
+22528290,Active,"6445 N SilverSmith Place, Tucson, AZ 85750",6445 n silversmith place tucson az 85750,"$999,000",,,,12/26/2025,57,Tucson
+22532207,Active,"13465 E Joseph Mills Lane, Tucson, AZ 85747",13465 e joseph mills lane tucson az 85747,"$729,000",,,,12/26/2025,5,Tucson
