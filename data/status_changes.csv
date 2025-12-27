@@ -14,3 +14,11 @@ change_date,mls_number,old_status,new_status,address,formatted_address,agent_nam
 2025-12-26,6884944,Expired,Active,"18026 N CAVE CREEK RD 140, Phoenix, AZ 85032",18026 n cave creek rd 140 phoenix az 85032,,,,"$85,000",06/25/2025,2,FALSE,Phoenix
 2025-12-26,6961025,Coming Soon,Active,"11917 E MARIPOSA GRANDE DR, Scottsdale, AZ 85255",11917 e mariposa grande dr scottsdale az 85255,,,,"$1,750,000",12/26/2025,3,TRUE,Phoenix
 2025-12-26,6960874,Coming Soon,Active,"4244 E ASHLER HILLS DR, Cave Creek, AZ 85331",4244 e ashler hills dr cave creek az 85331,,,,"$875,000",12/25/2025,2,FALSE,Phoenix
+2025-12-27,6961003,Coming Soon,Active,"1036 E OAK RD, San Tan Valley, AZ 85140",1036 e oak rd san tan valley az 85140,,,,"$525,000",12/06/2025,3,FALSE,Phoenix
+2025-12-27,6960894,Coming Soon,Active,"4775 S DUSTY COYOTE TRL, Gold Canyon, AZ 85118",4775 s dusty coyote trl gold canyon az 85118,,,,"$790,000",12/26/2025,790,FALSE,Phoenix
+2025-12-27,6961020,Coming Soon,Active,"20620 N 5TH DR, Phoenix, AZ 85027",20620 n 5th dr phoenix az 85027,,,,"$350,000",12/26/2025,2,FALSE,Phoenix
+2025-12-27,6936337,Pending,Closed,"36915 W MONROE ST, Tonopah, AZ 85354",36915 w monroe st tonopah az 85354,,,,"$474,990",10/20/2025,3,FALSE,Phoenix
+2025-12-27,6961121,Coming Soon,Active,"6168 E Starlight Ridge PKWY, Lakeside, AZ 85929",6168 e starlight ridge pkwy lakeside az 85929,,,,"$360,000",12/26/2025,3,FALSE,Phoenix
+2025-12-27,6961126,Coming Soon,Active,"2910 W ANDERSON DR, Phoenix, AZ 85053",2910 w anderson dr phoenix az 85053,,,,"$439,900",12/26/2025,2,FALSE,Phoenix
+2025-12-27,6897955,Active,Expired,"2221 N AVENIDA TABICA --, Green Valley, AZ 85614",2221 n avenida tabica -- green valley az 85614,,,,"$299,999",07/27/2025,2,FALSE,Phoenix
+2025-12-27,6960948,Coming Soon,Active,"3800 GOLD RIDGE RD, Wickenburg, AZ 85390",3800 gold ridge rd wickenburg az 85390,,,,"$699,999",12/26/2025,3,FALSE,Phoenix
