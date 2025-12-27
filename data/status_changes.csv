@@ -7,3 +7,7 @@ change_date,mls_number,old_status,new_status,address,formatted_address,agent_nam
 2025-12-26,6921009,Closed,Cancelled,"5725 E GOOD PASTURE LN, Florence, AZ 85132",5725 e good pasture ln florence az 85132,,,,"$310,000",09/17/2025,3,FALSE,Phoenix
 2025-12-26,6936337,Closed,Pending,"36915 W MONROE ST, Tonopah, AZ 85354",36915 w monroe st tonopah az 85354,,,,"$474,490",10/20/2025,3,FALSE,Phoenix
 2025-12-26,6958824,Active,Withdrawn,"398 W FAIRVIEW ST, Chandler, AZ 85225",398 w fairview st chandler az 85225,,,,"$235,000",12/17/2025,3,FALSE,Phoenix
+2025-12-26,6925758,Expired,Active,"8559 W SUNNYSLOPE LN, Peoria, AZ 85345",8559 w sunnyslope ln peoria az 85345,,,,"$399,900",09/27/2025,2,FALSE,Phoenix
+2025-12-26,6940413,Closed,Pending,"7281 E RYDER RD, Prescott Valley, AZ 86315",7281 e ryder rd prescott valley az 86315,,,,"$430,990",10/30/2025,2,FALSE,Phoenix
+2025-12-26,6960875,Active,Pending,"8141 N CENTRAL AVE 9, Phoenix, AZ 85020",8141 n central ave 9 phoenix az 85020,,,,"$312,000",12/25/2025,1,FALSE,Phoenix
+2025-12-26,6896523,Active,Pending,"7411 N Toya Vista RD, Payson, AZ 85541",7411 n toya vista rd payson az 85541,,,,"$275,000",07/23/2025,2,FALSE,Phoenix
