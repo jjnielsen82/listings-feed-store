@@ -11,3 +11,6 @@ change_date,mls_number,old_status,new_status,address,formatted_address,agent_nam
 2025-12-26,6940413,Closed,Pending,"7281 E RYDER RD, Prescott Valley, AZ 86315",7281 e ryder rd prescott valley az 86315,,,,"$430,990",10/30/2025,2,FALSE,Phoenix
 2025-12-26,6960875,Active,Pending,"8141 N CENTRAL AVE 9, Phoenix, AZ 85020",8141 n central ave 9 phoenix az 85020,,,,"$312,000",12/25/2025,1,FALSE,Phoenix
 2025-12-26,6896523,Active,Pending,"7411 N Toya Vista RD, Payson, AZ 85541",7411 n toya vista rd payson az 85541,,,,"$275,000",07/23/2025,2,FALSE,Phoenix
+2025-12-26,6884944,Expired,Active,"18026 N CAVE CREEK RD 140, Phoenix, AZ 85032",18026 n cave creek rd 140 phoenix az 85032,,,,"$85,000",06/25/2025,2,FALSE,Phoenix
+2025-12-26,6961025,Coming Soon,Active,"11917 E MARIPOSA GRANDE DR, Scottsdale, AZ 85255",11917 e mariposa grande dr scottsdale az 85255,,,,"$1,750,000",12/26/2025,3,TRUE,Phoenix
+2025-12-26,6960874,Coming Soon,Active,"4244 E ASHLER HILLS DR, Cave Creek, AZ 85331",4244 e ashler hills dr cave creek az 85331,,,,"$875,000",12/25/2025,2,FALSE,Phoenix
