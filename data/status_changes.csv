@@ -22,3 +22,10 @@ change_date,mls_number,old_status,new_status,address,formatted_address,agent_nam
 2025-12-27,6961126,Coming Soon,Active,"2910 W ANDERSON DR, Phoenix, AZ 85053",2910 w anderson dr phoenix az 85053,,,,"$439,900",12/26/2025,2,FALSE,Phoenix
 2025-12-27,6897955,Active,Expired,"2221 N AVENIDA TABICA --, Green Valley, AZ 85614",2221 n avenida tabica -- green valley az 85614,,,,"$299,999",07/27/2025,2,FALSE,Phoenix
 2025-12-27,6960948,Coming Soon,Active,"3800 GOLD RIDGE RD, Wickenburg, AZ 85390",3800 gold ridge rd wickenburg az 85390,,,,"$699,999",12/26/2025,3,FALSE,Phoenix
+2025-12-27,6806960,Active,Withdrawn,"9020 E BRITTLE BUSH RD, Gold Canyon, AZ 85118",9020 e brittle bush rd gold canyon az 85118,,,,"$379,900",01/17/2025,2,FALSE,Phoenix
+2025-12-27,6933569,Active,Pending,"3160 W RUTH AVE, Phoenix, AZ 85051",3160 w ruth ave phoenix az 85051,,,,"$385,350",10/15/2025,3,FALSE,Phoenix
+2025-12-27,6960889,Coming Soon,Active,"5819 E LUDLOW DR, Scottsdale, AZ 85254",5819 e ludlow dr scottsdale az 85254,,,,"$1,399,999",12/25/2025,3,FALSE,Phoenix
+2025-12-27,6942960,Closed,Pending,"6923 W RANCHO DR, Glendale, AZ 85303",6923 w rancho dr glendale az 85303,,,,"$384,900",11/05/2025,3,FALSE,Phoenix
+2025-12-27,6960541,Active,Withdrawn,"1633 E WESLEYAN DR E, Tempe, AZ 85282",1633 e wesleyan dr e tempe az 85282,,,,"$500,000",12/22/2025,2,FALSE,Phoenix
+2025-12-27,6911174,Closed,Pending,"4614 S EULER LN, Mesa, AZ 85212",4614 s euler ln mesa az 85212,,,,"$584,900",08/27/2025,3,FALSE,Phoenix
+2025-12-27,6923856,Closed,Pending,"9646 N 47TH AVE, Glendale, AZ 85302",9646 n 47th ave glendale az 85302,,,,"$375,000",09/23/2025,3,FALSE,Phoenix
